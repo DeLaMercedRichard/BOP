@@ -27,7 +27,9 @@ public abstract class Room : MonoBehaviour
     [Space(10)]
     [Header("Properties")]
     [SerializeField]
-    protected int sizeX, sizeY;
+    protected int sizeX;
+    [SerializeField]
+    protected int sizeY;
     [SerializeField]
     protected Vector3Int position = new Vector3Int(0, 0, 0);
     [SerializeField]
@@ -59,7 +61,7 @@ public abstract class Room : MonoBehaviour
         {
             floor = gameObject.GetComponent<Tilemap>();
         }
-
+        
         if (sizeX == 0)
             sizeX = 20;
         if (sizeY == 0)
@@ -69,19 +71,17 @@ public abstract class Room : MonoBehaviour
         //for Debugging (draws a  tile at centre)
         //room.SetTile(position, floorTileAsset);
 
-       DrawRoom(sizeX, sizeY, position);
-
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
-
+       
     }
 
 
 
-    protected abstract void DrawRoom(int sizeX_, int sizeY_, Vector3Int position_);
+    protected abstract void DrawRoom();
     protected abstract void DrawFloor();
     protected abstract void DrawWalls();
 }
