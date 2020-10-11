@@ -19,6 +19,7 @@ public class RectangleRoom : Room
         base.Start();
         //Caching Variables
         CacheVariables();
+        DrawRoom();
     }
 
     // Update is called once per frame
@@ -32,13 +33,15 @@ public class RectangleRoom : Room
 
     protected override void DrawRoom()
     {
-        
+
         //Draw Floor
         DrawFloor();
-        //Decide On Entrances 
-
+        
         //Draw Walls
         DrawWalls();
+
+        //Decide On Entrances 
+
 
     }
 
@@ -65,8 +68,16 @@ public class RectangleRoom : Room
 
     protected override void DrawWalls()
     {
+
+        walls.ClearAllTiles();
+        //***********SetBufferBoundaries***********//
+        //Top Left
+        walls.SetTile(corners[3] + new Vector3Int(-1, 1, 0), wallTileAsset);
+        //Bottom Right
+        walls.SetTile(corners[1] + new Vector3Int(1, -1, 0), wallTileAsset);
+        
         //North Wall
-        walls.BoxFill(position, //origin position
+        walls.BoxFill(corners[3], //origin position
          wallTileAsset, //tile type
          (corners[3].x), //start X
          (corners[3].y), //start Y
@@ -74,29 +85,35 @@ public class RectangleRoom : Room
          (corners[2].y) //end Y
          );
         //East
-        walls.BoxFill(position, //origin position
+        walls.BoxFill(corners[0], //origin position
          wallTileAsset, //tile type
-         (corners[1].x), //start X
-         (corners[1].y), //start Y
-         (corners[2].x), //end X
-         (corners[2].y) //end Y
+         (corners[0].x), //start X
+         (corners[0].y), //start Y
+         (corners[3].x), //end X
+         (corners[3].y) //end Y
          );
         //South
-       walls.BoxFill(position, //origin position
+       walls.BoxFill(corners[0]+new Vector3Int(1,0,0), //origin position
           wallTileAsset, //tile type
-          (corners[0].x), //start X
+          (corners[0].x+1), //start X
           (corners[0].y), //start Y
-          (corners[1].x), //end X
+          (corners[1].x-1), //end X
           (corners[1].y) //end Y
           );
         //West Wall Side
-        walls.BoxFill(position, //origin position
+        walls.BoxFill(corners[1], //origin position
            wallTileAsset, //tile type
-           (corners[0].x), //start X
-           (corners[0].y), //start Y
-           (corners[3].x), //end X
-           (corners[3].y) //end Y
+           (corners[1].x), //start X
+           (corners[1].y), //start Y
+           (corners[2].x), //end X
+           (corners[2].y) //end Y
            );
+
+        //Remove Wall Buffers
+        //Top Left
+        walls.SetTile(corners[3] + new Vector3Int(-1, 1, 0), null);
+        //Bottom Right
+        walls.SetTile(corners[1] + new Vector3Int(1, -1, 0), null);
     }
 
     private void CacheVariables()
