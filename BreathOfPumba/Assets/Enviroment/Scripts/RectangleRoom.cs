@@ -41,7 +41,7 @@ public class RectangleRoom : Room
         DrawWalls();
 
         //Decide On Entrances 
-
+        
 
     }
 
@@ -146,5 +146,10 @@ public class RectangleRoom : Room
         temp.x = temp.x - radiusX;
         temp.y = temp.y + radiusY;
         corners.Add(temp);
+    }
+
+    void CreateEntrances()
+    {
+
     }
 }
