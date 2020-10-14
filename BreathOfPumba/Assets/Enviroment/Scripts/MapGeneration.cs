@@ -10,6 +10,8 @@ public class MapGeneration : MonoBehaviour
     private RoomDetails[,] roomLayout;
     [SerializeField]
     private List<Vector2Int> takenPositions = new List<Vector2Int>();
+    [SerializeField]
+    private RoomSelector roomSelected;
     private int gridSizeX, gridSizeY;
     private int numberOfRooms = 20;
 
@@ -25,8 +27,8 @@ public class MapGeneration : MonoBehaviour
         gridSizeY = worldSize.y;
 
         PlanRooms();
-        //SetRoomDoors
-        //DrawMap
+        SetRoomDoors();
+        DrawMap();
     }
 
     // Update is called once per frame
@@ -187,6 +189,7 @@ public class MapGeneration : MonoBehaviour
                 continue; //skip where there is no room
             }
             //Add Room to Spot
+            roomSelected = new RoomSelector(room);
            
         }
     }

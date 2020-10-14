@@ -37,22 +37,6 @@ public abstract class Room : MonoBehaviour
     [SerializeField]
     protected int numberOfEntrances;
 
-    /*
-    World: 
-    position
-    offset
-     
-    Relative:
-    start
-    end
-
-    Boolean:
-    isSpawn
-    isGoal
-
-    Collision:
-    boundaries
-     */
     // Start is called before the first frame update
     public virtual void Start()
     {
@@ -79,11 +63,30 @@ public abstract class Room : MonoBehaviour
        
     }
 
-
-
-    protected abstract void DrawRoom();
+    public void SetSize(int x, int y)
+    {
+        sizeX = x;
+        sizeY = y;
+    }
+    public void SetPosition(Vector3Int position_)
+    {
+        position = position_;
+    }
+    public void SetEntranceLocations(bool top, bool bot, bool left, bool right)
+    {
+        topConnected = top;
+        bottomConnected = bot;
+        leftConnected = left;
+        rightConnected = right;
+    }
+    public void SetNumberOfEntrances(int number_)
+    {
+        numberOfEntrances = number_;
+    }
+    public abstract void DrawRoom();
     protected abstract void DrawFloor();
     protected abstract void DrawWalls();
+  
 }
 /*
    public class TestPaint : MonoBehaviour

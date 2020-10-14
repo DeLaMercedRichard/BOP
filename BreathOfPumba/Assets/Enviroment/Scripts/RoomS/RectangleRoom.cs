@@ -8,7 +8,7 @@ public class RectangleRoom : Room
     [Space(10)]
     [Header("Sub-Properties")]
     [SerializeField]
-    private List<Vector3Int> corners;
+    private List<Vector3Int> corners = new List<Vector3Int>();
 
     int radiusX, radiusY;
 
@@ -31,7 +31,7 @@ public class RectangleRoom : Room
 
    
 
-    protected override void DrawRoom()
+    public override void DrawRoom()
     {
 
         //Draw Floor
@@ -41,7 +41,7 @@ public class RectangleRoom : Room
         DrawWalls();
 
         //Decide On Entrances 
-        
+        CreateEntrances();
 
     }
 
@@ -152,4 +152,6 @@ public class RectangleRoom : Room
     {
 
     }
+    
+
 }
