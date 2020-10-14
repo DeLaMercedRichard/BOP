@@ -147,8 +147,10 @@ public abstract class Room : MonoBehaviour
         scaleY = y;
     }
     public abstract void DrawRoom();
+    public abstract void CreateEntrances(bool top, bool bot, bool left, bool right);
     protected abstract void DrawFloor();
     protected abstract void DrawWalls();
+    protected abstract void CacheVariables();
   
 }
 /*

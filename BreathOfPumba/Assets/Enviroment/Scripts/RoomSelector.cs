@@ -7,7 +7,7 @@ using UnityEngine.Tilemaps;
 public class RoomSelector  : MonoBehaviour
 {
     public Room room;
-    public MapGeneration mapGenerator;
+    public RoomDetails details;
     public string level;
     public int scaleX, scaleY;
     private string type;
@@ -24,31 +24,31 @@ public class RoomSelector  : MonoBehaviour
     }
     public void SetVariables(int sizeX, int sizeY)
     {
-        if(!mapGenerator)
-        mapGenerator = GetComponent<MapGeneration>();
-
+ 
         if (!room)
             room = GetComponent<Room>();
         room.SetSize(sizeX, sizeY);
         
-        SetUpAssets();
        
         
     }
-
-    private void SetUpAssets()
-    {
-        
-    }
-
+    
     public void DrawRoom(Vector3Int atPosition, int scaleX_, int scaleY_, string type_)
     {
+       
         type = type_;
         scaleX = scaleX_;
         scaleY = scaleY_;
+        DefineTypeOfRoom();
+        
         room.SetScale(scaleX, scaleY);
         room.SetPosition(atPosition);
+
         room.DrawRoom();
+    }
+    public void AddEntrances(bool top, bool bot, bool left, bool right)
+    {
+        room.CreateEntrances(top, bot, left, right); 
     }
 
     private void DefineTypeOfRoom()
@@ -56,41 +56,45 @@ public class RoomSelector  : MonoBehaviour
         switch (type)
         {
             case "Start":
-                room = new RectangleRoom();
+           
                 room.scaleX = 1;
                 room.scaleY = 1;
+
+                //*SetUpBoundariesForTileMaps
+
+
                 break;
 
             case "Basic":
-                room = new RectangleRoom();
+                
                 room.scaleX = 1;
                 room.scaleY = 1;
                 break;
             case "MediumRoom":
-                room = new RectangleRoom();
+                
                 room.scaleX = Mathf.RoundToInt(UnityEngine.Random.Range(1, 3));
                 room.scaleY = Mathf.RoundToInt(UnityEngine.Random.Range(1, 3));
                 break;
 
             case "LargeRoom":
-                room = new RectangleRoom();
+                
                 room.scaleX = Mathf.RoundToInt(UnityEngine.Random.Range(2,4));
                 room.scaleY = Mathf.RoundToInt(UnityEngine.Random.Range(2,4));
                 break;
 
             case "Boss":
-                room = new RectangleRoom();
+                
                 room.scaleX = 2;
                 room.scaleY = 2;
                 break;
             case "Treasure":
-                room = new RectangleRoom();
+               
                 room.scaleX = 1;
                 room.scaleY = 1;
                 break;
 
             case "TrapTreasure":
-                room = new RectangleRoom();
+               
                 room.scaleX = 1;
                 room.scaleY = 1;
                 break;
@@ -99,9 +103,30 @@ public class RoomSelector  : MonoBehaviour
             case "SpecialRoom":
 
             default:
-                room = new RectangleRoom();
+               
                 break;
-        }
+        }//end switch
+
+        
+    }
+
+    public void SetUpBoundariesForTileMaps(int worldSizeX, int worldSizeY)
+    {
+        room.floor.ClearAllTiles();
+        room.floor.SetTile(new Vector3Int(-worldSizeX, worldSizeY, 0), room.floorTileAsset[0]);
+        room.floor.SetTile(new Vector3Int(worldSizeX, -worldSizeY, 0), room.floorTileAsset[0]);
+
+        room.walls.ClearAllTiles();
+        room.walls.SetTile(new Vector3Int(-worldSizeX, worldSizeY, 0), room.wallTileAsset[0]);
+        room.walls.SetTile(new Vector3Int(worldSizeX, -worldSizeY, 0), room.wallTileAsset[0]);
+
+        room.hazards.ClearAllTiles();
+        room.hazards.SetTile(new Vector3Int(-worldSizeX, worldSizeY, 0), room.wallTileAsset[0]);
+        room.hazards.SetTile(new Vector3Int(worldSizeX, -worldSizeY, 0), room.wallTileAsset[0]);
+
+        room.obstacles.ClearAllTiles();
+        room.obstacles.SetTile(new Vector3Int(-worldSizeX, worldSizeY, 0), room.wallTileAsset[0]);
+        room.obstacles.SetTile(new Vector3Int(worldSizeX, -worldSizeY, 0), room.wallTileAsset[0]);
     }
 
     

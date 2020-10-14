@@ -11,9 +11,6 @@ public class RoomDetails
     [SerializeField]
     public int scaleY;
 
-    
-    [SerializeField]
-    public bool topConnected, bottomConnected, rightConnected, leftConnected;
     [SerializeField]
     public int numberOfEntrances;
 
@@ -24,15 +21,9 @@ public class RoomDetails
 
     public bool entranceTop, entranceBot, entranceLeft, entranceRight;
 
-    public RoomDetails(Vector2Int gridPosition_, string type_)
+    public RoomDetails(Vector2Int gridPosition_)
     {
         gridPosition = gridPosition_;
-        type = type_;
-        UpdatePositionInRelationToOffset();
     }
-
-    public void UpdatePositionInRelationToOffset()
-    {
-       
-    }
+    
 }

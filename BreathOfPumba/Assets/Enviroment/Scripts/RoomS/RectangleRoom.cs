@@ -27,8 +27,7 @@ public class RectangleRoom : Room
         //DrawRoom();
     }
 
-   
-
+ 
     public override void DrawRoom()
     {
         CacheVariables();
@@ -39,22 +38,14 @@ public class RectangleRoom : Room
         //Draw Walls
         DrawWalls();
 
-        //Decide On Entrances 
-        CreateEntrances();
-
+      
     }
 
     protected override void DrawFloor()
     {
         //BoxFill(position, tile, start x, start y, end x , end y
-        floor.ClearAllTiles();
-        //***********SetBoundaries***********//
-        //Top Left
-        floor.SetTile(corners[3], floorTileAsset[0]);
-        //Bottom Right
-        floor.SetTile(corners[1], floorTileAsset[0]);
 
-       ;
+
         //Draws Floor by cycling through all 
         floor.BoxFill(position, //origin position
             floorTileAsset[Mathf.RoundToInt(Random.Range(0, floorTileAsset.Length))], //tile type
@@ -68,12 +59,7 @@ public class RectangleRoom : Room
     protected override void DrawWalls()
     {
 
-        walls.ClearAllTiles();
-        //***********SetBufferBoundaries***********//
-        //Top Left
-        walls.SetTile(corners[3] + new Vector3Int(-1, 1, 0), wallTileAsset[0]);
-        //Bottom Right
-        walls.SetTile(corners[1] + new Vector3Int(1, -1, 0), wallTileAsset[0]);
+      
         
         //North Wall
         walls.BoxFill(corners[3], //origin position
@@ -108,20 +94,18 @@ public class RectangleRoom : Room
            (corners[2].y) //end Y
            );
 
-        //Remove Wall Buffers
-        //Top Left
-        walls.SetTile(corners[3] + new Vector3Int(-1, 1, 0), null);
-        //Bottom Right
-        walls.SetTile(corners[1] + new Vector3Int(1, -1, 0), null);
+     
     }
 
-    private void CacheVariables()
+    protected override void CacheVariables()
     {
+
         radiusX = (int) (defaultSizeX * scaleX/ 2);
         radiusY = (int) (defaultSizeY * scaleY/ 2);
 
         Vector3Int temp;
 
+        corners.Clear();
         //Bottom Left Corner
         temp = position;
         temp.x = temp.x - radiusX;
@@ -147,9 +131,36 @@ public class RectangleRoom : Room
         corners.Add(temp);
     }
 
-    void CreateEntrances()
+    public override void CreateEntrances(bool top, bool bot, bool left, bool right)
     {
-
+        if (top)
+        {
+            //Remove Top Wall mid Section
+            walls.SetTile(new Vector3Int(-1, corners[3].y, 0), null);
+            walls.SetTile(new Vector3Int(0, corners[3].y, 0), null);
+            walls.SetTile(new Vector3Int(1, corners[3].y, 0), null);
+        }
+        if (bot)
+        {
+            //Remove Bot Wall mid Section
+            walls.SetTile(new Vector3Int(-1, corners[0].y, 0), null);
+            walls.SetTile(new Vector3Int(0, corners[0].y, 0), null);
+            walls.SetTile(new Vector3Int(1, corners[0].y, 0), null);
+        }
+        if (left)
+        {
+            //Remove Left Wall mid Section
+            walls.SetTile(new Vector3Int(corners[0].x, 1,  0), null);
+            walls.SetTile(new Vector3Int(corners[0].x, 0, 0), null);
+            walls.SetTile(new Vector3Int(corners[0].x, -1, 0), null);
+        }
+        if (right)
+        {
+            //Remove Right Wall mid Section
+            walls.SetTile(new Vector3Int(corners[1].x, 1, 0), null);
+            walls.SetTile(new Vector3Int(corners[1].x, 0, 0), null);
+            walls.SetTile(new Vector3Int(corners[1].x, -1, 0), null);
+        }
     }
     
 

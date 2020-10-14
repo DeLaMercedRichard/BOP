@@ -16,6 +16,8 @@ public class MapGeneration : MonoBehaviour
     [SerializeField]
     private int numberOfRooms;
 
+    public RoomDetails[,] roomLayout;
+
     [Header("Prefabs")]
     [SerializeField]
     public Tilemap floor;
@@ -200,58 +202,78 @@ public class MapGeneration : MonoBehaviour
 
     void DrawMap()
     {
+        SetRoomDoors();
 
+        roomSelected.SetUpBoundariesForTileMaps(gridSizeX * defaultSizeX +2, gridSizeY * defaultSizeY +2);
         roomSelected.DrawRoom(Vector3Int.zero, 1, 1, "Start");
         for (int i = 1; i < takenPositions.Count; i++)
         {
-            roomSelected.DrawRoom(new Vector3Int(takenPositions[i].x * defaultSizeX , takenPositions[i].y * defaultSizeY, 0), 1, 1, "Basic");
-        }
+            Mathf.RoundToInt(takenPositions[i].x * defaultSizeX / 1.5f);
+            roomSelected.DrawRoom(
+                new Vector3Int(
+                    Mathf.RoundToInt(takenPositions[i].x * defaultSizeX / 1.9f),
+                    Mathf.RoundToInt(takenPositions[i].y * defaultSizeY / 1.9f),
+                    0),
+                1,
+                1,
+                "Basic");
+            RoomDetails currentRoomDetails = roomLayout[takenPositions[i].x, takenPositions[i].y];
+            roomSelected.AddEntrances(currentRoomDetails.entranceTop, currentRoomDetails.entranceBot, currentRoomDetails.entranceLeft, currentRoomDetails.entranceRight);
+        }//end for loop
+
+       
+
     }
     void SetRoomDoors()
     {
-    //    for (int x = 0; x < ((gridSizeX * 2)); x++)
-    //    {
-    //        for (int y = 0; y < ((gridSizeY * 2)); y++)
-    //        {
-    //            if (roomLayout[x, y] == null)
-    //            {
-    //                continue;
-    //            }
-    //            Vector2 gridPosition = new Vector2(x, y);
-    //            if (y - 1 < 0)
-    //            { //check below
-    //                roomLayout[x, y].entranceBot = false;
-    //            }
-    //            else
-    //            {
-    //                roomLayout[x, y].entranceBot = (roomLayout[x, y - 1] != null);
-    //            }
-    //            if (y + 1 >= gridSizeY * 2)
-    //            { //check top
-    //                roomLayout[x, y].entranceTop = false;
-    //            }
-    //            else
-    //            {
-    //                roomLayout[x, y].entranceTop = (roomLayout[x, y + 1] != null);
-    //            }
-    //            if (x - 1 < 0)
-    //            { //check left
-    //                roomLayout[x, y].entranceLeft = false;
-    //            }
-    //            else
-    //            {
-    //                roomLayout[x, y].entranceLeft = (roomLayout[x - 1, y] != null);
-    //            }
-    //            if (x + 1 >= gridSizeX * 2)
-    //            { //check right
-    //                roomLayout[x, y].entranceRight = false;
-    //            }
-    //            else
-    //            {
-    //                roomLayout[x, y].entranceRight = (roomLayout[x + 1, y] != null);
-    //            }
-    //        }
-    //    }
+        
+        foreach (Vector2Int position in takenPositions)
+        {
+           roomLayout[position.x, position.y] = new RoomDetails(position);
+        } //end foreach
+        for (int x = 0; x < ((gridSizeX * 2)); x++)
+        {
+            for (int y = 0; y < ((gridSizeY * 2)); y++)
+            {
+                if (roomLayout[x, y] == null)
+                {
+                    continue;
+                }
+                Vector2 gridPosition = new Vector2(x, y);
+                if (y - 1 < 0)
+                { //check below
+                    roomLayout[x, y].entranceBot = false;
+                }
+                else
+                {
+                    roomLayout[x, y].entranceBot = (roomLayout[x, y - 1] != null);
+                }
+                if (y + 1 >= gridSizeY * 2)
+                { //check top
+                    roomLayout[x, y].entranceTop = false;
+                }
+                else
+                {
+                    roomLayout[x, y].entranceTop = (roomLayout[x, y + 1] != null);
+                }
+                if (x - 1 < 0)
+                { //check left
+                    roomLayout[x, y].entranceLeft = false;
+                }
+                else
+                {
+                    roomLayout[x, y].entranceLeft = (roomLayout[x - 1, y] != null);
+                }
+                if (x + 1 >= gridSizeX * 2)
+                { //check right
+                    roomLayout[x, y].entranceRight = false;
+                }
+                else
+                {
+                    roomLayout[x, y].entranceRight = (roomLayout[x + 1, y] != null);
+                }
+            }//end nested for
+        }//end for
     }
     void SetAssets()
     {
@@ -272,6 +294,7 @@ public class MapGeneration : MonoBehaviour
         {
             defaultSizeY = 40;
         }
+        roomLayout = new RoomDetails[gridSizeX, gridSizeY];
         roomSelected.SetVariables(20, 20);
         roomSelected.room.SetFloorTileAsset(floorTileAsset);
         roomSelected.room.SetFloorTileMap(floor);
