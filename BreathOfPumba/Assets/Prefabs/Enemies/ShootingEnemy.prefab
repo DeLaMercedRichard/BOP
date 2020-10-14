@@ -123,11 +123,11 @@ GameObject:
   - component: {fileID: 7299670434515075839}
   - component: {fileID: 7299670434515075838}
   - component: {fileID: 7299670434515075837}
-  - component: {fileID: 7299670434515075836}
   - component: {fileID: 7870487544847655053}
+  - component: {fileID: 44421313}
   m_Layer: 0
   m_Name: ShootingEnemy
-  m_TagString: Enemy
+  m_TagString: SplitEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +141,7 @@ Transform:
   m_GameObject: {fileID: 5613285716359683334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.17, y: 1.14, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 5.5458, y: 5.5458, z: 5.5458}
   m_Children:
   - {fileID: 5613285716104661955}
   - {fileID: 2424191392298126670}
@@ -198,20 +198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
---- !u!114 &7299670434515075836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5613285716359683334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 510e33f4212266747ba8dd932030b468, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentHealth: 100
-  MaxHealth: 100
 --- !u!114 &7870487544847655053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +212,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 3
   Sight: 7.5
-  FireingRange: 4.5
+  FireingRange: 0
   FireRate: 1
   Bullet: {fileID: 6780069688197453813, guid: 6181b7edd6fce624bb640406516955d3, type: 3}
   BulletParent: {fileID: 4264046554180471468}
+--- !u!114 &44421313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5613285716359683334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb36ab70cda30f4f97faa50a92ac254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentHealth: 150
+  MaxHealth: 150
+  SummonParent: {fileID: 4264046554180471468}
+  Summon1: {fileID: 2930653736424937185, guid: 5bf46c584fb0eb149a2886fd4d222c0e, type: 3}
