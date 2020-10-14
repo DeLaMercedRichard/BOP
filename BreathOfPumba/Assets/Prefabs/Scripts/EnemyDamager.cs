@@ -11,7 +11,13 @@ public class EnemyDamager : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
+            
             other.gameObject.GetComponent<EnemyHealth>().DamageEnemy(Damage);
+            Destroy(gameObject);
+        }
+        else if(other.gameObject.tag == "SplitEnemy")
+        {
+            other.gameObject.GetComponent<SplitEnemyHealth>().DamageEnemy(Damage);
             Destroy(gameObject);
         }
     }

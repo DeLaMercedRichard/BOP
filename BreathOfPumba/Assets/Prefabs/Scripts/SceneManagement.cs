@@ -27,5 +27,9 @@ public class SceneManagement : MonoBehaviour
     {
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
-    
+    public void LoadPreviousScene()
+    {
+        SceneManager.LoadScene(currentSceneIndex - 1);
+    }
+
 }
