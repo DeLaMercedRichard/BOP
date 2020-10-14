@@ -15,27 +15,36 @@ public abstract class Room : MonoBehaviour
     [SerializeField]
     public Tilemap obstacles;
     [SerializeField]
-    public TileBase floorTileAsset;
+    public TileBase[] floorTileAsset;
     [SerializeField]
-    public TileBase wallTileAsset;
+    public TileBase[] wallTileAsset;
+    [SerializeField]
+    public TileBase[] hazardTileAsset;
+    [SerializeField]
+    public TileBase[] objectTileAsset;
 
-    [Space(10)]
+    [Header("Room Properties")]
+    [SerializeField]
+    public int defaultSizeX;
+    [SerializeField]
+    public int defaultSizeY;
+    [SerializeField]
+    public Vector3Int position = new Vector3Int(0, 0, 0);
+    [SerializeField]
+    public int scaleX;
+    [SerializeField]
+    public int scaleY;
+
 
     [SerializeField]
-    public Grid grid;
+    public bool topConnected, bottomConnected, rightConnected, leftConnected;
+    [SerializeField]
+    public int numberOfEntrances;
 
-    [Space(10)]
-    [Header("Properties")]
     [SerializeField]
-    protected int sizeX;
-    [SerializeField]
-    protected int sizeY;
-    [SerializeField]
-    protected Vector3Int position = new Vector3Int(0, 0, 0);
-    [SerializeField]
-    protected bool topConnected, bottomConnected, rightConnected, leftConnected;
-    [SerializeField]
-    protected int numberOfEntrances;
+    public Vector2Int gridPosition;
+
+
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -46,14 +55,14 @@ public abstract class Room : MonoBehaviour
             floor = gameObject.GetComponent<Tilemap>();
         }
         
-        if (sizeX == 0)
-            sizeX = 20;
-        if (sizeY == 0)
-            sizeY = 20;
+        if (defaultSizeX == 0)
+            defaultSizeX = 20;
+        if (defaultSizeY == 0)
+            defaultSizeY = 20;
 
        
         //for Debugging (draws a  tile at centre)
-        //room.SetTile(position, floorTileAsset);
+        //SetTile(position, floorTileAsset);
 
     }
 
@@ -62,11 +71,60 @@ public abstract class Room : MonoBehaviour
     {
        
     }
+    //PrefabSetters
+    /*
+     [Header("Prefabs")]
+    [SerializeField]
+    public Tilemap floor;
+    [SerializeField]
+    public Tilemap walls;
+    [SerializeField]
+    public Tilemap hazards;
+    [SerializeField]
+    public Tilemap obstacles;
+    [SerializeField]
+    public TileBase floorTileAsset;
+    [SerializeField]
+    public TileBase wallTileAsset;
+         */
+    public void SetFloorTileMap(Tilemap floorTileMap)
+    {
+        floor = floorTileMap;
+    }
+    public void SetWallTileMap(Tilemap wallTileMap)
+    {
+        walls = wallTileMap;
+    }
+    public void SetHazardTileMap(Tilemap hazardsTileMap)
+    {
+        hazards = hazardsTileMap;
+    }
+    public void SetObstaclesTileMap(Tilemap objectsTileMap)
+    {
+        obstacles = objectsTileMap;
+    }
+    public void SetFloorTileAsset(TileBase[] floorTiles)
+    {
+        floorTileAsset = floorTiles; 
+    }
+    public void SetWallTileAsset(TileBase[] wallTiles)
+    {
+        wallTileAsset = wallTiles;
+    }
+    public void SetHazardTileAsset(TileBase[] hazardTiles)
+    {
+        hazardTileAsset = hazardTiles;
+    }
+    public void SetObjectTileAsset(TileBase[] objectTiles)
+    {
+        objectTileAsset = objectTiles;
+    }
 
+    //Property Setters
     public void SetSize(int x, int y)
     {
-        sizeX = x;
-        sizeY = y;
+        defaultSizeX = x;
+        defaultSizeY = y;
     }
     public void SetPosition(Vector3Int position_)
     {
@@ -82,6 +140,11 @@ public abstract class Room : MonoBehaviour
     public void SetNumberOfEntrances(int number_)
     {
         numberOfEntrances = number_;
+    }
+    public void SetScale(int x, int y)
+    {
+        scaleX = x;
+        scaleY = y;
     }
     public abstract void DrawRoom();
     protected abstract void DrawFloor();

@@ -1,31 +1,51 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class MapGeneration : MonoBehaviour
 {
+
     [SerializeField]
-    private Vector2Int worldSize = new Vector2Int(10, 10);
+    private Vector2Int worldSize;
     [SerializeField]
-    private RoomDetails[,] roomLayout;
-    [SerializeField]
-    private List<Vector2Int> takenPositions = new List<Vector2Int>();
+    private List<Vector2Int> takenPositions;
     [SerializeField]
     private RoomSelector roomSelected;
     private int gridSizeX, gridSizeY;
-    private int numberOfRooms = 20;
+    [SerializeField]
+    private int numberOfRooms;
 
-    public Room rooms;
+    [Header("Prefabs")]
+    [SerializeField]
+    public Tilemap floor;
+    [SerializeField]
+    public Tilemap walls;
+    [SerializeField]
+    public Tilemap hazards;
+    [SerializeField]
+    public Tilemap obstacles;
+    [SerializeField]
+    public TileBase[] floorTileAsset;
+    [SerializeField]
+    public TileBase[] wallTileAsset;
+    [SerializeField]
+    public TileBase[] hazardTileAsset;
+    [SerializeField]
+    public TileBase[] objectTileAsset;
+
+    [Header("Room Properties")]
+    [SerializeField]
+    public int defaultSizeX;
+    [SerializeField]
+    public int defaultSizeY;
+
+  
     // Start is called before the first frame update
     void Start()
     {
-        if (numberOfRooms >= (worldSize.x*2) * (worldSize.y*2))
-        {
-            numberOfRooms = (worldSize.x * 2) * (worldSize.y * 2);
-        }
-        gridSizeX = worldSize.x;
-        gridSizeY = worldSize.y;
-
+      
+        SetAssets();
         PlanRooms();
         SetRoomDoors();
         DrawMap();
@@ -37,11 +57,10 @@ public class MapGeneration : MonoBehaviour
 
     }
 
+   
     void PlanRooms()
     {
-        //Adding Starting Point 
-        roomLayout = new RoomDetails[gridSizeX *2, gridSizeY *2];
-        roomLayout[gridSizeX, gridSizeY] = new RoomDetails(Vector2Int.zero, "StartingRoom");
+        //Adding Starting Point  *assumes all rooms basic 1 x 1 scale
         takenPositions.Insert(0, Vector2Int.zero);
         Vector2Int checkPosition = Vector2Int.zero;
         //magic Numbers
@@ -67,7 +86,6 @@ public class MapGeneration : MonoBehaviour
                     print("error: could not create with fewer neighbors than : " + NumberOfNeighbors(checkPosition, takenPositions));
             }
             //finalize position
-            roomLayout[(int)checkPosition.x + gridSizeX, (int)checkPosition.y + gridSizeY] = new RoomDetails(checkPosition, "RectangleRoom");
             takenPositions.Insert(0, checkPosition);
         }
 
@@ -182,61 +200,86 @@ public class MapGeneration : MonoBehaviour
 
     void DrawMap()
     {
-        foreach (RoomDetails room in roomLayout)
+
+        roomSelected.DrawRoom(Vector3Int.zero, 1, 1, "Start");
+        for (int i = 1; i < takenPositions.Count; i++)
         {
-            if (room == null)
-            {
-                continue; //skip where there is no room
-            }
-            //Add Room to Spot
-            roomSelected = new RoomSelector(room);
-           
+            roomSelected.DrawRoom(new Vector3Int(takenPositions[i].x * defaultSizeX , takenPositions[i].y * defaultSizeY, 0), 1, 1, "Basic");
         }
     }
     void SetRoomDoors()
     {
-        for (int x = 0; x < ((gridSizeX * 2)); x++)
+    //    for (int x = 0; x < ((gridSizeX * 2)); x++)
+    //    {
+    //        for (int y = 0; y < ((gridSizeY * 2)); y++)
+    //        {
+    //            if (roomLayout[x, y] == null)
+    //            {
+    //                continue;
+    //            }
+    //            Vector2 gridPosition = new Vector2(x, y);
+    //            if (y - 1 < 0)
+    //            { //check below
+    //                roomLayout[x, y].entranceBot = false;
+    //            }
+    //            else
+    //            {
+    //                roomLayout[x, y].entranceBot = (roomLayout[x, y - 1] != null);
+    //            }
+    //            if (y + 1 >= gridSizeY * 2)
+    //            { //check top
+    //                roomLayout[x, y].entranceTop = false;
+    //            }
+    //            else
+    //            {
+    //                roomLayout[x, y].entranceTop = (roomLayout[x, y + 1] != null);
+    //            }
+    //            if (x - 1 < 0)
+    //            { //check left
+    //                roomLayout[x, y].entranceLeft = false;
+    //            }
+    //            else
+    //            {
+    //                roomLayout[x, y].entranceLeft = (roomLayout[x - 1, y] != null);
+    //            }
+    //            if (x + 1 >= gridSizeX * 2)
+    //            { //check right
+    //                roomLayout[x, y].entranceRight = false;
+    //            }
+    //            else
+    //            {
+    //                roomLayout[x, y].entranceRight = (roomLayout[x + 1, y] != null);
+    //            }
+    //        }
+    //    }
+    }
+    void SetAssets()
+    {
+        worldSize = new Vector2Int(5, 5);
+        takenPositions = new List<Vector2Int>();
+        numberOfRooms = 10;
+        if (numberOfRooms >= (worldSize.x * 2) * (worldSize.y * 2))
         {
-            for (int y = 0; y < ((gridSizeY * 2)); y++)
-            {
-                if (roomLayout[x, y] == null)
-                {
-                    continue;
-                }
-                Vector2 gridPosition = new Vector2(x, y);
-                if (y - 1 < 0)
-                { //check below
-                    roomLayout[x, y].entranceBot = false;
-                }
-                else
-                {
-                    roomLayout[x, y].entranceBot = (roomLayout[x, y - 1] != null);
-                }
-                if (y + 1 >= gridSizeY * 2)
-                { //check top
-                    roomLayout[x, y].entranceTop = false;
-                }
-                else
-                {
-                    roomLayout[x, y].entranceTop = (roomLayout[x, y + 1] != null);
-                }
-                if (x - 1 < 0)
-                { //check left
-                    roomLayout[x, y].entranceLeft = false;
-                }
-                else
-                {
-                    roomLayout[x, y].entranceLeft = (roomLayout[x - 1, y] != null);
-                }
-                if (x + 1 >= gridSizeX * 2)
-                { //check right
-                    roomLayout[x, y].entranceRight = false;
-                }
-                else
-                {
-                    roomLayout[x, y].entranceRight = (roomLayout[x + 1, y] != null);
-                }
-            }
+            numberOfRooms = (worldSize.x * 2) * (worldSize.y * 2);
         }
+        gridSizeX = worldSize.x;
+        gridSizeY = worldSize.y;
+        if (defaultSizeX == 0)
+        {
+            defaultSizeX = 40;
+        }
+        if (defaultSizeY == 0)
+        {
+            defaultSizeY = 40;
+        }
+        roomSelected.SetVariables(20, 20);
+        roomSelected.room.SetFloorTileAsset(floorTileAsset);
+        roomSelected.room.SetFloorTileMap(floor);
+        roomSelected.room.SetHazardTileAsset(hazardTileAsset);
+        roomSelected.room.SetHazardTileMap(hazards);
+        roomSelected.room.SetObjectTileAsset(objectTileAsset);
+        roomSelected.room.SetObstaclesTileMap(obstacles);
+        roomSelected.room.SetWallTileAsset(wallTileAsset);
+        roomSelected.room.SetWallTileMap(walls);
     }
 }

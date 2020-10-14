@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class RectangleRoom : Room
 {
-
-    [Space(10)]
+    
     [Header("Sub-Properties")]
     [SerializeField]
     private List<Vector3Int> corners = new List<Vector3Int>();
@@ -18,8 +17,7 @@ public class RectangleRoom : Room
       
         base.Start();
         //Caching Variables
-        CacheVariables();
-        DrawRoom();
+       
     }
 
     // Update is called once per frame
@@ -33,6 +31,7 @@ public class RectangleRoom : Room
 
     public override void DrawRoom()
     {
+        CacheVariables();
 
         //Draw Floor
         DrawFloor();
@@ -51,14 +50,14 @@ public class RectangleRoom : Room
         floor.ClearAllTiles();
         //***********SetBoundaries***********//
         //Top Left
-        floor.SetTile(corners[3], floorTileAsset);
+        floor.SetTile(corners[3], floorTileAsset[0]);
         //Bottom Right
-        floor.SetTile(corners[1], floorTileAsset);
+        floor.SetTile(corners[1], floorTileAsset[0]);
 
-
-        //Draws Floor
+       ;
+        //Draws Floor by cycling through all 
         floor.BoxFill(position, //origin position
-            floorTileAsset, //tile type
+            floorTileAsset[Mathf.RoundToInt(Random.Range(0, floorTileAsset.Length))], //tile type
             (corners[0].x), //start X
             (corners[0].y), //start Y
             (corners[2].x), //end X
@@ -72,13 +71,13 @@ public class RectangleRoom : Room
         walls.ClearAllTiles();
         //***********SetBufferBoundaries***********//
         //Top Left
-        walls.SetTile(corners[3] + new Vector3Int(-1, 1, 0), wallTileAsset);
+        walls.SetTile(corners[3] + new Vector3Int(-1, 1, 0), wallTileAsset[0]);
         //Bottom Right
-        walls.SetTile(corners[1] + new Vector3Int(1, -1, 0), wallTileAsset);
+        walls.SetTile(corners[1] + new Vector3Int(1, -1, 0), wallTileAsset[0]);
         
         //North Wall
         walls.BoxFill(corners[3], //origin position
-         wallTileAsset, //tile type
+         wallTileAsset[Mathf.RoundToInt(Random.Range(0, wallTileAsset.Length))], //tile type
          (corners[3].x), //start X
          (corners[3].y), //start Y
          (corners[2].x), //end X
@@ -86,15 +85,15 @@ public class RectangleRoom : Room
          );
         //East
         walls.BoxFill(corners[0], //origin position
-         wallTileAsset, //tile type
+         wallTileAsset[Mathf.RoundToInt(Random.Range(0, wallTileAsset.Length))], //tile type
          (corners[0].x), //start X
          (corners[0].y), //start Y
          (corners[3].x), //end X
          (corners[3].y) //end Y
          );
         //South
-       walls.BoxFill(corners[0]+new Vector3Int(1,0,0), //origin position
-          wallTileAsset, //tile type
+        walls.BoxFill(corners[0]+new Vector3Int(1,0,0), //origin position
+          wallTileAsset[Mathf.RoundToInt(Random.Range(0, wallTileAsset.Length))], //tile type
           (corners[0].x+1), //start X
           (corners[0].y), //start Y
           (corners[1].x-1), //end X
@@ -102,7 +101,7 @@ public class RectangleRoom : Room
           );
         //West Wall Side
         walls.BoxFill(corners[1], //origin position
-           wallTileAsset, //tile type
+           wallTileAsset[Mathf.RoundToInt(Random.Range(0, wallTileAsset.Length))], //tile type
            (corners[1].x), //start X
            (corners[1].y), //start Y
            (corners[2].x), //end X
@@ -118,8 +117,8 @@ public class RectangleRoom : Room
 
     private void CacheVariables()
     {
-        radiusX = (int) (sizeX / 2);
-        radiusY = (int) (sizeY / 2);
+        radiusX = (int) (defaultSizeX * scaleX/ 2);
+        radiusY = (int) (defaultSizeY * scaleY/ 2);
 
         Vector3Int temp;
 
