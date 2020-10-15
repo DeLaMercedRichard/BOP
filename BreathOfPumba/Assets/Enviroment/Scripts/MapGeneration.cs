@@ -217,7 +217,7 @@ public class MapGeneration : MonoBehaviour
                 1,
                 1,
                 "Basic");
-            RoomDetails currentRoomDetails = roomLayout[takenPositions[i].x, takenPositions[i].y];
+            RoomDetails currentRoomDetails = roomLayout[takenPositions[i].x + worldSize.x, takenPositions[i].y + worldSize.y];
             roomSelected.AddEntrances(currentRoomDetails.entranceTop, currentRoomDetails.entranceBot, currentRoomDetails.entranceLeft, currentRoomDetails.entranceRight);
         }//end for loop
 
@@ -229,7 +229,9 @@ public class MapGeneration : MonoBehaviour
         
         foreach (Vector2Int position in takenPositions)
         {
-           roomLayout[position.x, position.y] = new RoomDetails(position);
+            Debug.Log("Array Position: " + (position.x + worldSize.x) + " , " + (position.y + worldSize.y) );
+            Debug.Log("Array Size: " + roomLayout.Length);
+           roomLayout[(position.x + worldSize.x), (position.y + worldSize.y)] = new RoomDetails(position);
         } //end foreach
         for (int x = 0; x < ((gridSizeX * 2)); x++)
         {
@@ -294,7 +296,7 @@ public class MapGeneration : MonoBehaviour
         {
             defaultSizeY = 40;
         }
-        roomLayout = new RoomDetails[gridSizeX, gridSizeY];
+        roomLayout = new RoomDetails[worldSize.x *2 , worldSize.y *2];
         roomSelected.SetVariables(20, 20);
         roomSelected.room.SetFloorTileAsset(floorTileAsset);
         roomSelected.room.SetFloorTileMap(floor);
