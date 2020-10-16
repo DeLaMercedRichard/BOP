@@ -8,15 +8,17 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] GameObject weaponswing;
     [SerializeField] float FireRate = 0.5f;
     [SerializeField] float ProjectileSpeed = 1f;
-    [SerializeField] Transform weapon;
+    [SerializeField] Camera MyCamera;
+    public Transform weapon;
+    //[SerializeField] Transform weapon;
+
+    public Vector2 MousePosition;
+    public Rigidbody2D Rigidb;
     
     Coroutine FireingCorutine;
     [SerializeField] bool Gun = true;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
+   
 
     // Update is called once per frame
     void Update()
@@ -48,11 +50,15 @@ public class PlayerAction : MonoBehaviour
     }
     private void WeaponRotation()
     {
-        Vector2 WeaponPosition = Camera.main.WorldToViewportPoint(transform.position);
-        Vector2 MousePosition = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        float angle = Weaponangle(WeaponPosition, MousePosition);
-        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-    }
+        // Vector2 WeaponPosition = Camera.main.WorldToViewportPoint(transform.position);
+        //Vector2 MousePosition = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        //float angle = Weaponangle(WeaponPosition, MousePosition);
+        //transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+
+        MousePosition = MyCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 LookDirection = MousePosition - Rigidb.position;
+        float angle = Mathf.Atan2(LookDirection.y, LookDirection.x) * Mathf.Rad2Deg - 90f;
+    } 
 
     float Weaponangle(Vector3 a, Vector3 b)
     {
@@ -64,7 +70,7 @@ public class PlayerAction : MonoBehaviour
     
         if(Input.GetButtonDown("Fire1"))
         {
-            GameObject swordhit = Instantiate(weaponswing, weapon.position, weapon.rotation);
+            GameObject swordhit = Instantiate(weaponswing,weapon.position,weapon.rotation);
         }
     }
     private void Fire()
@@ -86,8 +92,8 @@ public class PlayerAction : MonoBehaviour
             while (true)
             {
                 GameObject bullet = Instantiate(projectile, weapon.position, weapon.rotation);
-                bullet.GetComponent<Rigidbody2D>().velocity = weapon.right * -ProjectileSpeed;
-                yield return new WaitForSeconds(FireRate);
+                //Rigidbody2D Rigidb =
+                //yield return new WaitForSeconds(FireRate);
             }
         }
 
