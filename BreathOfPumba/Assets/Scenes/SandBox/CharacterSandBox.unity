@@ -332,6 +332,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1425115853809433270, guid: 6d4d26c899d12674dabe1605745427f0,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 09a185a47a5cfee4fa16b121a56da19b, type: 2}
     - target: {fileID: 1825093782355695336, guid: 6d4d26c899d12674dabe1605745427f0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -391,6 +396,42 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721842414746596973, guid: 6d4d26c899d12674dabe1605745427f0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2158293064924359301, guid: 76ffb2b794feeb84ca332d4aab75d998,
+        type: 3}
+    - target: {fileID: 5721842414746596973, guid: 6d4d26c899d12674dabe1605745427f0,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721842414746596973, guid: 6d4d26c899d12674dabe1605745427f0,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721842414746596973, guid: 6d4d26c899d12674dabe1605745427f0,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721842414746596973, guid: 6d4d26c899d12674dabe1605745427f0,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721842414746596973, guid: 6d4d26c899d12674dabe1605745427f0,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721842414746596973, guid: 6d4d26c899d12674dabe1605745427f0,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7510074712430253095, guid: 6d4d26c899d12674dabe1605745427f0,
         type: 3}
