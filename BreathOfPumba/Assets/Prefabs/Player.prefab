@@ -50,7 +50,10 @@ MonoBehaviour:
     type: 3}
   FireRate: 0.1
   ProjectileSpeed: 7.7
+  MyCamera: {fileID: 0}
   weapon: {fileID: 8010190092380500580}
+  MousePosition: {x: 0, y: 0}
+  Rigidb: {fileID: 0}
   Gun: 1
 --- !u!50 &3322356978114823859
 Rigidbody2D:
@@ -86,6 +89,7 @@ GameObject:
   - component: {fileID: 772654193}
   - component: {fileID: 772654192}
   - component: {fileID: 772654194}
+  - component: {fileID: 1425115853809433270}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -173,6 +177,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentHealth: 100
   MaxHealth: 100
+--- !u!95 &1425115853809433270
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3112596231695132189}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6657175754687395297
 GameObject:
   m_ObjectHideFlags: 0

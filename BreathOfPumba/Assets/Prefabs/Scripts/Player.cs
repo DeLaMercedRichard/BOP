@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     [SerializeField] float MovementSpeed = 10f;
-    
-    
+
+    Animator animator;  // By Blawnode
+
     void Start()
     {
-        
+        animator = GetComponent<Animator>();  // By Blawnode
     }
 
     // Update is called once per frame
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
         var NewPosY = transform.position.y + verticalInput;
         transform.position = new Vector2(transform.position.x ,NewPosY);
 
+        animator.SetBool("IsRunning", (horizontalInput != 0 || verticalInput != 0));  // By Blawnode
     }
    
 
