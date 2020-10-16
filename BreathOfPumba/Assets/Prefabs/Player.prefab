@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8010190092380500580}
   - component: {fileID: 7510074712430253095}
+  - component: {fileID: 3322356978114823859}
   m_Layer: 0
   m_Name: PlayerWeapon
   m_TagString: Untagged
@@ -51,6 +52,27 @@ MonoBehaviour:
   ProjectileSpeed: 7.7
   weapon: {fileID: 8010190092380500580}
   Gun: 1
+--- !u!50 &3322356978114823859
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630364553483450055}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &3112596231695132189
 GameObject:
   m_ObjectHideFlags: 0

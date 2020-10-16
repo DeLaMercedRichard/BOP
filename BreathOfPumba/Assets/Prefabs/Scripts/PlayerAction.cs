@@ -8,15 +8,17 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] GameObject weaponswing;
     [SerializeField] float FireRate = 0.5f;
     [SerializeField] float ProjectileSpeed = 1f;
+    [SerializeField] Camera MyCamera;
+    
     [SerializeField] Transform weapon;
+
+    public Vector2 MousePosition;
+    public Rigidbody2D Rigidb;
     
     Coroutine FireingCorutine;
     [SerializeField] bool Gun = true;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
+   
 
     // Update is called once per frame
     void Update()
@@ -34,25 +36,14 @@ public class PlayerAction : MonoBehaviour
         
     }
 
-    private void DetermindWeapon()
-    {
-        if (Gun == true)
-        {
-            Fire();
-        }
-        else
-        {
-            Swing();
-
-        }
-    }
+  
     private void WeaponRotation()
     {
-        Vector2 WeaponPosition = Camera.main.WorldToViewportPoint(transform.position);
+         Vector2 WeaponPosition = Camera.main.WorldToViewportPoint(transform.position);
         Vector2 MousePosition = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
         float angle = Weaponangle(WeaponPosition, MousePosition);
         transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-    }
+    } 
 
     float Weaponangle(Vector3 a, Vector3 b)
     {
@@ -64,7 +55,7 @@ public class PlayerAction : MonoBehaviour
     
         if(Input.GetButtonDown("Fire1"))
         {
-            GameObject swordhit = Instantiate(weaponswing, weapon.position, weapon.rotation);
+            GameObject swordhit = Instantiate(weaponswing,weapon.position,weapon.rotation);
         }
     }
     private void Fire()
