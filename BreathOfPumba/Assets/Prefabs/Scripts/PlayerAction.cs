@@ -9,8 +9,8 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] float FireRate = 0.5f;
     [SerializeField] float ProjectileSpeed = 1f;
     [SerializeField] Camera MyCamera;
-    public Transform weapon;
-    //[SerializeField] Transform weapon;
+    
+    [SerializeField] Transform weapon;
 
     public Vector2 MousePosition;
     public Rigidbody2D Rigidb;
@@ -36,28 +36,13 @@ public class PlayerAction : MonoBehaviour
         
     }
 
-    private void DetermindWeapon()
-    {
-        if (Gun == true)
-        {
-            Fire();
-        }
-        else
-        {
-            Swing();
-
-        }
-    }
+  
     private void WeaponRotation()
     {
-        // Vector2 WeaponPosition = Camera.main.WorldToViewportPoint(transform.position);
-        //Vector2 MousePosition = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        //float angle = Weaponangle(WeaponPosition, MousePosition);
-        //transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-
-        MousePosition = MyCamera.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 LookDirection = MousePosition - Rigidb.position;
-        float angle = Mathf.Atan2(LookDirection.y, LookDirection.x) * Mathf.Rad2Deg - 90f;
+         Vector2 WeaponPosition = Camera.main.WorldToViewportPoint(transform.position);
+        Vector2 MousePosition = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        float angle = Weaponangle(WeaponPosition, MousePosition);
+        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
     } 
 
     float Weaponangle(Vector3 a, Vector3 b)
@@ -92,8 +77,8 @@ public class PlayerAction : MonoBehaviour
             while (true)
             {
                 GameObject bullet = Instantiate(projectile, weapon.position, weapon.rotation);
-                //Rigidbody2D Rigidb =
-                //yield return new WaitForSeconds(FireRate);
+                bullet.GetComponent<Rigidbody2D>().velocity = weapon.right * -ProjectileSpeed;
+                yield return new WaitForSeconds(FireRate);
             }
         }
 
