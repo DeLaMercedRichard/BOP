@@ -133,6 +133,11 @@ public class RectangleRoom : Room
 
     public override void CreateEntrances(bool top, bool bot, bool left, bool right)
     {
+        Debug.Log("Room: " + position.x + " , " + position.y );
+        Debug.Log("The Corners of The Room: " + corners[0].x + " , " + corners[0].y);
+        Debug.Log("The Corners of The Room: " + corners[1].x + " , " + corners[1].y);
+        Debug.Log("The Corners of The Room: " + corners[2].x + " , " + corners[2].y);
+        Debug.Log("The Corners of The Room: " + corners[3].x + " , " + corners[3].y);
         if (top)
         {
             //Remove Top Wall mid Section

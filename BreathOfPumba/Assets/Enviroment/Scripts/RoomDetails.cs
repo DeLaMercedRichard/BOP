@@ -23,7 +23,7 @@ public class RoomDetails
 
     public RoomDetails(Vector2Int gridPosition_)
     {
-        gridPosition = gridPosition_;
+        
     }
     
 }

@@ -48,6 +48,7 @@ public class RoomSelector  : MonoBehaviour
     }
     public void AddEntrances(bool top, bool bot, bool left, bool right)
     {
+
         room.CreateEntrances(top, bot, left, right); 
     }
 

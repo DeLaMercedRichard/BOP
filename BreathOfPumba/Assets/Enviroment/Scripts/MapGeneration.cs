@@ -46,10 +46,11 @@ public class MapGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
+        //Setup
         SetAssets();
         PlanRooms();
         SetRoomDoors();
+        //Initializing
         DrawMap();
     }
 
@@ -202,10 +203,10 @@ public class MapGeneration : MonoBehaviour
 
     void DrawMap()
     {
-        SetRoomDoors();
-
         roomSelected.SetUpBoundariesForTileMaps(gridSizeX * defaultSizeX +2, gridSizeY * defaultSizeY +2);
+       
         roomSelected.DrawRoom(Vector3Int.zero, 1, 1, "Start");
+        roomSelected.AddEntrances(roomLayout[worldSize.x, worldSize.y].entranceTop, roomLayout[worldSize.x, worldSize.y].entranceBot, roomLayout[worldSize.x, worldSize.y].entranceLeft, roomLayout[worldSize.x, worldSize.y].entranceRight);
         for (int i = 1; i < takenPositions.Count; i++)
         {
             Mathf.RoundToInt(takenPositions[i].x * defaultSizeX / 1.5f);
@@ -219,9 +220,11 @@ public class MapGeneration : MonoBehaviour
                 "Basic");
             RoomDetails currentRoomDetails = roomLayout[takenPositions[i].x + worldSize.x, takenPositions[i].y + worldSize.y];
             roomSelected.AddEntrances(currentRoomDetails.entranceTop, currentRoomDetails.entranceBot, currentRoomDetails.entranceLeft, currentRoomDetails.entranceRight);
+            //Debug.Log("Grid Position (" + (takenPositions[i].x) + " , " + (takenPositions[i].y) + ") entrances toggled: Top(" + roomLayout[takenPositions[i].x + worldSize.x, takenPositions[i].y + worldSize.y].entranceTop + "), Bottom(" + roomLayout[takenPositions[i].x + worldSize.x, takenPositions[i].y + worldSize.y].entranceBot + "), Left(" + roomLayout[takenPositions[i].x + worldSize.x, takenPositions[i].y + worldSize.y].entranceLeft + "), Right(" + roomLayout[takenPositions[i].x + worldSize.x, takenPositions[i].y + worldSize.y].entranceRight + ")");
+
         }//end for loop
 
-       
+
 
     }
     void SetRoomDoors()
@@ -229,10 +232,11 @@ public class MapGeneration : MonoBehaviour
         
         foreach (Vector2Int position in takenPositions)
         {
-            Debug.Log("Array Position: " + (position.x + worldSize.x) + " , " + (position.y + worldSize.y) );
-            Debug.Log("Array Size: " + roomLayout.Length);
            roomLayout[(position.x + worldSize.x), (position.y + worldSize.y)] = new RoomDetails(position);
         } //end foreach
+
+        Debug.Log("Array Size: " + roomLayout.Length);
+
         for (int x = 0; x < ((gridSizeX * 2)); x++)
         {
             for (int y = 0; y < ((gridSizeY * 2)); y++)
@@ -241,8 +245,7 @@ public class MapGeneration : MonoBehaviour
                 {
                     continue;
                 }
-                Vector2 gridPosition = new Vector2(x, y);
-                if (y - 1 < 0)
+                if (roomLayout[x, y - 1] == null && y > 1)
                 { //check below
                     roomLayout[x, y].entranceBot = false;
                 }
@@ -250,7 +253,7 @@ public class MapGeneration : MonoBehaviour
                 {
                     roomLayout[x, y].entranceBot = (roomLayout[x, y - 1] != null);
                 }
-                if (y + 1 >= gridSizeY * 2)
+                if (roomLayout[x, y + 1] == null && y < gridSizeY - 1)
                 { //check top
                     roomLayout[x, y].entranceTop = false;
                 }
@@ -258,7 +261,7 @@ public class MapGeneration : MonoBehaviour
                 {
                     roomLayout[x, y].entranceTop = (roomLayout[x, y + 1] != null);
                 }
-                if (x - 1 < 0)
+                if (roomLayout[x - 1, y] == null && x > 1)
                 { //check left
                     roomLayout[x, y].entranceLeft = false;
                 }
@@ -266,7 +269,7 @@ public class MapGeneration : MonoBehaviour
                 {
                     roomLayout[x, y].entranceLeft = (roomLayout[x - 1, y] != null);
                 }
-                if (x + 1 >= gridSizeX * 2)
+                if (roomLayout[x + 1, y] == null && x < gridSizeX - 1)
                 { //check right
                     roomLayout[x, y].entranceRight = false;
                 }
@@ -274,6 +277,8 @@ public class MapGeneration : MonoBehaviour
                 {
                     roomLayout[x, y].entranceRight = (roomLayout[x + 1, y] != null);
                 }
+
+                //Debug.Log("Grid Position (" + (x) + " , " + (y) + ") entrances toggled: Top(" + roomLayout[x,y].entranceTop + "), Bottom(" + roomLayout[x, y].entranceBot + "), Left(" + roomLayout[x, y].entranceLeft + "), Right(" + roomLayout[x, y].entranceRight + ")");
             }//end nested for
         }//end for
     }
