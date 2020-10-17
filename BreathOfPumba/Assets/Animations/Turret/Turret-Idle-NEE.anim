@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Idle-S
+  m_Name: Turret-Idle-NEE
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,22 +20,10 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -2158293064924359301, guid: 76ffb2b794feeb84ca332d4aab75d998,
-        type: 3}
-    - time: 0.2
-      value: {fileID: 6668465555838827882, guid: 76ffb2b794feeb84ca332d4aab75d998,
-        type: 3}
-    - time: 0.4
-      value: {fileID: 2163261668061305874, guid: 76ffb2b794feeb84ca332d4aab75d998,
-        type: 3}
-    - time: 0.6
-      value: {fileID: -3087283174915756801, guid: 76ffb2b794feeb84ca332d4aab75d998,
-        type: 3}
-    - time: 0.8
-      value: {fileID: -2158293064924359301, guid: 76ffb2b794feeb84ca332d4aab75d998,
+      value: {fileID: -8774661086268713450, guid: 383fa49c64c41884587bb53bcb9b3c89,
         type: 3}
     attribute: m_Sprite
-    path: Player Sprite
+    path: Enemy Sprite
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -46,24 +34,20 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 82835265
+      path: 3028585050
       attribute: 0
       script: {fileID: 0}
       typeID: 212
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -2158293064924359301, guid: 76ffb2b794feeb84ca332d4aab75d998, type: 3}
-    - {fileID: 6668465555838827882, guid: 76ffb2b794feeb84ca332d4aab75d998, type: 3}
-    - {fileID: 2163261668061305874, guid: 76ffb2b794feeb84ca332d4aab75d998, type: 3}
-    - {fileID: -3087283174915756801, guid: 76ffb2b794feeb84ca332d4aab75d998, type: 3}
-    - {fileID: -2158293064924359301, guid: 76ffb2b794feeb84ca332d4aab75d998, type: 3}
+    - {fileID: -8774661086268713450, guid: 383fa49c64c41884587bb53bcb9b3c89, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.81666666
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
