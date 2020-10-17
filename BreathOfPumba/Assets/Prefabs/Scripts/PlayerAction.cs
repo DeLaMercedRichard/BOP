@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class PlayerAction : MonoBehaviour
 {
-    [SerializeField] GameObject projectile;
+   
     [SerializeField] GameObject weaponswing;
-    [SerializeField] float FireRate = 0.5f;
-    [SerializeField] float ProjectileSpeed = 1f;
     [SerializeField] Camera MyCamera;
-    
     [SerializeField] Transform weapon;
-
     public Vector2 MousePosition;
     public Rigidbody2D Rigidb;
     
-    Coroutine FireingCorutine;
-    [SerializeField] bool Gun = true;
+    
+   
 
     Animator animator;  // By Blawnode
 
@@ -29,16 +25,7 @@ public class PlayerAction : MonoBehaviour
     void Update()
     {
         WeaponRotation();
-        if(Gun==true)
-        {
-            Fire();
-        }
-        else 
-        {
-            Swing();
-            
-        }
-        
+       
     }
 
   
@@ -59,38 +46,6 @@ public class PlayerAction : MonoBehaviour
         return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
     }
 
-    private void Swing()
-    { 
     
-        if(Input.GetButtonDown("Fire1"))
-        {
-            GameObject swordhit = Instantiate(weaponswing,weapon.position,weapon.rotation);
-        }
-    }
-    private void Fire()
-    {
     
-        if (Input.GetButtonDown("Fire1"))
-        {
-            FireingCorutine = StartCoroutine(Fireing());
-
-        }
-        if (Input.GetButtonUp("Fire1"))
-        {
-
-            StopCoroutine(FireingCorutine);
-        }
-
-        IEnumerator Fireing()
-        {
-            while (true)
-            {
-                GameObject bullet = Instantiate(projectile, weapon.position, weapon.rotation);
-                bullet.GetComponent<Rigidbody2D>().velocity = weapon.right * -ProjectileSpeed;
-                yield return new WaitForSeconds(FireRate);
-            }
-        }
-
-     
-    }
 }
