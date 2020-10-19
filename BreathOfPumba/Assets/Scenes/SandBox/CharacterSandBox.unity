@@ -216,6 +216,9 @@ MonoBehaviour:
     type: 3}
   weapon: {fileID: 1095061168}
   ProjectileSpeed: 10
+  MaxAmmo: 7
+  CurrentAmmo: 0
+  ReloadTime: 2
 --- !u!1 &854403173 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 854403173, guid: 6d4d26c899d12674dabe1605745427f0,
@@ -350,25 +353,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1095061167}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1095061171
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095061169}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 09a185a47a5cfee4fa16b121a56da19b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1095061172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,16 +360,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1095061169}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c8d0fb8807a6034690fbc384d2a12da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponswing: {fileID: 0}
-  MyCamera: {fileID: 1240727764}
-  weapon: {fileID: 1095061168}
-  MousePosition: {x: 0, y: 0}
-  Rigidb: {fileID: 0}
 --- !u!50 &1095061173
 Rigidbody2D:
   serializedVersion: 4
@@ -506,7 +485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1299086291
 Transform:
   m_ObjectHideFlags: 0

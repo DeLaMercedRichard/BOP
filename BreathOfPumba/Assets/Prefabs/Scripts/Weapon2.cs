@@ -36,7 +36,7 @@ public class Weapon2 : MonoBehaviour
             while (true)
             {
                 GameObject bullet = Instantiate(projectile, weapon.position, weapon.rotation);
-                bullet.GetComponent<Rigidbody2D>().velocity = weapon.right * -ProjectileSpeed;
+                bullet.GetComponent<Rigidbody2D>().velocity = weapon.right * ProjectileSpeed;
                 yield return new WaitForSeconds(FireRate);
             }
         }

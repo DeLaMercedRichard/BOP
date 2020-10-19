@@ -13,14 +13,12 @@ public class Weapon1 : MonoBehaviour
     public float ReloadTime = 2f;
     private bool reloadingNow = false;
     Coroutine FireingCorutine;
-    // Start is called before the first frame update
+
     void Start()
     {
-        Debug.Log("Reloading");
         CurrentAmmo = MaxAmmo;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         Fire();
@@ -35,17 +33,21 @@ public class Weapon1 : MonoBehaviour
             return;
         }
     }
+
     IEnumerator reloading()
     {
+        print("Reloading...");
         reloadingNow = true;
         yield return new WaitForSeconds(ReloadTime);
+        print("Done!");
         CurrentAmmo = MaxAmmo;
         reloadingNow = false;
     }
+
     private void Fire()
     {
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && CurrentAmmo > 0)
         {
             FireingCorutine = StartCoroutine(Fireing());
 
@@ -58,12 +60,10 @@ public class Weapon1 : MonoBehaviour
 
         IEnumerator Fireing()
         {
-                    GameObject bullet = Instantiate(projectile, weapon.position, weapon.rotation);
-                    CurrentAmmo--;
+            GameObject bullet = Instantiate(projectile, weapon.position, weapon.rotation);
+            CurrentAmmo--;
             bullet.GetComponent<Rigidbody2D>().velocity = weapon.right * ProjectileSpeed;
-                    yield return new WaitForSeconds(FireRate);
-                
-            
+            yield return new WaitForSeconds(FireRate);
         }
 
 
