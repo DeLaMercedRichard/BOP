@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 619432777517404414}
   - component: {fileID: 619432777517404415}
   m_Layer: 0
-  m_Name: Enemy Srpite
+  m_Name: Enemy Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 2320317941207833024}
   - component: {fileID: 2320317941207833025}
   - component: {fileID: 2902387384788073392}
+  - component: {fileID: 1268019627}
   m_Layer: 0
   m_Name: TurretEnemy
   m_TagString: Enemy
@@ -197,10 +198,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 10
   Sight: 4.3
-  FireingRange: 4.3
+  FireingRange: 10.29
   FireRate: 0.5
   Bullet: {fileID: 6780069688197453813, guid: cadfd3add7f2a0d4f91bcbc30ae2774f, type: 3}
   BulletParent: {fileID: 9102374036842615185}
+--- !u!95 &1268019627
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619432777808168507}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fa4aa599ae7a63840936eafb00bc620d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9102374036842615185
 GameObject:
   m_ObjectHideFlags: 0

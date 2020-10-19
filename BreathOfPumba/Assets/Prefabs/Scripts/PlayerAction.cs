@@ -5,11 +5,7 @@ using UnityEngine;
 public class PlayerAction : MonoBehaviour
 {
    
-    [SerializeField] GameObject weaponswing;
-    [SerializeField] Camera MyCamera;
-    [SerializeField] Transform weapon;
-    public Vector2 MousePosition;
-    public Rigidbody2D Rigidb;
+    
     
     
    
@@ -35,6 +31,9 @@ public class PlayerAction : MonoBehaviour
         Vector2 MousePosition = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
         float angle = Weaponangle(WeaponPosition, MousePosition);
         transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+
+
+
 
         Vector2 angleVector = (Vector2)(Quaternion.Euler(0, 0, angle) * Vector2.right);  // By Blawnode, https://answers.unity.com/questions/823090/equivalent-of-degree-to-vector2-in-unity.html
         if (System.Math.Abs(-angleVector.x) > 0.01) animator.SetFloat("Horizontal", -angleVector.x);  // By Blawnode
