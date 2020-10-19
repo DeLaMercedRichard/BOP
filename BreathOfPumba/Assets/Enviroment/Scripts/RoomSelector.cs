@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-
+/*Determines what kind of room will be placed into the MapGeneration class*/
 public class RoomSelector  : MonoBehaviour
 {
     public Room room;
@@ -46,6 +46,8 @@ public class RoomSelector  : MonoBehaviour
 
         room.DrawRoom();
     }
+
+    //Creates entrances 
     public void AddEntrances(bool top, bool bot, bool left, bool right)
     {
 
@@ -111,6 +113,7 @@ public class RoomSelector  : MonoBehaviour
         
     }
 
+    //Sets canvas size for tiles to be drawn on the TIleMaps
     public void SetUpBoundariesForTileMaps(int worldSizeX, int worldSizeY)
     {
         room.floor.ClearAllTiles();
