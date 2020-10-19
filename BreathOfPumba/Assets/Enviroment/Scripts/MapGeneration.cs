@@ -43,7 +43,7 @@ public class MapGeneration : MonoBehaviour
     public int defaultSizeX;
     [SerializeField]
     public int defaultSizeY;
-
+    public string roomType;
   
     // Start is called before the first frame update
     void Start()
@@ -56,6 +56,7 @@ public class MapGeneration : MonoBehaviour
         SetRoomDoors();
         //Initializing
         DrawMap();
+
     }
 
     // Update is called once per frame
@@ -212,6 +213,7 @@ public class MapGeneration : MonoBehaviour
         //Sets up Canvas Size
         roomSelected.SetUpBoundariesForTileMaps(gridSizeX * defaultSizeX +2, gridSizeY * defaultSizeY +2);
        
+        //RoomType default set to Start
 
         for (int i = 0; i < takenPositions.Count; i++)
         {
@@ -223,10 +225,14 @@ public class MapGeneration : MonoBehaviour
                     0),
                 1,
                 1,
-                "Basic");
+                roomType);
+           
             RoomDetails currentRoomDetails = roomLayout[takenPositions[i].x + worldSize.x, takenPositions[i].y + worldSize.y];
             roomSelected.AddEntrances(currentRoomDetails.entranceTop, currentRoomDetails.entranceBot, currentRoomDetails.entranceLeft, currentRoomDetails.entranceRight);
             //Debug.Log("Grid Position (" + (takenPositions[i].x) + " , " + (takenPositions[i].y) + ") entrances toggled: Top(" + roomLayout[takenPositions[i].x + worldSize.x, takenPositions[i].y + worldSize.y].entranceTop + "), Bottom(" + roomLayout[takenPositions[i].x + worldSize.x, takenPositions[i].y + worldSize.y].entranceBot + "), Left(" + roomLayout[takenPositions[i].x + worldSize.x, takenPositions[i].y + worldSize.y].entranceLeft + "), Right(" + roomLayout[takenPositions[i].x + worldSize.x, takenPositions[i].y + worldSize.y].entranceRight + ")");
+
+            //After inital Room change Room Type
+            roomType = "Basic";
 
         }//end for loop
 
@@ -294,6 +300,9 @@ public class MapGeneration : MonoBehaviour
         worldSize = new Vector2Int(5, 5);
         takenPositions = new List<Vector2Int>();
         numberOfRooms = 10;
+        roomType = "Start";
+
+        //Setting World Settings
         if (numberOfRooms >= (worldSize.x * 2) * (worldSize.y * 2))
         {
             numberOfRooms = (worldSize.x * 2) * (worldSize.y * 2);
@@ -308,6 +317,8 @@ public class MapGeneration : MonoBehaviour
         {
             defaultSizeY = 40;
         }
+
+        //Setting Assets
         roomLayout = new RoomDetails[worldSize.x *2 , worldSize.y *2];
         roomSelected.SetVariables(20, 20);
         roomSelected.room.SetFloorTileAsset(floorTileAsset);
