@@ -58,15 +58,12 @@ public class Weapon1 : MonoBehaviour
 
         IEnumerator Fireing()
         {
-            while (true)
-            {
-                
                     GameObject bullet = Instantiate(projectile, weapon.position, weapon.rotation);
                     CurrentAmmo--;
-                    bullet.GetComponent<Rigidbody2D>().velocity = weapon.right * ProjectileSpeed;
+            bullet.GetComponent<Rigidbody2D>().velocity = weapon.right * ProjectileSpeed;
                     yield return new WaitForSeconds(FireRate);
                 
-            }
+            
         }
 
 
