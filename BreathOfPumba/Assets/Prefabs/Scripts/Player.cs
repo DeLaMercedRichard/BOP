@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     public Vector2 Movement;
     public Rigidbody2D Rigidb;
     public Rigidbody2D GunRigidb;
+    public bool IsSlow = false;
+    public float SlowTime = 3f;
+    public float SlowAmount = 5f;
 
     Animator animator;  // By Blawnode
 
@@ -43,7 +46,7 @@ public class Player : MonoBehaviour
     }
 
 
-    private void PlayerMovement()
+    private void PlayerMovement()//alternative way of movment (feels different)
     { 
         //Horizontal Player Movement Input
 
@@ -60,8 +63,38 @@ public class Player : MonoBehaviour
         animator.SetBool("IsRunning", (horizontalInput != 0 || verticalInput != 0));  // By Blawnode
     }
 
-    float Weaponangle(Vector3 a, Vector3 b)
+  private void Slow()
     {
-        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
+        if(IsSlow == false)
+        {
+            IsSlow = true;
+            StartCoroutine(SlowPlayer());
+
+        }
+        else 
+        { 
+        
+            Debug.Log("Already Slowed");
+            
+        }
     }
+
+    IEnumerator SlowPlayer()
+    {
+        MovementSpeed -= SlowAmount;
+        yield return new WaitForSeconds(SlowTime);
+        MovementSpeed += SlowAmount;
+        IsSlow = false;
+
+            
+    }
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "SlowBullet")
+        {
+            Slow();
+
+        }
+    }
+
 }
