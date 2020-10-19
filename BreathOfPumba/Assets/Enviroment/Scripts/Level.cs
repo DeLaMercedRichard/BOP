@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    //**Set Room Type Variables**//
+
     [SerializeField]
     int numberOfRooms;
     [SerializeField]
