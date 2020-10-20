@@ -445,6 +445,7 @@ GameObject:
   - component: {fileID: 5879908683803770287}
   - component: {fileID: 5879908683803770286}
   - component: {fileID: 8921423308620740056}
+  - component: {fileID: 40310799248177373}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -607,15 +608,38 @@ MonoBehaviour:
   walls: {fileID: 5879908683803770287}
   hazards: {fileID: 5879908683400850267}
   obstacles: {fileID: 5879908682250998716}
-  floorTileAsset: {fileID: 11400000, guid: 499a238ae32e2aa449708fb6c8226a3e, type: 2}
-  wallTileAsset: {fileID: 11400000, guid: 4df8baf1c1e79ea4eac9ad4b3a83524d, type: 2}
-  grid: {fileID: 0}
-  sizeX: 0
-  sizeY: 0
+  floorTileAsset:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  wallTileAsset:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  hazardTileAsset: []
+  objectTileAsset: []
+  populator: {fileID: 40310799248177373}
+  defaultSizeX: 0
+  defaultSizeY: 0
   position: {x: 0, y: 0, z: 0}
+  scaleX: 0
+  scaleY: 0
   topConnected: 0
   bottomConnected: 0
   rightConnected: 0
   leftConnected: 0
   numberOfEntrances: 0
+  gridPosition: {x: 0, y: 0}
   corners: []
+--- !u!114 &40310799248177373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5879908683803770288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d587ea1a592b0408eedbaa9d7a604e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

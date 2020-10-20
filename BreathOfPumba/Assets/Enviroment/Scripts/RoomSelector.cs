@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-/*Determines what kind of room will be placed into the MapGeneration class*/
+/*Determines what kind of room will be placed into the MapGeneration class and populates Rooms based on Type*/
 public class RoomSelector  : MonoBehaviour
 {
     public Room room;
@@ -54,6 +54,7 @@ public class RoomSelector  : MonoBehaviour
         room.CreateEntrances(top, bot, left, right); 
     }
 
+
     private void DefineTypeOfRoom()
     {
         switch (type)
@@ -62,7 +63,7 @@ public class RoomSelector  : MonoBehaviour
            
                 room.scaleX = 1;
                 room.scaleY = 1;
-
+                
                 //*SetUpBoundariesForTileMaps
 
 
@@ -133,9 +134,10 @@ public class RoomSelector  : MonoBehaviour
         room.obstacles.SetTile(new Vector3Int(worldSizeX, -worldSizeY, 0), room.wallTileAsset[0]);
     }
 
-    
+
     //Define Rooms
-    //Spawn
+    //Spawn Player
+
     
     //Enemy Room
 

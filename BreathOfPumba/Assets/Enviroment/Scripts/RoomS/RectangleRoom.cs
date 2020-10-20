@@ -174,4 +174,15 @@ public class RectangleRoom : Room
 
     /*Hazards */
 
+    /*Populates the Room in random positions within the room with Objects*/
+    //First Spawn is always centered
+    public override void PopulateRoom(GameObject gameObject, Vector2Int position, int amount)
+    {
+        if (populator == null)
+        {
+            populator = GetComponent<RoomPopulator>();
+        }
+        Vector2Int boundaries = new Vector2Int(radiusX, radiusY);
+        populator.PopulateRoom(position, gameObject, boundaries, amount);
+    }
 }
