@@ -27,7 +27,8 @@ public class SplitEnemyHealth : MonoBehaviour
     {
         for (int i = 0; i < SummonAmount; i++)
         {
-            GameObject Summon = Instantiate(Summon1, new Vector3(i * 1f, SummonParent.transform.position.y, i * 0.75f), SummonParent.transform.rotation);
+            GameObject Summon = Instantiate(Summon1, new Vector3(i * .6f, SummonParent.transform.position.y, i * 0.75f), SummonParent.transform.rotation);
+            Summon.transform.parent = SummonParent.transform;
         }
     }
     public void DamageEnemy(int AmountOfDamage)
