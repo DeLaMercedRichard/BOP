@@ -3,9 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Random = UnityEngine.Random;
 /*Determines what kind of room will be placed into the MapGeneration class and populates Rooms based on Type*/
 public class RoomSelector  : MonoBehaviour
 {
+    [SerializeField]
+    GameObject player;
+    [SerializeField]
+    GameObject bigEnemy;
+    [SerializeField]
+    GameObject chaseEnemy;
+    [SerializeField]
+    GameObject shootingEnemy;
+    [SerializeField]
+    GameObject summonerEnemy;
+    [SerializeField]
+    GameObject turretEnemy;
+    [SerializeField]
+    GameObject weakEnemy;
+
     public Room room;
     public RoomDetails details;
     public string level;
@@ -39,8 +55,8 @@ public class RoomSelector  : MonoBehaviour
         type = type_;
         scaleX = scaleX_;
         scaleY = scaleY_;
-        DefineTypeOfRoom();
-        
+        DefineTypeOfRoom(atPosition);
+        //Replaces the scale settings in DefinteTypeOfRoom() later
         room.SetScale(scaleX, scaleY);
         room.SetPosition(atPosition);
 
@@ -55,15 +71,18 @@ public class RoomSelector  : MonoBehaviour
     }
 
 
-    private void DefineTypeOfRoom()
+    private void DefineTypeOfRoom(Vector3Int position)
     {
+       
         switch (type)
         {
             case "Start":
            
                 room.scaleX = 1;
                 room.scaleY = 1;
-                
+                //Spawn Stuff
+                if(player != null)
+                room.PopulateRoom(player,new Vector2Int(position.x, position.y), 1);
                 //*SetUpBoundariesForTileMaps
 
 
@@ -73,6 +92,18 @@ public class RoomSelector  : MonoBehaviour
                 
                 room.scaleX = 1;
                 room.scaleY = 1;
+                //Spawn 1-4 Enemies of each enemy except big enemy
+                if (chaseEnemy != null)
+                    room.PopulateRoom(chaseEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(1,4)));
+                if (weakEnemy != null)
+                    room.PopulateRoom(weakEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(1, 4)));
+                if (shootingEnemy != null)
+                    room.PopulateRoom(shootingEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(1, 4)));
+                if (summonerEnemy != null)
+                    room.PopulateRoom(summonerEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(1, 4)));
+                if (turretEnemy != null)
+                    room.PopulateRoom(turretEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(1, 4)));
+
                 break;
             case "MediumRoom":
                 
@@ -88,8 +119,21 @@ public class RoomSelector  : MonoBehaviour
 
             case "Boss":
                 
-                room.scaleX = 2;
-                room.scaleY = 2;
+                room.scaleX = 1;
+                room.scaleY = 1;
+                //Summons Enemies
+                if (bigEnemy != null)
+                    room.PopulateRoom(bigEnemy, new Vector2Int(position.x, position.y), 1);
+                if (chaseEnemy != null)
+                    room.PopulateRoom(chaseEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(1, 4)));
+                if (weakEnemy != null)
+                    room.PopulateRoom(weakEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(1, 4)));
+                if (shootingEnemy != null)
+                    room.PopulateRoom(shootingEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(1, 4)));
+                if (summonerEnemy != null)
+                    room.PopulateRoom(summonerEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(1, 4)));
+                if (turretEnemy != null)
+                    room.PopulateRoom(turretEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(1, 4)));
                 break;
             case "Treasure":
                
@@ -113,6 +157,7 @@ public class RoomSelector  : MonoBehaviour
 
         
     }
+ 
 
     //Sets canvas size for tiles to be drawn on the TIleMaps
     public void SetUpBoundariesForTileMaps(int worldSizeX, int worldSizeY)

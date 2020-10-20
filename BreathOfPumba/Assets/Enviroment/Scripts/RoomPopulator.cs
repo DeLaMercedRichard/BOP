@@ -47,8 +47,8 @@ public class RoomPopulator : MonoBehaviour
     {
         Vector2Int updatedPosition; 
         //Takes Random value within the boundaries of the room
-        int xValue = Mathf.RoundToInt(Random.Range(position.x - boundaries.x, position.x + boundaries.x));
-        int yValue = Mathf.RoundToInt(Random.Range(position.y - boundaries.y, position.y + boundaries.y));
+        int xValue = Mathf.RoundToInt(Random.Range(position.x - boundaries.x +2, position.x + boundaries.x -2));
+        int yValue = Mathf.RoundToInt(Random.Range(position.y - boundaries.y +2, position.y + boundaries.y -2));
         updatedPosition = new Vector2Int(xValue, yValue);
         //if not found return Vector
         if (!objectPositions.Contains(updatedPosition))

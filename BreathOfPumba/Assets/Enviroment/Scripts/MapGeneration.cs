@@ -232,7 +232,11 @@ public class MapGeneration : MonoBehaviour
             //Debug.Log("Grid Position (" + (takenPositions[i].x) + " , " + (takenPositions[i].y) + ") entrances toggled: Top(" + roomLayout[takenPositions[i].x + worldSize.x, takenPositions[i].y + worldSize.y].entranceTop + "), Bottom(" + roomLayout[takenPositions[i].x + worldSize.x, takenPositions[i].y + worldSize.y].entranceBot + "), Left(" + roomLayout[takenPositions[i].x + worldSize.x, takenPositions[i].y + worldSize.y].entranceLeft + "), Right(" + roomLayout[takenPositions[i].x + worldSize.x, takenPositions[i].y + worldSize.y].entranceRight + ")");
 
             //After inital Room change Room Type
-            roomType = "Basic";
+            //Make Last Room Boss
+            if (i < takenPositions.Count - 1)
+                roomType = "Basic";
+            else
+                roomType = "Boss";
 
         }//end for loop
 
