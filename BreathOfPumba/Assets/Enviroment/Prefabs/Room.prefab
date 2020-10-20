@@ -446,6 +446,7 @@ GameObject:
   - component: {fileID: 5879908683803770286}
   - component: {fileID: 8921423308620740056}
   - component: {fileID: 40310799248177373}
+  - component: {fileID: 6654124355002933886}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -643,3 +644,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d587ea1a592b0408eedbaa9d7a604e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!19719996 &6654124355002933886
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5879908683803770288}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
