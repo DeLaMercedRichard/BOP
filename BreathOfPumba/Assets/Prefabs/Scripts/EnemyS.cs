@@ -12,11 +12,13 @@ public class EnemyS : MonoBehaviour
     [SerializeField] GameObject Bullet;
     [SerializeField] GameObject BulletParent;
 
+    Animator animator;  // By Blawnode
 
     private Transform player;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        animator = GetComponent<Animator>();  // By Blawnode
     }
     void Update()
     {
@@ -33,6 +35,12 @@ public class EnemyS : MonoBehaviour
         else if(PlayerDistance <= FireingRange && FireTime <Time.time)
         {
             Instantiate(Bullet, BulletParent.transform.position, Quaternion.identity);
+
+            Vector2 Direction = (player.transform.position - transform.position).normalized;  // By Blawnode
+            animator.SetFloat("Horizontal", Direction.x);  // By Blawnode
+            animator.SetFloat("Vertical", Direction.y);  // By Blawnode
+            animator.SetTrigger("Shoot");  // By Blawnode
+
             FireTime = Time.time + FireRate;
         }
     }
