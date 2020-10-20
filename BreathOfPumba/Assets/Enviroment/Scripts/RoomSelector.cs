@@ -125,15 +125,15 @@ public class RoomSelector  : MonoBehaviour
                 if (bigEnemy != null)
                     room.PopulateRoom(bigEnemy, new Vector2Int(position.x, position.y), 1);
                 if (chaseEnemy != null)
-                    room.PopulateRoom(chaseEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(1, 4)));
+                    room.PopulateRoom(chaseEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(2, 6)));
                 if (weakEnemy != null)
-                    room.PopulateRoom(weakEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(1, 4)));
+                    room.PopulateRoom(weakEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(2, 6)));
                 if (shootingEnemy != null)
-                    room.PopulateRoom(shootingEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(1, 4)));
+                    room.PopulateRoom(shootingEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(2, 6)));
                 if (summonerEnemy != null)
-                    room.PopulateRoom(summonerEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(1, 4)));
+                    room.PopulateRoom(summonerEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(2, 6)));
                 if (turretEnemy != null)
-                    room.PopulateRoom(turretEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(1, 4)));
+                    room.PopulateRoom(turretEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(2, 6)));
                 break;
             case "Treasure":
                

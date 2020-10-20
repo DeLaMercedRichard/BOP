@@ -233,7 +233,7 @@ public class MapGeneration : MonoBehaviour
 
             //After inital Room change Room Type
             //Make Last Room Boss
-            if (i < takenPositions.Count - 1)
+            if (i < takenPositions.Count - 2)
                 roomType = "Basic";
             else
                 roomType = "Boss";

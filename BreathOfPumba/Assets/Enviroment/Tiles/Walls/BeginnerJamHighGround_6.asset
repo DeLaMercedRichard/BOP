@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: BeginnerJamHighGround_3
+  m_Name: BeginnerJamHighGround_6
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -2620086075872497081, guid: fdf5aaac914ae234494e4371dfda6834,
+  m_Sprite: {fileID: 1459516972262986107, guid: fdf5aaac914ae234494e4371dfda6834,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
@@ -34,4 +34,4 @@ MonoBehaviour:
     e33: 1
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
-  m_ColliderType: 1
+  m_ColliderType: 2
