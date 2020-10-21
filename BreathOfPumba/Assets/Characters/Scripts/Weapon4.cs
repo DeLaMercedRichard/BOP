@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon2 : MonoBehaviour
+public class Weapon4 : MonoBehaviour
 {
     [SerializeField] float FireRate = 0.5f;
     [SerializeField] GameObject projectile;
     [SerializeField] Transform weapon;
-    [SerializeField] float ProjectileSpeed = 1f;
-    public int MaxAmmo = 7;
+    [SerializeField] float ProjectileSpeed = 10f;
+    public int MaxAmmo = 2;
     public int CurrentAmmo;
-    public float ReloadTime = 2f;
+    public float ReloadTime = 3f;
     private bool reloadingNow = false;
     Coroutine FireingCorutine;
+
 
     void Start()
     {
@@ -51,6 +52,7 @@ public class Weapon2 : MonoBehaviour
         {
             FireingCorutine = StartCoroutine(Fireing());
 
+
         }
         if (Input.GetButtonUp("Fire1"))
         {
@@ -60,6 +62,7 @@ public class Weapon2 : MonoBehaviour
 
         IEnumerator Fireing()
         {
+
             GameObject bullet = Instantiate(projectile, weapon.position, weapon.rotation);
             CurrentAmmo--;
             bullet.GetComponent<Rigidbody2D>().velocity = weapon.right * ProjectileSpeed;
@@ -68,5 +71,4 @@ public class Weapon2 : MonoBehaviour
 
 
     }
-
 }
