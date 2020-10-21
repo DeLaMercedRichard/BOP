@@ -32,18 +32,11 @@ public class EnemySummoner : MonoBehaviour
         }
         else if (PlayerDistance <= FireingRange && FireTime < Time.time)
         {
-            SummonMany(3);
+            Instantiate(Summon, BulletParent.transform.position, Quaternion.identity);
             FireTime = Time.time + FireRate;
         }
     }
-    void SummonMany(int SummonAmount)
-    {
-        for (int i = 0; i < SummonAmount; i++)
-        {
-            GameObject Summon1 = Instantiate(Summon, new Vector3(i * 3f, BulletParent.transform.position.y, i * .1f), BulletParent.transform.rotation);
-            Summon1.transform.parent = BulletParent.transform;
-        }
-    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
