@@ -22,6 +22,8 @@ public abstract class Room : MonoBehaviour
     public TileBase[] hazardTileAsset;
     [SerializeField]
     public TileBase[] objectTileAsset;
+    [SerializeField]
+    public RoomPopulator populator;
 
     [Header("Room Properties")]
     [SerializeField]
@@ -146,11 +148,19 @@ public abstract class Room : MonoBehaviour
         scaleX = x;
         scaleY = y;
     }
+    //Main Methods
     public abstract void DrawRoom();
-    public abstract void CreateEntrances(bool top, bool bot, bool left, bool right);
-    protected abstract void DrawFloor();
-    protected abstract void DrawWalls();
     protected abstract void CacheVariables();
+
+    //Walls
+    public abstract void CreateEntrances(bool top, bool bot, bool left, bool right);
+    protected abstract void DrawWalls();
+    
+    //Floors
+    protected abstract void DrawFloor();
+
+    public abstract void PopulateRoom(GameObject gameObject, Vector2Int position, int amount);
+   
   
 }
 /*
