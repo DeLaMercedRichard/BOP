@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5658484477154621205}
   - component: {fileID: 5658484477154621204}
   - component: {fileID: 7184359293127282274}
-  - component: {fileID: 6355889688796003464}
+  - component: {fileID: 6887385608008682300}
   m_Layer: 0
   m_Name: BigEnemy
   m_TagString: Enemy
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
---- !u!114 &6355889688796003464
+--- !u!114 &6887385608008682300
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,13 +109,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7362610978267670764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcb36ab70cda30f4f97faa50a92ac254, type: 3}
+  m_Script: {fileID: 11500000, guid: 510e33f4212266747ba8dd932030b468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentHealth: 100
   MaxHealth: 100
-  SummonParent: {fileID: 0}
-  Summon1: {fileID: 0}
 --- !u!1 &7362610978524823094
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +183,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.4748535, g: 0.015129937, b: 0.6415094, a: 1}
   m_FlipX: 0
