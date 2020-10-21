@@ -64,4 +64,13 @@ public class AudioControl : MonoBehaviour
         }
 
     }
+    public bool isEmpty()
+    {
+        bool empty;
+        if (tracks.Count == 0)
+            empty = true;
+        else
+            empty = false;
+        return empty;
+    }
 }
