@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2902387384788073392}
   - component: {fileID: 1268019627}
   m_Layer: 0
-  m_Name: TurretEnemy
+  m_Name: Turret Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,6 +184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentHealth: 100
   MaxHealth: 100
+  bloodType: {fileID: 2276798020257224158, guid: 98e1d03d25d401740a365f4723f1e41a,
+    type: 3}
 --- !u!114 &2902387384788073392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +204,9 @@ MonoBehaviour:
   FireRate: 0.5
   Bullet: {fileID: 6780069688197453813, guid: cadfd3add7f2a0d4f91bcbc30ae2774f, type: 3}
   BulletParent: {fileID: 9102374036842615185}
+  type: 0
+  RotateAfterPlayer: 0
+  sprite: {fileID: 0}
 --- !u!95 &1268019627
 Animator:
   serializedVersion: 3

@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 3070832100051433923}
   - component: {fileID: 3070832100051433920}
   - component: {fileID: 3070832100051433921}
+  - component: {fileID: 7755637273099609658}
   m_Layer: 0
-  m_Name: weakEnemy
+  m_Name: Daughter Beetle (weakEnemy)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,6 +51,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 2.5
   Sight: 7
+  RotateAfterPlayer: 0
+  Jitter: 0
+  sprite: {fileID: 0}
+  type: 0
 --- !u!58 &3070832100051433922
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -114,6 +119,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentHealth: 10
   MaxHealth: 10
+  bloodType: {fileID: 2276798020257224158, guid: 1ed2a3cdd8eba7c4abe8f342d4dd5b33,
+    type: 3}
+--- !u!95 &7755637273099609658
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159331937377019451}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1603ceaf92257714bba9c209824e1edc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &159331937665593569
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +151,7 @@ GameObject:
   - component: {fileID: 159331937665593598}
   - component: {fileID: 159331937665593599}
   m_Layer: 0
-  m_Name: Enemy Srpite
+  m_Name: Enemy Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,8 +210,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.4716981, g: 0.04202391, b: 0, a: 1}
+  m_Sprite: {fileID: 6403510904186114831, guid: 66ee72c3e2cea5249b802f5ff9596f66,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

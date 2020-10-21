@@ -50,6 +50,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 4
   Sight: 7
+  RotateAfterPlayer: 0
+  Jitter: 0
+  sprite: {fileID: 0}
+  type: 1
 --- !u!58 &5658484477154621205
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -114,6 +118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentHealth: 300
   MaxHealth: 300
+  bloodType: {fileID: 2276798020257224158, guid: ab7d85ddbe7f46242ab0f9abcb1bcb91,
+    type: 3}
 --- !u!1 &7362610978524823094
 GameObject:
   m_ObjectHideFlags: 0

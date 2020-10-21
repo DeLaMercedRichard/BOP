@@ -23,12 +23,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029111698747823107}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.15, y: 0, z: 0}
+  m_LocalScale: {x: -1.25, y: 1.25, z: 1}
   m_Children: []
-  m_Father: {fileID: 8683689410217329578}
-  m_RootOrder: 1
+  m_Father: {fileID: 8683689410463962476}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8683689410217329577
 GameObject:
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 3847424405197819903}
   - component: {fileID: 3847424405197819877}
   m_Layer: 0
-  m_Name: SnakeGerm
+  m_Name: Snake Germ
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,10 +61,9 @@ Transform:
   m_GameObject: {fileID: 8683689410217329577}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.17, y: 1.14, z: 0}
-  m_LocalScale: {x: 5.5458, y: 5.5458, z: 5.5458}
+  m_LocalScale: {x: 5.5, y: 5.5, z: 0.5}
   m_Children:
   - {fileID: 8683689410463962476}
-  - {fileID: 1495398652448510945}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -81,9 +80,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00071557367, y: -0.0016870102}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.08662212
+  m_Radius: 0.085
 --- !u!50 &5776270632539298897
 Rigidbody2D:
   serializedVersion: 4
@@ -136,6 +135,9 @@ MonoBehaviour:
   FireRate: 0.91
   Bullet: {fileID: 3902900139098614653, guid: 84908a30c2d741f4988f0a18881a168e, type: 3}
   BulletParent: {fileID: 1029111698747823107}
+  type: 1
+  RotateAfterPlayer: 1
+  sprite: {fileID: 8683689410463962483}
 --- !u!95 &3847424405197819903
 Animator:
   serializedVersion: 3
@@ -146,7 +148,7 @@ Animator:
   m_GameObject: {fileID: 8683689410217329577}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c62e1baea66ad7c459d4f9677340039a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -169,6 +171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentHealth: 100
   MaxHealth: 100
+  bloodType: {fileID: 2276798020257224158, guid: 3d2f90d69fa6961449fea15e52fc807e,
+    type: 3}
 --- !u!1 &8683689410463962483
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +184,7 @@ GameObject:
   - component: {fileID: 8683689410463962476}
   - component: {fileID: 8683689410463962477}
   m_Layer: 0
-  m_Name: Enemy Srpite
+  m_Name: Enemy Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,8 +199,9 @@ Transform:
   m_GameObject: {fileID: 8683689410463962483}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_LocalScale: {x: -0.8, y: 0.8, z: 1}
+  m_Children:
+  - {fileID: 1495398652448510945}
   m_Father: {fileID: 8683689410217329578}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -239,12 +244,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.39684942, g: 0.62090194, b: 0.9245283, a: 1}
+  m_Sprite: {fileID: 8717865590402214988, guid: a97dcf967da06594b8070be59f8e739e,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.48, y: 0.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

@@ -44,17 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c8d0fb8807a6034690fbc384d2a12da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 4771117429915827781, guid: f8112f90d97d5b94fba5593f53efc8e4,
-    type: 3}
-  weaponswing: {fileID: 7409063257404719050, guid: e342192d3c008d8428992d594bf346bc,
-    type: 3}
-  FireRate: 0.1
-  ProjectileSpeed: 7.7
-  MyCamera: {fileID: 0}
-  weapon: {fileID: 829843369}
-  MousePosition: {x: 0, y: 0}
-  Rigidb: {fileID: 0}
-  Gun: 1
 --- !u!50 &829843370
 Rigidbody2D:
   serializedVersion: 4
@@ -120,17 +109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c8d0fb8807a6034690fbc384d2a12da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 4771117429915827781, guid: f8112f90d97d5b94fba5593f53efc8e4,
-    type: 3}
-  weaponswing: {fileID: 7409063257404719050, guid: e342192d3c008d8428992d594bf346bc,
-    type: 3}
-  FireRate: 0.1
-  ProjectileSpeed: 7.7
-  MyCamera: {fileID: 0}
-  weapon: {fileID: 854403174}
-  MousePosition: {x: 0, y: 0}
-  Rigidb: {fileID: 0}
-  Gun: 1
 --- !u!50 &854403175
 Rigidbody2D:
   serializedVersion: 4
@@ -202,6 +180,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 10
+  MyCamera: {fileID: 0}
+  weapon: {fileID: 0}
+  MousePosition: {x: 0, y: 0}
+  Movement: {x: 0, y: 0}
+  Rigidb: {fileID: 0}
+  GunRigidb: {fileID: 0}
+  IsSlow: 0
+  SlowTime: 3
+  SlowAmount: 5
 --- !u!50 &772654193
 Rigidbody2D:
   serializedVersion: 4
@@ -237,6 +224,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentHealth: 100
   MaxHealth: 100
+  BlinkTime: 1
+  bloodType: {fileID: 2276798020257224158, guid: 3681af6bda2e67a4f9bb0b1ced92c3c6,
+    type: 3}
 --- !u!95 &1425115853809433270
 Animator:
   serializedVersion: 3
