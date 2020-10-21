@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - SplitEnemy
+  - SlowBullet
   layers:
   - Default
   - TransparentFX

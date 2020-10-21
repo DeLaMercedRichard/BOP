@@ -115,8 +115,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 10
   Sight: 1
-  FireingRange: 5.15
-  FireRate: 2
+  FireingRange: 11.64
+  FireRate: 4.68
   Summon: {fileID: 159331937377019451, guid: abcfbaceaf4f35e4cba831249b0995dc, type: 3}
   BulletParent: {fileID: 6532806604963848161}
 --- !u!1 &3198605628371410577

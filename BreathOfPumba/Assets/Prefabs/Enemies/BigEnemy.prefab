@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5658484477154621205}
   - component: {fileID: 5658484477154621204}
   - component: {fileID: 7184359293127282274}
-  - component: {fileID: 7068657594983195243}
+  - component: {fileID: 6355889688796003464}
   m_Layer: 0
   m_Name: BigEnemy
   m_TagString: Enemy
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
---- !u!114 &7068657594983195243
+--- !u!114 &6355889688796003464
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,11 +109,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7362610978267670764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 510e33f4212266747ba8dd932030b468, type: 3}
+  m_Script: {fileID: 11500000, guid: fcb36ab70cda30f4f97faa50a92ac254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentHealth: 300
-  MaxHealth: 300
+  CurrentHealth: 100
+  MaxHealth: 100
+  SummonParent: {fileID: 0}
+  Summon1: {fileID: 0}
 --- !u!1 &7362610978524823094
 GameObject:
   m_ObjectHideFlags: 0
