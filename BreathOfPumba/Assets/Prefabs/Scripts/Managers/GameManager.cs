@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     AudioControl musicPlayer;
     SceneManagement sceneManagement;
-    Player player;
+   
     public bool inBattle, isInSafeZone, isInMenu, isPlayerDead;
     public bool battlingBoss;
     private void Awake()
@@ -137,8 +137,4 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void AddPlayerReferenceToGameManager(Player player_)
-    {
-        player = player_;
-    }
 }//end class
