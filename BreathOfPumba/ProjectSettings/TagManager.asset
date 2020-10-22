@@ -9,6 +9,7 @@ TagManager:
   - SlowBullet
   - RootBullet
   - HealthPickUp
+  - AmmoPickUp
   layers:
   - Default
   - TransparentFX

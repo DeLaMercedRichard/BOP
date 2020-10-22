@@ -362,8 +362,8 @@ MonoBehaviour:
     type: 3}
   weapon: {fileID: 6648701127136394951}
   ProjectileSpeed: 15
-  MaxAmmoCapacity: 30
-  CurrentAmmoCapacity: 30
+  MaxAmmoCapacity: 20
+  CurrentAmmoCapacity: 20
   MaxAmmo: 3
   CurrentAmmo: 3
   ReloadTime: 3
@@ -721,8 +721,8 @@ MonoBehaviour:
     type: 3}
   weapon: {fileID: 6648701127136394951}
   ProjectileSpeed: 15
-  MaxAmmoCapacity: 30
-  CurrentAmmoCapacity: 30
+  MaxAmmoCapacity: 120
+  CurrentAmmoCapacity: 120
   MaxAmmo: 30
   CurrentAmmo: 30
   ReloadTime: 5
