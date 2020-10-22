@@ -10,7 +10,7 @@ public class EPDamager : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerHealth>().DamagePlayer(Damage);
+            other.gameObject.GetComponentInParent<PlayerHealth>().DamagePlayer(Damage);
             Destroy(gameObject);
         }
     }

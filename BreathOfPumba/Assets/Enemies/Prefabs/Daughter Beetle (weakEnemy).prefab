@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 3070832100051433920}
   - component: {fileID: 3070832100051433921}
   - component: {fileID: 7755637273099609658}
-  m_Layer: 0
+  - component: {fileID: 7911106212922650390}
+  m_Layer: 13
   m_Name: Daughter Beetle (weakEnemy)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -79,19 +80,19 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159331937377019451}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &3070832100051433920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +141,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7911106212922650390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159331937377019451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 512140ca8365e5b4cadb662682511ecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &159331937665593569
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 159331937665593598}
   - component: {fileID: 159331937665593599}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Enemy Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,8 +220,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 758920243
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 6403510904186114831, guid: 66ee72c3e2cea5249b802f5ff9596f66,
     type: 3}

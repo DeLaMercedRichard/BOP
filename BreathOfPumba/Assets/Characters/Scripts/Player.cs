@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     [SerializeField] float MovementSpeed = 10f;
-    [SerializeField] Camera MyCamera;
-    [SerializeField] Transform weapon;
+    //[SerializeField] Camera MyCamera;  // Commented out by Blawnode
+    //[SerializeField] Transform weapon;  // Commented out by Blawnode
     public Vector2 MousePosition;
     public Vector2 Movement;
     public Rigidbody2D Rigidb;
@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public bool IsSlow = false;
     public float SlowTime = 3f;
     public float SlowAmount = 5f;
+
+    private bool DidReachedGoal = false;  // By Blawnode
 
     Animator animator;  // By Blawnode
 
@@ -27,7 +29,8 @@ public class Player : MonoBehaviour
     {
         Movement.x = Input.GetAxisRaw("Horizontal");
         Movement.y = Input.GetAxisRaw("Vertical");
-        MousePosition = MyCamera.ScreenToWorldPoint(Input.mousePosition);
+        //MousePosition = MyCamera.ScreenToWorldPoint(Input.mousePosition);  // Commented out by Blawnode
+        MousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);  // By Blawnode
     }
 
     void FixedUpdate()
@@ -97,4 +100,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    // By Blawnode
+    public void ReachedGoal()
+    {
+        if(!DidReachedGoal)
+        {
+            print("AYYYYYYY");
+            // Finish game/Go to next level/Go to level select screen
+        }
+    }
 }
