@@ -106,6 +106,7 @@ MonoBehaviour:
     type: 3}
   SpeedPickUp: {fileID: 2580708997382534414, guid: 3b52c6a1b2c924e418cd44127f6f8f08,
     type: 3}
+  bloodType: {fileID: 0}
 --- !u!114 &8771139871326766208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +125,9 @@ MonoBehaviour:
   FireRate: 1
   Bullet: {fileID: 4606681528166325666, guid: 12b8c1bb0b21ca948985f620dc79c074, type: 3}
   BulletParent: {fileID: 2787895805745849078}
+  type: 0
+  RotateAfterPlayer: 0
+  sprite: {fileID: 0}
 --- !u!1 &2787895806028264492
 GameObject:
   m_ObjectHideFlags: 0
