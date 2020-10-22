@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneManagement : MonoBehaviour
 {
     [SerializeField] int WaitTime = 4;
-    int currentSceneIndex;
+    public int currentSceneIndex;
     private void Start()
     {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
