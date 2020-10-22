@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
     public bool IsSlow = false;
     public float SlowTime = 3f;
     public float SlowAmount = 5f;
+    public bool IsRooted = false;
+    public float RootTime = 3f;
+    public float RootAmount = 10f;
 
     Animator animator;  // By Blawnode
 
@@ -95,6 +98,37 @@ public class Player : MonoBehaviour
             Slow();
 
         }
+        if (other.gameObject.tag == "RootBullet")
+        {
+            Root();
+
+        }
+
+    }
+    private void Root()
+    {
+        if (IsRooted == false)
+        {
+            IsRooted = true;
+            StartCoroutine(RootPlayer());
+
+        }
+        else
+        {
+
+            Debug.Log("Already Rooted");
+
+        }
     }
 
+    IEnumerator RootPlayer()
+    {
+        MovementSpeed -= RootAmount;
+        yield return new WaitForSeconds(RootTime);
+        MovementSpeed += SlowAmount;
+        IsRooted = false;
+
+
+    }
+    
 }

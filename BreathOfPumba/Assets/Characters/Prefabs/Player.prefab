@@ -388,6 +388,9 @@ MonoBehaviour:
   IsSlow: 0
   SlowTime: 3
   SlowAmount: 5
+  IsRooted: 0
+  RootTime: 3
+  RootAmount: 5
 --- !u!50 &772654193
 Rigidbody2D:
   serializedVersion: 4
@@ -735,7 +738,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -2158293064924359301, guid: 76ffb2b794feeb84ca332d4aab75d998,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

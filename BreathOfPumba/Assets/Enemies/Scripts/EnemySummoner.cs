@@ -34,6 +34,7 @@ public class EnemySummoner : MonoBehaviour
         {
             SummonMany(3);
             FireTime = Time.time + FireRate;
+
         }
     }
     void SummonMany(int SummonAmount)
