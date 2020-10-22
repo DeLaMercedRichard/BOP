@@ -45,6 +45,7 @@ public class SceneManagement : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex - 1);
     }
 
+
     private void Update()
     {
         //Prevent Quick Toggling and lets music play for a bit
