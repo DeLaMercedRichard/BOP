@@ -11,8 +11,9 @@ public class Weapon1 : MonoBehaviour
     public int MaxAmmo = 7;
     public int CurrentAmmo;
     public float ReloadTime = 2f;
-    private bool reloadingNow = false;
+    public bool reloadingNow = false;
     Coroutine FireingCorutine;
+    
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class Weapon1 : MonoBehaviour
 
         if (CurrentAmmo <= 0)
         {
+           
             StartCoroutine(reloading());
             return;
         }

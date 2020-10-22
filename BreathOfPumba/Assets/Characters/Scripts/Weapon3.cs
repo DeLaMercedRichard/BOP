@@ -32,8 +32,12 @@ public class Weapon3 : MonoBehaviour
 
         if (CurrentAmmo <= 0)
         {
-            StartCoroutine(reloading());
-            return;
+
+            if (CurrentAmmoCapacity > 0)
+            {
+                StartCoroutine(reloading());
+                return;
+            }
         }
     }
 
