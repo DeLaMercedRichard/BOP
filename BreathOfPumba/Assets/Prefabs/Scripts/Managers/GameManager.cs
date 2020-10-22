@@ -2,18 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- * Track Types to Keep Track of Max size = 6
-  public enum TrackType
-    {
-        Default,
-        Combat,
-        Boss,
-        Safe,
-        Death,
-        Menu
-    }
- */
 public class GameManager : MonoBehaviour
 {
     AudioControl musicPlayer;
