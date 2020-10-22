@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 829843369}
   - component: {fileID: 829843370}
   - component: {fileID: 8495890191391039565}
+  - component: {fileID: 1046577122}
   m_Layer: 0
   m_Name: Weapon1
   m_TagString: Untagged
@@ -73,6 +74,22 @@ MonoBehaviour:
   MaxAmmo: 7
   CurrentAmmo: 7
   ReloadTime: 2
+--- !u!58 &1046577122
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829843368}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0034589851, y: 0.0051880297}
+  serializedVersion: 2
+  m_Radius: 0.07976786
 --- !u!1 &854403173
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,6 +102,7 @@ GameObject:
   - component: {fileID: 854403176}
   - component: {fileID: 854403175}
   - component: {fileID: 867927235000526795}
+  - component: {fileID: 888937041}
   m_Layer: 0
   m_Name: Weapon2
   m_TagString: Untagged
@@ -156,9 +174,27 @@ MonoBehaviour:
     type: 3}
   weapon: {fileID: 6648701127136394951}
   ProjectileSpeed: 7
+  MaxAmmoCapacity: 30
+  CurrentAmmoCapacity: 30
   MaxAmmo: 4
   CurrentAmmo: 4
   ReloadTime: 2
+--- !u!58 &888937041
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854403173}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0034589851, y: 0.0051880297}
+  serializedVersion: 2
+  m_Radius: 0.07976786
 --- !u!1 &1480739222
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,6 +290,7 @@ GameObject:
   - component: {fileID: 4238542986385533589}
   - component: {fileID: 7584001864567933213}
   - component: {fileID: 3576393691926826174}
+  - component: {fileID: 535960316}
   m_Layer: 0
   m_Name: Weapon3
   m_TagString: Untagged
@@ -325,9 +362,27 @@ MonoBehaviour:
     type: 3}
   weapon: {fileID: 6648701127136394951}
   ProjectileSpeed: 15
+  MaxAmmoCapacity: 30
+  CurrentAmmoCapacity: 30
   MaxAmmo: 3
   CurrentAmmo: 3
   ReloadTime: 3
+--- !u!58 &535960316
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219134358631110314}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0034589851, y: 0.0051880297}
+  serializedVersion: 2
+  m_Radius: 0.07976786
 --- !u!1 &3112596231695132189
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +481,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentHealth: 100
   MaxHealth: 100
-  BlinkTime: 1
 --- !u!95 &1425115853809433270
 Animator:
   serializedVersion: 3
@@ -595,6 +649,7 @@ GameObject:
   - component: {fileID: 7975191175485016574}
   - component: {fileID: 8498764593764638756}
   - component: {fileID: 2539303932067517528}
+  - component: {fileID: 293419486}
   m_Layer: 0
   m_Name: Weapon4
   m_TagString: Untagged
@@ -666,9 +721,27 @@ MonoBehaviour:
     type: 3}
   weapon: {fileID: 6648701127136394951}
   ProjectileSpeed: 15
+  MaxAmmoCapacity: 30
+  CurrentAmmoCapacity: 30
   MaxAmmo: 30
   CurrentAmmo: 30
   ReloadTime: 5
+--- !u!58 &293419486
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4594830782455412251}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0034589851, y: 0.0051880297}
+  serializedVersion: 2
+  m_Radius: 0.07976786
 --- !u!1 &6657175754687395297
 GameObject:
   m_ObjectHideFlags: 0

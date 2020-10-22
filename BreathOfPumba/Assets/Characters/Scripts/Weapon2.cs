@@ -8,8 +8,10 @@ public class Weapon2 : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] Transform weapon;
     [SerializeField] float ProjectileSpeed = 1f;
+    public int MaxAmmoCapacity = 30;
+    public int CurrentAmmoCapacity = 30;
     public int MaxAmmo = 7;
-    public int CurrentAmmo;
+    public int CurrentAmmo = 7;
     public float ReloadTime = 2f;
     private bool reloadingNow = false;
     Coroutine FireingCorutine;
@@ -49,7 +51,14 @@ public class Weapon2 : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && CurrentAmmo > 0)
         {
-            FireingCorutine = StartCoroutine(Fireing());
+            if (CurrentAmmoCapacity > 0)
+            {
+                FireingCorutine = StartCoroutine(Fireing());
+            }
+            else
+            {
+                Debug.Log("OutOfAmmo");
+            }
 
         }
         if (Input.GetButtonUp("Fire1"))
@@ -62,11 +71,32 @@ public class Weapon2 : MonoBehaviour
         {
             GameObject bullet = Instantiate(projectile, weapon.position, weapon.rotation);
             CurrentAmmo--;
+            CurrentAmmoCapacity--;
             bullet.GetComponent<Rigidbody2D>().velocity = weapon.right * ProjectileSpeed;
             yield return new WaitForSeconds(FireRate);
         }
-
+        
+       
 
     }
+    private void AmmoLoad()
+    {
+        if (CurrentAmmoCapacity == MaxAmmoCapacity)
+        {
+            Debug.Log("FullAmmo");
+        }
+        else
+        {
+            CurrentAmmoCapacity = MaxAmmoCapacity;
+        }
+    }
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "AmmoPickUp")
+        {
+            AmmoLoad();
 
+        }
+
+    }
 }

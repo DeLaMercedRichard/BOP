@@ -7,7 +7,7 @@ public class Weapon1 : MonoBehaviour
     [SerializeField] float FireRate = 0.5f;
     [SerializeField] GameObject projectile;
     [SerializeField] Transform weapon;
-    [SerializeField] float ProjectileSpeed = 1f;
+    [SerializeField] float ProjectileSpeed = 1f; 
     public int MaxAmmo = 7;
     public int CurrentAmmo;
     public float ReloadTime = 2f;

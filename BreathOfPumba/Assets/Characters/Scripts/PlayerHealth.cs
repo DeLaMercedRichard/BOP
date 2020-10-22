@@ -7,8 +7,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] int CurrentHealth = 100;
     [SerializeField] int MaxHealth = 100;
-    Coroutine blink;
-    public float BlinkTime = 1f;
+    
     void Start()
     {
         CurrentHealth = MaxHealth;

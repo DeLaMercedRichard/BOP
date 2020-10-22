@@ -8,6 +8,7 @@ TagManager:
   - SplitEnemy
   - SlowBullet
   - RootBullet
+  - HealthPickUp
   layers:
   - Default
   - TransparentFX
