@@ -8,6 +8,11 @@ public class GameManager : MonoBehaviour
     SceneManagement sceneManagement;
     bool inBattle, isInSafeZone, isInMenu, isPlayerDead;
     bool battlingBoss;
+    private void Awake()
+    {
+        
+        DontDestroyOnLoad(this.gameObject);
+    }
     // Start is called before the first frame update
     void Start()
     {
