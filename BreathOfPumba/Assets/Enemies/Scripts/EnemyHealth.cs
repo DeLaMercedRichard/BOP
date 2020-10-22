@@ -12,17 +12,18 @@ public class EnemyHealth : MonoBehaviour
     int HealthSpawnRate = 5;
     int AmmoSpawnRate = 5;
     int SpeedSpawnRate = 5;
+    [SerializeField] GameObject bloodType;
     void Start()
     {
         CurrentHealth = MaxHealth;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (CurrentHealth <= 0)
         {
             SpawnPickUps();
+            ParticleManager.Main.SpawnBlood(transform.position, bloodType);  // By Blawnode
             Destroy(gameObject);
 
         }

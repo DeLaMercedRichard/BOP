@@ -8,11 +8,12 @@ public class Damager : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "PlayerHurtBox")
         {
-            other.gameObject.GetComponent<PlayerHealth>().DamagePlayer(Damage);
+//Todo: Decide Which to call
+            //other.gameObject.GetComponent<PlayerHealth>().DamagePlayer(Damage);
             
+            //other.GetComponentInParent<PlayerHealth>().DamagePlayer(Damage);
         }
     }
-
 }
