@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
         if (CurrentHealth <= 0)
         {
             ParticleManager.Main.SpawnBlood(transform.position, bloodType);  // By Blawnode
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
     public void DamagePlayer(int AmountOfDamage)
