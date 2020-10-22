@@ -32,4 +32,8 @@ public class SceneManagement : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex - 1);
     }
 
+    public void LoadScene(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
 }
