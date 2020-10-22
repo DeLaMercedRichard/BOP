@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     AudioControl musicPlayer;
     SceneManagement sceneManagement;
-    bool inBattle;
+    bool inBattle, isInSafeZone, isInMenu, isPlayerDead;
     bool battlingBoss;
     // Start is called before the first frame update
     void Start()
@@ -24,19 +24,13 @@ public class GameManager : MonoBehaviour
         else
         musicPlayer.PlayTrack(AudioControl.TrackType.Default);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /************************************************************Scene Controls*/
     public void TriggerNextScene()
     {
-
         sceneManagement.LoadNextScene();
     }
 
+    /************************************************************Music Controls*/
     ///Toggles Battle Music when called to be used on Player class
     public void ToggleBattleMusic()
     {
@@ -60,7 +54,52 @@ public class GameManager : MonoBehaviour
         }
         
     }
+    public void ToggleMenuMusic()
+    {
+        isInMenu = !isInMenu;
+        if (isInMenu)
+        {
+            musicPlayer.PlayTrack(AudioControl.TrackType.Menu);
+        }
+        else
+        {
+            //Play default music
+            musicPlayer.PlayTrack(AudioControl.TrackType.Default);
+        }
+    }
 
+    public void ToggleSafeMusic()
+    {
+        isInSafeZone = !isInSafeZone;
+        if (isInSafeZone)
+        {
+            musicPlayer.PlayTrack(AudioControl.TrackType.Safe);
+        }
+        else
+        {
+            //Play default music
+            musicPlayer.PlayTrack(AudioControl.TrackType.Default);
+        }
+
+    }
+    public void ToggleDeathMusic()
+    {
+        isPlayerDead = !isPlayerDead;
+        if (isPlayerDead)
+        {
+            musicPlayer.PlayTrack(AudioControl.TrackType.Death);
+        }
+        else
+        {
+            //Play default music
+            musicPlayer.PlayTrack(AudioControl.TrackType.Default);
+        }
+    }
+    //Loads "Assets/Resources/Music/Tracks/..."
+    public void AddTrackToPlaylist(string name, AudioControl.TrackType type)
+    {
+        musicPlayer.AddTrackToPlaylist(Resources.Load<AudioClip>("Music/Tracks/" + name), type);
+    }
 
     //***************************************************************************Just Chunk Code Put into Functions For Easier Reading
 
@@ -69,6 +108,9 @@ public class GameManager : MonoBehaviour
     {
         inBattle = false;
         battlingBoss = false;
+        isPlayerDead = false;
+        isInMenu = false;
+        isInSafeZone = false;
         if (musicPlayer == null)
             musicPlayer = GetComponent<AudioControl>();
         if (sceneManagement == null)
@@ -87,5 +129,12 @@ public class GameManager : MonoBehaviour
         musicPlayer.AddTrackToPlaylist(Resources.Load<AudioClip>("Music/Tracks/6_-_SixthTheme"), AudioControl.TrackType.Boss);
         musicPlayer.AddTrackToPlaylist(Resources.Load<AudioClip>("Music/Tracks/First_Theme"), AudioControl.TrackType.Safe);
     }
+
     
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
 }//end class
