@@ -6,33 +6,28 @@ public class GameManager : MonoBehaviour
 {
     AudioControl musicPlayer;
     SceneManagement sceneManagement;
-    bool inBattle, isInSafeZone, isInMenu, isPlayerDead;
-    bool battlingBoss;
+    Player player;
+    public bool inBattle, isInSafeZone, isInMenu, isPlayerDead;
+    public bool battlingBoss;
     private void Awake()
-    {
-        
-        DontDestroyOnLoad(this.gameObject);
-    }
-    // Start is called before the first frame update
-    void Start()
     {
         SetDefaultsIfNoneSet();
 
         if (musicPlayer.isEmpty())
         {
-            PopulateDefaultMusic();  
+            PopulateDefaultMusic();
         }
-        
+
         //Play the Menu Music At Start (assuming menu is the first scene that loads up) else play default Music
-        if(sceneManagement.currentSceneIndex == 0)
-        musicPlayer.PlayTrack(AudioControl.TrackType.Menu);
-        else
+
         musicPlayer.PlayTrack(AudioControl.TrackType.Default);
+
+        DontDestroyOnLoad(this.gameObject);
     }
-    /************************************************************Scene Controls*/
-    public void TriggerNextScene()
+    // Start is called before the first frame update
+    void Start()
     {
-        sceneManagement.LoadNextScene();
+        
     }
 
     /************************************************************Music Controls*/
@@ -142,4 +137,8 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void AddPlayerReferenceToGameManager(Player player_)
+    {
+        player = player_;
+    }
 }//end class
