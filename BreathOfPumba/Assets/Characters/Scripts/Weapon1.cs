@@ -7,7 +7,7 @@ public class Weapon1 : MonoBehaviour
     [SerializeField] float FireRate = 0.5f;
     [SerializeField] GameObject projectile;
     [SerializeField] Transform weapon;
-    [SerializeField] float ProjectileSpeed = 1f; 
+    [SerializeField] float ProjectileSpeed = 1f;
     public int MaxAmmo = 7;
     public int CurrentAmmo;
     public float ReloadTime = 2f;
@@ -18,16 +18,16 @@ public class Weapon1 : MonoBehaviour
     {
         CurrentAmmo = MaxAmmo;
     }
-    
+
     void Update()
     {
         Fire();
-        if(reloadingNow)
+        if (reloadingNow)
         {
             return;
         }
 
-        if(CurrentAmmo <= 0)
+        if (CurrentAmmo <= 0)
         {
             StartCoroutine(reloading());
             return;
@@ -67,5 +67,7 @@ public class Weapon1 : MonoBehaviour
         }
 
 
+
     }
 }
+    

@@ -141,7 +141,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.00071557367, y: -0.0016870102}
@@ -195,3 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentHealth: 10
   MaxHealth: 10
+  HealthPickUp: {fileID: 0}
+  AmmoPickUp: {fileID: 0}
+  SpeedPickUp: {fileID: 2580708997382534414, guid: 3b52c6a1b2c924e418cd44127f6f8f08,
+    type: 3}

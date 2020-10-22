@@ -12,12 +12,20 @@ public class Player : MonoBehaviour
     public Vector2 Movement;
     public Rigidbody2D Rigidb;
     public Rigidbody2D GunRigidb;
+    
+    
     public bool IsSlow = false;
     public float SlowTime = 3f;
     public float SlowAmount = 5f;
+    
+    
     public bool IsRooted = false;
     public float RootTime = 3f;
     public float RootAmount = 10f;
+
+
+    public float SpeedBoost = 10f;
+    public float SpeedBoostdurration = 10f;
 
     Animator animator;  // By Blawnode
 
@@ -103,7 +111,11 @@ public class Player : MonoBehaviour
             Root();
 
         }
+        if (other.gameObject.tag == "SpeedPickUp")
+        {
+            SpeedUp();
 
+        }
     }
     private void Root()
     {
@@ -130,5 +142,23 @@ public class Player : MonoBehaviour
 
 
     }
-    
+
+    private void SpeedUp()
+    {
+        
+            StartCoroutine(Speed());
+
+        
+        
+    }
+
+    IEnumerator Speed()
+    {
+        MovementSpeed += SpeedBoost;
+        yield return new WaitForSeconds(SpeedBoostdurration);
+        MovementSpeed -= SpeedBoost;
+        
+
+
+    }
 }

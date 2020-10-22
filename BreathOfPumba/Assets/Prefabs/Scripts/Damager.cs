@@ -11,7 +11,7 @@ public class Damager : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<PlayerHealth>().DamagePlayer(Damage);
-            GetComponent<AudioScript>().BattleTrack();
+            
         }
     }
 

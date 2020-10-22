@@ -10,6 +10,8 @@ TagManager:
   - RootBullet
   - HealthPickUp
   - AmmoPickUp
+  - SpeedPickUp
+  - DamagePickUp
   layers:
   - Default
   - TransparentFX
