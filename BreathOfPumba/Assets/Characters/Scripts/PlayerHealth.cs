@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] int CurrentHealth = 100;
     [SerializeField] int MaxHealth = 100;
+
     Coroutine blink;
     public float BlinkTime = 1f;
     [SerializeField] GameObject bloodType;
@@ -28,5 +30,25 @@ public class PlayerHealth : MonoBehaviour
     {
         CurrentHealth -= AmountOfDamage;
     }
-   
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "HealthPickUp")
+        {
+            Heal();
+
+        }
+
+    }
+
+    private void Heal()
+    {
+        if(CurrentHealth == MaxHealth)
+        {
+            Debug.Log("FullHealth");
+        }
+        else
+        {
+            CurrentHealth = MaxHealth;
+        }
+    }
 }
