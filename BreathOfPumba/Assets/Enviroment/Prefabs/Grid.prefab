@@ -110,7 +110,7 @@ MonoBehaviour:
     type: 3}
   chaseEnemy: {fileID: 2930653736424937185, guid: 5bf46c584fb0eb149a2886fd4d222c0e,
     type: 3}
-  shootingEnemy: {fileID: 5613285716359683334, guid: 726102836f34fcb478927d9a9253edae,
+  shootingEnemy: {fileID: 8683689410217329577, guid: 0f3a2deb6e432004fb9af223bc18b88d,
     type: 3}
   summonerEnemy: {fileID: 3198605628091222091, guid: a047a08eff4fb8a46ba8c69697fefbb5,
     type: 3}

@@ -73,7 +73,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3198605628091222091}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -113,6 +113,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentHealth: 100
   MaxHealth: 100
+  HealthPickUp: {fileID: 2580708997382534414, guid: f4a94007d6255634b8660495f66f07c3,
+    type: 3}
+  AmmoPickUp: {fileID: 2580708997382534414, guid: 0265f381477ab0f479d0c71e82211adc,
+    type: 3}
+  SpeedPickUp: {fileID: 2580708997382534414, guid: 3b52c6a1b2c924e418cd44127f6f8f08,
+    type: 3}
   bloodType: {fileID: 2276798020257224158, guid: 1ed2a3cdd8eba7c4abe8f342d4dd5b33,
     type: 3}
 --- !u!114 &2664741245981407557
