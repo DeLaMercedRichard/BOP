@@ -47,6 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b701a195ed1f754fab32d3adf673951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inBattle: 0
+  isInSafeZone: 0
+  isInMenu: 0
+  isPlayerDead: 0
+  battlingBoss: 0
 --- !u!82 &1467088663378432965
 AudioSource:
   m_ObjectHideFlags: 0
@@ -169,6 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5062a67b976f984fa0722c90853aeb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 3232601172208864897}
   WaitTime: 4
   currentSceneIndex: 0
 --- !u!114 &8116360855467301014

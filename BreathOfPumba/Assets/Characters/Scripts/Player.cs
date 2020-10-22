@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public bool IsSlow = false;
     public float SlowTime = 3f;
     public float SlowAmount = 5f;
-
+    public bool isEnteringBattle, isLeavingBattle;
     private bool DidReachedGoal = false;  // By Blawnode
 
     Animator animator;  // By Blawnode
