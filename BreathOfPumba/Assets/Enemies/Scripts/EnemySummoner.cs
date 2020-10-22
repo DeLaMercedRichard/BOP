@@ -34,6 +34,7 @@ public class EnemySummoner : MonoBehaviour
         {
             Instantiate(Summon, BulletParent.transform.position, Quaternion.identity);
             FireTime = Time.time + FireRate;
+
         }
     }
 

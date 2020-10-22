@@ -9,8 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6150574895930077735}
+  - component: {fileID: 3232601172208864897}
   - component: {fileID: 1467088663378432965}
   - component: {fileID: 5053329967236191229}
+  - component: {fileID: 773491067388443766}
+  - component: {fileID: 8116360855467301014}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -32,6 +35,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3232601172208864897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3462995922726601241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b701a195ed1f754fab32d3adf673951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inBattle: 0
+  isInSafeZone: 0
+  isInMenu: 0
+  isPlayerDead: 0
+  battlingBoss: 0
 --- !u!82 &1467088663378432965
 AudioSource:
   m_ObjectHideFlags: 0
@@ -140,5 +160,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34219b03196d878449bb81aa3ec9678a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioPlayer: {fileID: 0}
+  audioPlayer: {fileID: 1467088663378432965}
   tracks: []
+--- !u!114 &773491067388443766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3462995922726601241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5062a67b976f984fa0722c90853aeb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 3232601172208864897}
+  WaitTime: 4
+  currentSceneIndex: 0
+--- !u!114 &8116360855467301014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3462995922726601241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 691cf71dd490faa4796e2d9af8cbe2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
