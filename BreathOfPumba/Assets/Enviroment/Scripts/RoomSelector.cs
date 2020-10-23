@@ -26,6 +26,7 @@ public class RoomSelector  : MonoBehaviour
     [Header("Survival Mode")]
     [SerializeField]
     bool survivalModeToggled = false;
+    private bool spawnBool = false;
 
     [SerializeField]
     int waveDuration = 10;
@@ -47,15 +48,12 @@ public class RoomSelector  : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        
+        if (survivalModeToggled) ;
+        InvokeRepeating("PopulateRoom", 1.0f, 30.0f);
     }
     private void Update()
     {
-        Debug.Log("Update Called");
-        if (survivalModeToggled)
-        {
-            StartCoroutine(PopulateRoom());
-        }
+     
     }
     public void SetVariables(int sizeX, int sizeY)
     {
@@ -198,11 +196,11 @@ public class RoomSelector  : MonoBehaviour
         room.obstacles.SetTile(new Vector3Int(worldSizeX, -worldSizeY, 0), room.wallTileAsset[0]);
     }
 
-
-    IEnumerator PopulateRoom()
+    
+    public void PopulateRoom()
     {
 
-        yield return new WaitForSeconds(waveDuration);
+        
        
             foreach (Vector2Int position in localPositions)
             //Summons Enemies
