@@ -13,6 +13,9 @@ TagManager:
   - SpeedPickUp
   - DamagePickUp
   - PlayerHurtBox
+  - Weapon2PickUp
+  - Weapon3PickUp
+  - Weapon4PickUp
   layers:
   - Default
   - TransparentFX

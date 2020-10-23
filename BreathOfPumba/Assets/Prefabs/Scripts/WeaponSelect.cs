@@ -62,8 +62,9 @@ public class WeaponSelect : MonoBehaviour
         {
             selectedWeapon = 3;
         }
+        
     }
-
+    
     private void ScrollWheelControl()
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
