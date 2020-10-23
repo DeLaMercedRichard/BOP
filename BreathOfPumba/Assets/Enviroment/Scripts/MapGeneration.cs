@@ -323,7 +323,7 @@ public class MapGeneration : MonoBehaviour
         }
 
         //Setting Assets
-        roomLayout = new RoomDetails[worldSize.x *2 , worldSize.y *2];
+        roomLayout = new RoomDetails[worldSize.x *2 +2 , worldSize.y *2 +2];
         roomSelected.SetVariables(20, 20);
         roomSelected.room.SetFloorTileAsset(floorTileAsset);
         roomSelected.room.SetFloorTileMap(floor);
