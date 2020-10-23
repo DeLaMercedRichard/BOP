@@ -8,6 +8,7 @@ public class WeaponselectSurvival : MonoBehaviour
     public float weapon2Time = 30;
     public float weapon3Time = 30;
     public float weapon4Time = 30;
+    [SerializeField] GameObject ammoText = null;  // By Blawnode
     void Start()
     {
         SelectedWeapon();
