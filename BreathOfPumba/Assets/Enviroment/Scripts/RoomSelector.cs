@@ -51,7 +51,10 @@ public class RoomSelector  : MonoBehaviour
     }
     private void Update()
     {
-        StartCoroutine(PopulateRoom());
+        if (survivalModeToggled)
+        {
+            StartCoroutine(PopulateRoom());
+        }
     }
     public void SetVariables(int sizeX, int sizeY)
     {
@@ -199,8 +202,7 @@ public class RoomSelector  : MonoBehaviour
     {
 
         yield return new WaitForSeconds(waveDuration);
-        if (survivalModeToggled)
-        {
+       
             foreach (Vector2Int position in localPositions)
             //Summons Enemies
             {
@@ -217,7 +219,7 @@ public class RoomSelector  : MonoBehaviour
                 if (turretEnemy != null)
                     room.PopulateRoom(turretEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(2, 6)));
             }
-        }
+        
 
 
     }
