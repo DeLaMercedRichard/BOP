@@ -4,17 +4,9 @@ using UnityEngine;
 
 public class PlayerAction : MonoBehaviour
 {
-    Animator animator;  // By Blawnode
-
-    private void Start()
-    {
-        animator = transform.parent.GetComponent<Animator>();  // By Blawnode
-    }
-    
     void Update()
     {
         WeaponRotation();
-
     }
 
     private void WeaponRotation()

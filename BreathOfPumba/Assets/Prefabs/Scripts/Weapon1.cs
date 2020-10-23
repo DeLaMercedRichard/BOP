@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Weapon1 : MonoBehaviour
 {
@@ -8,27 +9,30 @@ public class Weapon1 : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] Transform weapon;
     [SerializeField] float ProjectileSpeed = 1f;
+    [SerializeField] GameObject ammoText;  // By Blawnode
     public int MaxAmmo = 7;
     public int CurrentAmmo;
     public float ReloadTime = 2f;
-    private bool reloadingNow = false;
+    public bool reloadingNow = false;
     Coroutine FireingCorutine;
+    
 
     void Start()
     {
         CurrentAmmo = MaxAmmo;
     }
-    
+
     void Update()
     {
         Fire();
-        if(reloadingNow)
+        if (reloadingNow)
         {
             return;
         }
 
-        if(CurrentAmmo <= 0)
+        if (CurrentAmmo <= 0)
         {
+           
             StartCoroutine(reloading());
             return;
         }
@@ -63,9 +67,12 @@ public class Weapon1 : MonoBehaviour
             GameObject bullet = Instantiate(projectile, weapon.position, weapon.rotation);
             CurrentAmmo--;
             bullet.GetComponent<Rigidbody2D>().velocity = weapon.right * ProjectileSpeed;
+            ammoText.GetComponent<TextMeshProUGUI>().text = string.Format("Ammo: {0}/{1}", CurrentAmmo, MaxAmmo);  // By Blawnode
             yield return new WaitForSeconds(FireRate);
         }
 
 
+
     }
 }
+    
