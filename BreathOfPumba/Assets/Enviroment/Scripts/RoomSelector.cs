@@ -36,7 +36,7 @@ public class RoomSelector  : MonoBehaviour
     public string level;
     public int scaleX, scaleY;
     private string type;
-    private List<Vector2Int> localPositions;
+    private List<Vector2Int> localPositions = new List<Vector2Int>();
     
     enum Dificulty
     {

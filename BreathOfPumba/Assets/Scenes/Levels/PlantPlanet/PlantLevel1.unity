@@ -197,7 +197,7 @@ PrefabInstance:
     - target: {fileID: 4377409094460305368, guid: 76d45d714557b3546b39736e3a683cee,
         type: 3}
       propertyPath: numberOfRooms
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76d45d714557b3546b39736e3a683cee, type: 3}
