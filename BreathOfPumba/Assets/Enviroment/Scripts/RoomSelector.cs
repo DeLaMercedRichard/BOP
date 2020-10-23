@@ -51,6 +51,7 @@ public class RoomSelector  : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log("Update Called");
         if (survivalModeToggled)
         {
             StartCoroutine(PopulateRoom());

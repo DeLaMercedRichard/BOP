@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4377409094460305364
+--- !u!1 &6830807931086159949
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,51 +8,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4377409094460305367}
-  - component: {fileID: 4377409094460305366}
-  - component: {fileID: 4377409094460305368}
-  - component: {fileID: 4377409094460305365}
+  - component: {fileID: 6830807931086159950}
+  - component: {fileID: 6830807931086159951}
+  - component: {fileID: 6830807931086159937}
+  - component: {fileID: 6830807931086159948}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Grid 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4377409094460305367
+--- !u!4 &6830807931086159950
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4377409094460305364}
+  m_GameObject: {fileID: 6830807931086159949}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2241289750450206195}
+  - {fileID: 9038408722860202602}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!156049354 &4377409094460305366
+--- !u!156049354 &6830807931086159951
 Grid:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4377409094460305364}
+  m_GameObject: {fileID: 6830807931086159949}
   m_Enabled: 1
   m_CellSize: {x: 1, y: 1, z: 0}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!114 &4377409094460305368
+--- !u!114 &6830807931086159937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4377409094460305364}
+  m_GameObject: {fileID: 6830807931086159949}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ddb73ccf5c4e6c49af9861644839997, type: 3}
@@ -60,12 +60,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worldSize: {x: 40, y: 40}
   takenPositions: []
-  roomSelected: {fileID: 4377409094460305365}
+  roomSelected: {fileID: 6830807931086159948}
   numberOfRooms: 20
-  floor: {fileID: 2241289751544837298}
-  walls: {fileID: 2241289750450206189}
-  hazards: {fileID: 2241289750315197209}
-  obstacles: {fileID: 2241289750929153022}
+  floor: {fileID: 9038408723937925931}
+  walls: {fileID: 9038408722860202612}
+  hazards: {fileID: 9038408722993630336}
+  obstacles: {fileID: 9038408724393899111}
   floorTileAsset:
   - {fileID: 11400000, guid: 6aa86dc38e32fec44826af775dc41f3c, type: 2}
   - {fileID: 11400000, guid: 03cb3ee5a18c6184e9eb7cdbb3eddf43, type: 2}
@@ -86,13 +86,13 @@ MonoBehaviour:
   defaultSizeX: 0
   defaultSizeY: 0
   roomType: 
---- !u!114 &4377409094460305365
+--- !u!114 &6830807931086159948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4377409094460305364}
+  m_GameObject: {fileID: 6830807931086159949}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25ef9c295ceeccb4aad6d78896185af4, type: 3}
@@ -111,16 +111,18 @@ MonoBehaviour:
     type: 3}
   weakEnemy: {fileID: 159331937377019451, guid: abcfbaceaf4f35e4cba831249b0995dc,
     type: 3}
-  room: {fileID: 3840527969276657050}
+  survivalModeToggled: 0
+  waveDuration: 10
+  room: {fileID: 6284775653841490435}
   level: Basic
   scaleX: 0
   scaleY: 0
---- !u!1001 &5657375367947962434
+--- !u!1001 &3240130010887251931
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 4377409094460305367}
+    m_TransformParent: {fileID: 6830807931086159950}
     m_Modifications:
     - target: {fileID: 5879908683803770288, guid: c9375b8e50be34a4fb3570cb4ad129cb,
         type: 3}
@@ -184,23 +186,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9375b8e50be34a4fb3570cb4ad129cb, type: 3}
---- !u!4 &2241289750450206195 stripped
+--- !u!4 &9038408722860202602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5879908683803770289, guid: c9375b8e50be34a4fb3570cb4ad129cb,
     type: 3}
-  m_PrefabInstance: {fileID: 5657375367947962434}
+  m_PrefabInstance: {fileID: 3240130010887251931}
   m_PrefabAsset: {fileID: 0}
---- !u!1839735485 &2241289750450206189 stripped
+--- !u!1839735485 &9038408722860202612 stripped
 Tilemap:
   m_CorrespondingSourceObject: {fileID: 5879908683803770287, guid: c9375b8e50be34a4fb3570cb4ad129cb,
     type: 3}
-  m_PrefabInstance: {fileID: 5657375367947962434}
+  m_PrefabInstance: {fileID: 3240130010887251931}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3840527969276657050 stripped
+--- !u!114 &6284775653841490435 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8921423308620740056, guid: c9375b8e50be34a4fb3570cb4ad129cb,
     type: 3}
-  m_PrefabInstance: {fileID: 5657375367947962434}
+  m_PrefabInstance: {fileID: 3240130010887251931}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -208,21 +210,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce64963aae90c748b4bb7bc21aeed46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1839735485 &2241289750929153022 stripped
+--- !u!1839735485 &9038408724393899111 stripped
 Tilemap:
   m_CorrespondingSourceObject: {fileID: 5879908682250998716, guid: c9375b8e50be34a4fb3570cb4ad129cb,
     type: 3}
-  m_PrefabInstance: {fileID: 5657375367947962434}
+  m_PrefabInstance: {fileID: 3240130010887251931}
   m_PrefabAsset: {fileID: 0}
---- !u!1839735485 &2241289750315197209 stripped
+--- !u!1839735485 &9038408722993630336 stripped
 Tilemap:
   m_CorrespondingSourceObject: {fileID: 5879908683400850267, guid: c9375b8e50be34a4fb3570cb4ad129cb,
     type: 3}
-  m_PrefabInstance: {fileID: 5657375367947962434}
+  m_PrefabInstance: {fileID: 3240130010887251931}
   m_PrefabAsset: {fileID: 0}
---- !u!1839735485 &2241289751544837298 stripped
+--- !u!1839735485 &9038408723937925931 stripped
 Tilemap:
   m_CorrespondingSourceObject: {fileID: 5879908682700487920, guid: c9375b8e50be34a4fb3570cb4ad129cb,
     type: 3}
-  m_PrefabInstance: {fileID: 5657375367947962434}
+  m_PrefabInstance: {fileID: 3240130010887251931}
   m_PrefabAsset: {fileID: 0}

@@ -70,14 +70,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6aa86dc38e32fec44826af775dc41f3c, type: 2}
   - {fileID: 11400000, guid: 03cb3ee5a18c6184e9eb7cdbb3eddf43, type: 2}
   wallTileAsset:
-  - {fileID: 11400000, guid: 4df8baf1c1e79ea4eac9ad4b3a83524d, type: 2}
-  - {fileID: 11400000, guid: 4df8baf1c1e79ea4eac9ad4b3a83524d, type: 2}
-  - {fileID: 11400000, guid: 4df8baf1c1e79ea4eac9ad4b3a83524d, type: 2}
-  - {fileID: 11400000, guid: 4df8baf1c1e79ea4eac9ad4b3a83524d, type: 2}
-  - {fileID: 11400000, guid: 4df8baf1c1e79ea4eac9ad4b3a83524d, type: 2}
-  - {fileID: 11400000, guid: 4df8baf1c1e79ea4eac9ad4b3a83524d, type: 2}
-  - {fileID: 11400000, guid: 4df8baf1c1e79ea4eac9ad4b3a83524d, type: 2}
-  - {fileID: 11400000, guid: 4df8baf1c1e79ea4eac9ad4b3a83524d, type: 2}
+  - {fileID: 11400000, guid: f8e0a5724b73ca7428b2011cbb7429e2, type: 2}
   hazardTileAsset:
   - {fileID: 11400000, guid: 57351ef616017b64792a26ede1415cb4, type: 2}
   objectTileAsset:
@@ -118,6 +111,8 @@ MonoBehaviour:
     type: 3}
   weakEnemy: {fileID: 159331937377019451, guid: abcfbaceaf4f35e4cba831249b0995dc,
     type: 3}
+  survivalModeToggled: 0
+  waveDuration: 10
   room: {fileID: 5622587253927738759}
   level: Basic
   scaleX: 0
