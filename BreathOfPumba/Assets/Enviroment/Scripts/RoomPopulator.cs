@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 //Populates an area with prefabs given an area
 public class RoomPopulator : MonoBehaviour
 {
