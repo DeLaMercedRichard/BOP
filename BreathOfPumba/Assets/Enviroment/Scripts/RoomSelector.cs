@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 /*Determines what kind of room will be placed into the MapGeneration class and populates Rooms based on Type*/
 public class RoomSelector  : MonoBehaviour
 {
+    [Header("General Fields")]
     [SerializeField]
     GameObject player;
     [SerializeField]
@@ -21,12 +22,26 @@ public class RoomSelector  : MonoBehaviour
     GameObject turretEnemy;
     [SerializeField]
     GameObject weakEnemy;
+    [Space(10)]
+    [Header("Survival Mode")]
+    [SerializeField]
+    bool survivalModeToggled = false;
 
+    [SerializeField]
+    int waveDuration = 10;
+    [Space(10)]
+    [Header("Room Fields")]
     public Room room;
     public RoomDetails details;
     public string level;
     public int scaleX, scaleY;
     private string type;
+    private List<Vector2Int> localPositions;
+    
+    enum Dificulty
+    {
+        Easy, Medium, Hard
+    }
 
     //Responsible for returning a Room back 
     // Start is called before the first frame update
@@ -36,7 +51,7 @@ public class RoomSelector  : MonoBehaviour
     }
     private void Update()
     {
-        
+        StartCoroutine(PopulateRoom());
     }
     public void SetVariables(int sizeX, int sizeY)
     {
@@ -51,7 +66,7 @@ public class RoomSelector  : MonoBehaviour
     
     public void DrawRoom(Vector3Int atPosition, int scaleX_, int scaleY_, string type_)
     {
-       
+        localPositions.Add(new Vector2Int(atPosition.x, atPosition.y));
         type = type_;
         scaleX = scaleX_;
         scaleY = scaleY_;
@@ -180,10 +195,36 @@ public class RoomSelector  : MonoBehaviour
     }
 
 
+    IEnumerator PopulateRoom()
+    {
+
+        yield return new WaitForSeconds(waveDuration);
+        if (survivalModeToggled)
+        {
+            foreach (Vector2Int position in localPositions)
+            //Summons Enemies
+            {
+                if (bigEnemy != null)
+                    room.PopulateRoom(bigEnemy, new Vector2Int(position.x, position.y), 1);
+                if (chaseEnemy != null)
+                    room.PopulateRoom(chaseEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(2, 6)));
+                if (weakEnemy != null)
+                    room.PopulateRoom(weakEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(2, 6)));
+                if (shootingEnemy != null)
+                    room.PopulateRoom(shootingEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(2, 6)));
+                if (summonerEnemy != null)
+                    room.PopulateRoom(summonerEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(2, 6)));
+                if (turretEnemy != null)
+                    room.PopulateRoom(turretEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(2, 6)));
+            }
+        }
+
+
+    }
     //Define Rooms
     //Spawn Player
 
-    
+
     //Enemy Room
 
     //Treasure Room

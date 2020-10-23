@@ -71,13 +71,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 03cb3ee5a18c6184e9eb7cdbb3eddf43, type: 2}
   wallTileAsset:
   - {fileID: 11400000, guid: 4df8baf1c1e79ea4eac9ad4b3a83524d, type: 2}
-  - {fileID: 11400000, guid: 4df8baf1c1e79ea4eac9ad4b3a83524d, type: 2}
-  - {fileID: 11400000, guid: 4df8baf1c1e79ea4eac9ad4b3a83524d, type: 2}
-  - {fileID: 11400000, guid: 4df8baf1c1e79ea4eac9ad4b3a83524d, type: 2}
-  - {fileID: 11400000, guid: 4df8baf1c1e79ea4eac9ad4b3a83524d, type: 2}
-  - {fileID: 11400000, guid: 4df8baf1c1e79ea4eac9ad4b3a83524d, type: 2}
-  - {fileID: 11400000, guid: 4df8baf1c1e79ea4eac9ad4b3a83524d, type: 2}
-  - {fileID: 11400000, guid: 4df8baf1c1e79ea4eac9ad4b3a83524d, type: 2}
   hazardTileAsset:
   - {fileID: 11400000, guid: 57351ef616017b64792a26ede1415cb4, type: 2}
   objectTileAsset:
