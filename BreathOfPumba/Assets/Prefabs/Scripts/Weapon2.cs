@@ -4,64 +4,25 @@ using UnityEngine;
 
 public class Weapon2 : MonoBehaviour
 {
+
     [SerializeField] float FireRate = 0.5f;
     [SerializeField] GameObject projectile;
     [SerializeField] Transform weapon;
     [SerializeField] float ProjectileSpeed = 1f;
-    public int MaxAmmoCapacity = 30;
-    public int CurrentAmmoCapacity = 30;
-    public int MaxAmmo = 7;
-    public int CurrentAmmo = 7;
-    public float ReloadTime = 2f;
-    private bool reloadingNow = false;
     Coroutine FireingCorutine;
+    // Start is called before the first frame update
 
-    void Start()
-    {
-        CurrentAmmo = MaxAmmo;
-    }
-
+    // Update is called once per frame
     void Update()
     {
         Fire();
-        if (reloadingNow)
-        {
-            return;
-        }
-
-        if (CurrentAmmo <= 0)
-        {
-            if (CurrentAmmoCapacity > 0)
-            {
-                StartCoroutine(reloading());
-                return;
-            }
-        }
     }
-
-    IEnumerator reloading()
-    {
-        print("Reloading...");
-        reloadingNow = true;
-        yield return new WaitForSeconds(ReloadTime);
-        print("Done!");
-        CurrentAmmo = MaxAmmo;
-        reloadingNow = false;
-    }
-
     private void Fire()
     {
 
-        if (Input.GetButtonDown("Fire1") && CurrentAmmo > 0)
+        if (Input.GetButtonDown("Fire1"))
         {
-            if (CurrentAmmoCapacity > 0)
-            {
-                FireingCorutine = StartCoroutine(Fireing());
-            }
-            else
-            {
-                Debug.Log("OutOfAmmo");
-            }
+            FireingCorutine = StartCoroutine(Fireing());
 
         }
         if (Input.GetButtonUp("Fire1"))
@@ -72,34 +33,15 @@ public class Weapon2 : MonoBehaviour
 
         IEnumerator Fireing()
         {
-            GameObject bullet = Instantiate(projectile, weapon.position, weapon.rotation);
-            CurrentAmmo--;
-            CurrentAmmoCapacity--;
-            bullet.GetComponent<Rigidbody2D>().velocity = weapon.right * ProjectileSpeed;
-            yield return new WaitForSeconds(FireRate);
-        }
-        
-       
-
-    }
-    private void AmmoLoad()
-    {
-        if (CurrentAmmoCapacity == MaxAmmoCapacity)
-        {
-            Debug.Log("FullAmmo");
-        }
-        else
-        {
-            CurrentAmmoCapacity = MaxAmmoCapacity;
-        }
-    }
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "AmmoPickUp")
-        {
-            AmmoLoad();
-
+            while (true)
+            {
+                GameObject bullet = Instantiate(projectile, weapon.position, weapon.rotation);
+                bullet.GetComponent<Rigidbody2D>().velocity = weapon.right * ProjectileSpeed;
+                yield return new WaitForSeconds(FireRate);
+            }
         }
 
+
     }
+
 }

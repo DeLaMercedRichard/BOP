@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class Weapon4Survival : MonoBehaviour
 {
     [SerializeField] float FireRate = 0.5f;
@@ -13,7 +13,7 @@ public class Weapon4Survival : MonoBehaviour
     public float ReloadTime = 4f;
     private bool reloadingNow = false;
     Coroutine FireingCorutine;
-
+    [SerializeField] GameObject ammoText;  // By Blawnode
 
     void Start()
     {
@@ -72,6 +72,7 @@ public class Weapon4Survival : MonoBehaviour
             CurrentAmmo--;
 
             bullet.GetComponent<Rigidbody2D>().velocity = weapon.right * ProjectileSpeed;
+            ammoText.GetComponent<TextMeshProUGUI>().text = string.Format("Ammo: {0}/{1}", CurrentAmmo, MaxAmmo);  // By Blawnode
             yield return new WaitForSeconds(FireRate);
         }
 

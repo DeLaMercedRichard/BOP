@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class Weapon3 : MonoBehaviour
 {
     [SerializeField] float FireRate = 0.5f;
@@ -15,7 +15,7 @@ public class Weapon3 : MonoBehaviour
     public float ReloadTime = 3f;
     private bool reloadingNow = false;
     Coroutine FireingCorutine;
-    
+    [SerializeField] GameObject ammoText;  // By Blawnode
 
     void Start()
     {
@@ -79,6 +79,7 @@ public class Weapon3 : MonoBehaviour
             CurrentAmmo--;
             CurrentAmmoCapacity--;
             bullet.GetComponent<Rigidbody2D>().velocity = weapon.right * ProjectileSpeed;
+            ammoText.GetComponent<TextMeshProUGUI>().text = string.Format("Ammo: {0}/{1}", CurrentAmmo, MaxAmmo);  // By Blawnode
             yield return new WaitForSeconds(FireRate);
         }
 
