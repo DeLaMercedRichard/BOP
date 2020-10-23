@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 2174521674660619193}
   - component: {fileID: 344662624927258547}
   - component: {fileID: 344662624927258544}
-  - component: {fileID: 344662624927258545}
   - component: {fileID: 2664741245981407557}
   - component: {fileID: 6024732092511620086}
   - component: {fileID: -8698294192600309672}
+  - component: {fileID: 5709782421458489369}
   m_Layer: 13
   m_Name: Mother Root (SummonerEnemy)
   m_TagString: Enemy
@@ -99,28 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
---- !u!114 &344662624927258545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3198605628091222091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 510e33f4212266747ba8dd932030b468, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentHealth: 100
-  MaxHealth: 100
-  HealthPickUp: {fileID: 2580708997382534414, guid: f4a94007d6255634b8660495f66f07c3,
-    type: 3}
-  AmmoPickUp: {fileID: 2580708997382534414, guid: 0265f381477ab0f479d0c71e82211adc,
-    type: 3}
-  SpeedPickUp: {fileID: 2580708997382534414, guid: 3b52c6a1b2c924e418cd44127f6f8f08,
-    type: 3}
-  bloodType: {fileID: 2276798020257224158, guid: 1ed2a3cdd8eba7c4abe8f342d4dd5b33,
-    type: 3}
 --- !u!114 &2664741245981407557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,6 +148,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 512140ca8365e5b4cadb662682511ecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5709782421458489369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3198605628091222091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee623cf83c06b949b51f1f6f1b7dba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentHealth: 100
+  MaxHealth: 100
+  HealthPickUp: {fileID: 2580708997382534414, guid: f4a94007d6255634b8660495f66f07c3,
+    type: 3}
+  AmmoPickUp: {fileID: 2580708997382534414, guid: 0265f381477ab0f479d0c71e82211adc,
+    type: 3}
+  SpeedPickUp: {fileID: 2580708997382534414, guid: 3b52c6a1b2c924e418cd44127f6f8f08,
+    type: 3}
+  regenRate: 2
+  RegenAmount: 10
+  bloodType: {fileID: 0}
 --- !u!1 &3198605628371410577
 GameObject:
   m_ObjectHideFlags: 0
