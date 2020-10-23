@@ -321,6 +321,63 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid
       objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305364, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305365, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: survivalModeToggled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305365, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: waveDuration
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305365, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 3112596231695132189, guid: 102ee6b2d7fb131469d44519044536a5,
+        type: 3}
+    - target: {fileID: 4377409094460305365, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: summonerEnemy
+      value: 
+      objectReference: {fileID: 3198605628091222091, guid: 316619b958e084a449a6d432d38b431f,
+        type: 3}
+    - target: {fileID: 4377409094460305365, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: shootingEnemy
+      value: 
+      objectReference: {fileID: 8683689410217329577, guid: aabcf04352f10ee4fa472528156f8f87,
+        type: 3}
+    - target: {fileID: 4377409094460305365, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: turretEnemy
+      value: 
+      objectReference: {fileID: 619432777808168507, guid: 926bb06b39674a745a4ff42cff00cc0f,
+        type: 3}
+    - target: {fileID: 4377409094460305365, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: bigEnemy
+      value: 
+      objectReference: {fileID: 7362610978267670764, guid: 658d4c6bd7534e54ba4c3837ac8c5d33,
+        type: 3}
+    - target: {fileID: 4377409094460305365, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: chaseEnemy
+      value: 
+      objectReference: {fileID: 2930653736424937185, guid: 7913e90af0001954099cab0d69ac84fb,
+        type: 3}
+    - target: {fileID: 4377409094460305365, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: weakEnemy
+      value: 
+      objectReference: {fileID: 159331937377019451, guid: 8f03bb0fd0f7c5f44893d84ebbcf00a3,
+        type: 3}
     - target: {fileID: 4377409094460305367, guid: 76d45d714557b3546b39736e3a683cee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -375,6 +432,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305368, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: numberOfRooms
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305368, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: defaultSizeX
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305368, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: defaultSizeY
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76d45d714557b3546b39736e3a683cee, type: 3}
