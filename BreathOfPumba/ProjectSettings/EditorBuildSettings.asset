@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UIScenes/LevelSelect.unity
     guid: bdfca84027a571f45857740801c21b58
+  - enabled: 1
+    path: Assets/Scenes/Levels/PlantPlanet/PlantLevel1.unity
+    guid: 2518446469ec4cc48b1b6a811fb9db3e
   m_configObjects: {}
