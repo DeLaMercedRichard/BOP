@@ -2,13 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class WeaponSelect : MonoBehaviour
 {
     public int selectedWeapon = 0;
-    [SerializeField] GameObject ammoText = null;  // By Blawnode
-
     void Start()
     {
         SelectedWeapon();
@@ -29,7 +26,6 @@ public class WeaponSelect : MonoBehaviour
             }
             i++;
         }
-        ammoText.GetComponent<TextMeshProUGUI>().enabled = (selectedWeapon == 0);  // By Blawnode
     }
     
     void Update()
@@ -62,9 +58,8 @@ public class WeaponSelect : MonoBehaviour
         {
             selectedWeapon = 3;
         }
-        
     }
-    
+
     private void ScrollWheelControl()
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)

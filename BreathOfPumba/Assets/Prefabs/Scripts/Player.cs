@@ -6,28 +6,15 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     [SerializeField] float MovementSpeed = 10f;
-    //[SerializeField] Camera MyCamera;  // Commented out by Blawnode
-    //[SerializeField] Transform weapon;  // Commented out by Blawnode
+    [SerializeField] Camera MyCamera;
+    [SerializeField] Transform weapon;
     public Vector2 MousePosition;
     public Vector2 Movement;
     public Rigidbody2D Rigidb;
     public Rigidbody2D GunRigidb;
-    
-    
     public bool IsSlow = false;
     public float SlowTime = 3f;
     public float SlowAmount = 5f;
-    public bool isEnteringBattle, isLeavingBattle;
-    
-    public bool IsRooted = false;
-    public float RootTime = 3f;
-    public float RootAmount = 10f;
-
-
-    public float SpeedBoost = 10f;
-    public float SpeedBoostdurration = 10f;
-
-    private bool DidReachedGoal = false;  // By Blawnode
 
     Animator animator;  // By Blawnode
 
@@ -40,8 +27,7 @@ public class Player : MonoBehaviour
     {
         Movement.x = Input.GetAxisRaw("Horizontal");
         Movement.y = Input.GetAxisRaw("Vertical");
-        //MousePosition = MyCamera.ScreenToWorldPoint(Input.mousePosition);  // Commented out by Blawnode
-        MousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);  // By Blawnode
+        MousePosition = MyCamera.ScreenToWorldPoint(Input.mousePosition);
     }
 
     void FixedUpdate()
@@ -109,67 +95,6 @@ public class Player : MonoBehaviour
             Slow();
 
         }
-        if (other.gameObject.tag == "RootBullet")
-        {
-            Root();
-
-        }
-        if (other.gameObject.tag == "SpeedPickUp")
-        {
-            SpeedUp();
-
-        }
-    }
-    private void Root()
-    {
-        if (IsRooted == false)
-        {
-            IsRooted = true;
-            StartCoroutine(RootPlayer());
-
-        }
-        else
-        {
-
-            Debug.Log("Already Rooted");
-
-
-        }
     }
 
-    IEnumerator RootPlayer()
-    {
-        MovementSpeed -= RootAmount;
-        yield return new WaitForSeconds(RootTime);
-        MovementSpeed += SlowAmount;
-        IsRooted = false;
-
-
-    }
-
-    private void SpeedUp()
-    {
-        
-            StartCoroutine(Speed());
-
-        
-        
-    }
-
-    IEnumerator Speed()
-    {
-        MovementSpeed += SpeedBoost;
-        yield return new WaitForSeconds(SpeedBoostdurration);
-        MovementSpeed -= SpeedBoost;
-        
-
-	}    // By Blawnode
-    public void ReachedGoal()
-    {
-        if(!DidReachedGoal)
-        {
-            print("AYYYYYYY");
-            // Finish game/Go to next level/Go to level select screen
-        }
-    }
 }

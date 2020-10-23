@@ -268,8 +268,7 @@ public class MapGeneration : MonoBehaviour
                 }
                 else
                 {
-                    if (roomLayout[x, y - 1] != null)
-                        roomLayout[x, y].entranceBot = true;
+                    roomLayout[x, y].entranceBot = (roomLayout[x, y - 1] != null);
                 }
                 if (y < gridSizeY - 1 && roomLayout[x, y + 1] == null )
                 { //check top
@@ -277,8 +276,7 @@ public class MapGeneration : MonoBehaviour
                 }
                 else
                 {
-                    if (roomLayout[x, y + 1] != null)
-                        roomLayout[x, y].entranceTop = true;
+                    roomLayout[x, y].entranceTop = (roomLayout[x, y + 1] != null);
                 }
                 if (x > 1 && roomLayout[x - 1, y] == null )
                 { //check left
@@ -286,8 +284,7 @@ public class MapGeneration : MonoBehaviour
                 }
                 else
                 {
-                    if (roomLayout[x - 1, y] != null)
-                        roomLayout[x, y].entranceLeft = true;
+                    roomLayout[x, y].entranceLeft = (roomLayout[x - 1, y] != null);
                 }
                 if (x < gridSizeX - 1 && roomLayout[x + 1, y] == null )
                 { //check right
@@ -295,9 +292,7 @@ public class MapGeneration : MonoBehaviour
                 }
                 else
                 {
-
-                    if(roomLayout[x + 1,y] != null)
-                        roomLayout[x, y].entranceRight = (true);
+                    roomLayout[x, y].entranceRight = (roomLayout[x + 1, y] != null);
                 }
 
                 //Debug.Log("Grid Position (" + (x) + " , " + (y) + ") entrances toggled: Top(" + roomLayout[x,y].entranceTop + "), Bottom(" + roomLayout[x, y].entranceBot + "), Left(" + roomLayout[x, y].entranceLeft + "), Right(" + roomLayout[x, y].entranceRight + ")");
@@ -306,10 +301,8 @@ public class MapGeneration : MonoBehaviour
     }
     void SetAssets()
     {
-        if(worldSize == Vector2Int.zero)
         worldSize = new Vector2Int(5, 5);
         takenPositions = new List<Vector2Int>();
-        if(numberOfRooms == 0)
         numberOfRooms = 10;
         roomType = "Start";
 
@@ -341,6 +334,4 @@ public class MapGeneration : MonoBehaviour
         roomSelected.room.SetWallTileAsset(wallTileAsset);
         roomSelected.room.SetWallTileMap(walls);
     }
-
-    
 }
