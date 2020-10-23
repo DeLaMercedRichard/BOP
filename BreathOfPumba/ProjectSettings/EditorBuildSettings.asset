@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UIScenes/SplashScreen.unity
     guid: e46941f602e3a724c8e80dd1c7c81308
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UIScenes/MenuScreen.unity
     guid: e93325f598b08a146b6b9d6edba15e7b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UIScenes/LevelSelect.unity
     guid: bdfca84027a571f45857740801c21b58
   - enabled: 1
