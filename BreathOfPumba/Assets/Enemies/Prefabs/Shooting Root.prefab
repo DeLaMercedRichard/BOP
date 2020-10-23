@@ -187,7 +187,8 @@ MonoBehaviour:
     type: 3}
   SpeedPickUp: {fileID: 2580708997382534414, guid: 3b52c6a1b2c924e418cd44127f6f8f08,
     type: 3}
-  bloodType: {fileID: 0}
+  bloodType: {fileID: 2276798020257224158, guid: 1ed2a3cdd8eba7c4abe8f342d4dd5b33,
+    type: 3}
 --- !u!114 &7892191546695733947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +205,7 @@ MonoBehaviour:
   Sight: 1.39
   FireingRange: 6.56
   FireRate: 1
-  Bullet: {fileID: 7705689149030776794, guid: a6409f4a8ac8ef14e8ebc293213dd621, type: 3}
+  Bullet: {fileID: 7705689149030776794, guid: 756f2dc646b6b5d4d82739109ef1cb5e, type: 3}
   BulletParent: {fileID: 3643257267619968205}
   type: 0
   RotateAfterPlayer: 0
