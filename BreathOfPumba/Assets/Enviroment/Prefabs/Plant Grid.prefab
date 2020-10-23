@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ef9c295ceeccb4aad6d78896185af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 3112596231695132189, guid: 6d4d26c899d12674dabe1605745427f0, type: 3}
+  player: {fileID: 3112596231695132189, guid: aa49dc155593b3d469723676586ad8d1, type: 3}
   bigEnemy: {fileID: 7362610978267670764, guid: 26608568c89878e4398f087328ef74fd,
     type: 3}
   chaseEnemy: {fileID: 2930653736424937185, guid: 5bf46c584fb0eb149a2886fd4d222c0e,
@@ -111,8 +111,6 @@ MonoBehaviour:
     type: 3}
   weakEnemy: {fileID: 159331937377019451, guid: abcfbaceaf4f35e4cba831249b0995dc,
     type: 3}
-  survivalModeToggled: 0
-  waveDuration: 10
   room: {fileID: 5622587253927738759}
   level: Basic
   scaleX: 0
