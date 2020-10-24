@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8448818012892683081}
   m_Layer: 13
   m_Name: Mother Root Survival(SummonerEnemy) 1
-  m_TagString: Enemy
+  m_TagString: EnemySurvival
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,9 +160,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6777701b805e3449914b3561189622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentHealth: 100
-  MaxHealth: 100
-  HealthPickUp: {fileID: 0}
+  CurrentHealth: 70
+  MaxHealth: 70
+  HealthPickUp: {fileID: 2580708997382534414, guid: a4171d1f77ffe5049b5fc33e5933ab46,
+    type: 3}
   AmmoPickUp: {fileID: 0}
   SpeedPickUp: {fileID: 0}
   Weapon2PickUp: {fileID: 2580708997382534414, guid: 6c39386d62456eb4fb284cbbbffcd2f2,
@@ -171,7 +172,14 @@ MonoBehaviour:
     type: 3}
   Weapon4PickUp: {fileID: 7217331681566522370, guid: 6ccc11bf02749f34d88caacc2153c0ca,
     type: 3}
-  bloodType: {fileID: 0}
+  Weapon2PickUpRate: 5
+  Weapon3PickUpRate: 5
+  Weapon4PickUpRate: 5
+  HealthSpawnRate: 5
+  AmmoSpawnRate: 5
+  SpeedSpawnRate: 5
+  bloodType: {fileID: 2276798020257224158, guid: 1ed2a3cdd8eba7c4abe8f342d4dd5b33,
+    type: 3}
 --- !u!1 &3198605628371410577
 GameObject:
   m_ObjectHideFlags: 0

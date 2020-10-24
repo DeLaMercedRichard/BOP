@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1829391774700035360}
   m_Layer: 0
   m_Name: DamagePickUp
-  m_TagString: SpeedPickUp
+  m_TagString: DamagePickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,6 +64,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 10
   Sight: 3.01
+  RotateAfterPlayer: 0
+  Jitter: 0
+  sprite: {fileID: 0}
+  type: 1
 --- !u!114 &1829391774700035360
 MonoBehaviour:
   m_ObjectHideFlags: 0

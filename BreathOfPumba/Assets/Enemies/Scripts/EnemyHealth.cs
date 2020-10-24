@@ -35,7 +35,7 @@ public class EnemyHealth : MonoBehaviour
     private void SpawnHealth()
     {
         int randomdrop = Random.Range(1, 101);
-       if(randomdrop <= HealthSpawnRate)
+       if  (randomdrop <= HealthSpawnRate)
         {
             Instantiate(HealthPickUp, transform.position, transform.rotation);
         }
@@ -61,7 +61,7 @@ public class EnemyHealth : MonoBehaviour
     }
     private void SpawnPickUps()
     {
-        SpawnSpeed();
+        
         SpawnAmmo();
         SpawnHealth();
     }
