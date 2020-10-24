@@ -1,15 +1,16 @@
-﻿using System.Collections;
+﻿// Use: AudioControl.Main.Play("Sound name");
+
 using System.Collections.Generic;
 using UnityEngine;
 
 //Responsible for Controlling Music Soundtracks
 public class AudioControl : MonoBehaviour
 {
-    [SerializeField]
-    AudioSource audioPlayer;
-    [SerializeField]
-    List<AudioClip> tracks;
-    [SerializeField]
+    static AudioControl Main;
+    [SerializeField] AudioSource audioPlayer;
+    [SerializeField] List<AudioClip> tracks;
+
+    [SerializeField]  //?
     public enum TrackType
     {
         Default,
@@ -29,15 +30,9 @@ public class AudioControl : MonoBehaviour
         if (audioPlayer == null)
             audioPlayer = GetComponent<AudioSource>();
 
+        Main = this;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-
+    
     public void AddTrackToPlaylist(string name, TrackType type)
     {
         tracks.Insert((int)type, Resources.Load<AudioClip>("Music/Tracks/" + name));
