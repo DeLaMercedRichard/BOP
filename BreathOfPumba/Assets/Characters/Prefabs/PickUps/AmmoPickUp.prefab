@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3676106610945671063}
   - component: {fileID: 249218730}
   - component: {fileID: 1829391774700035360}
-  - component: {fileID: 2375623603160854355}
+  - component: {fileID: 1047577324474227554}
   m_Layer: 0
   m_Name: AmmoPickUp
   m_TagString: AmmoPickUp
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90ffc2eedc8cb934d8740b0df5d42fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &2375623603160854355
+--- !u!95 &1047577324474227554
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -91,7 +91,7 @@ Animator:
   m_GameObject: {fileID: 2580708997382534414}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b46b49353b22c4b4fbcb91bd008d73c4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -170,8 +170,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.2352941, g: 1, b: 0.55804586, a: 1}
+  m_Sprite: {fileID: -4979932584274858546, guid: ba840f7be81dab949acadba25c81c430,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
