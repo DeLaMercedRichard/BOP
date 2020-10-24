@@ -785,8 +785,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bigEnemy
       value: 
-      objectReference: {fileID: 7362610978267670764, guid: 26608568c89878e4398f087328ef74fd,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4377409094460305365, guid: 76d45d714557b3546b39736e3a683cee,
         type: 3}
       propertyPath: chaseEnemy
@@ -875,6 +874,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305368, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: numberOfRooms
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8461150164983610313, guid: 76d45d714557b3546b39736e3a683cee,
         type: 3}
