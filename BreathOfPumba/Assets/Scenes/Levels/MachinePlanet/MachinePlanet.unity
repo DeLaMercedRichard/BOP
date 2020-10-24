@@ -204,3 +204,119 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2011686245
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4377409094460305364, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: m_Name
+      value: Grid
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305365, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: summonerEnemy
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305365, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: bigEnemy
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305365, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: weakEnemy
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305365, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: shootingEnemy
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305367, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305367, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305367, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305367, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305367, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305367, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305367, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305367, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305367, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305367, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305367, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305368, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: floorTileAsset.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305368, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: wallTileAsset.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305368, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: takenPositions.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305368, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: floorTileAsset.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 30145deecf1bce745802a9c1007dbdc2,
+        type: 2}
+    - target: {fileID: 4377409094460305368, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: wallTileAsset.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 94e45a705985dbe49a2f9309d8eeece6,
+        type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 76d45d714557b3546b39736e3a683cee, type: 3}
