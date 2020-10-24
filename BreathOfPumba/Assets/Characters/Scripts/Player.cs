@@ -87,7 +87,6 @@ public class Player : MonoBehaviour
         var verticalInput = Input.GetAxis("Vertical") * Time.deltaTime * MovementSpeed;
         var NewPosY = transform.position.y + verticalInput;
         transform.position = new Vector2(transform.position.x ,NewPosY);
-         sfx.PlaySound("Player - Step");
         animator.SetBool("IsRunning", (horizontalInput != 0 || verticalInput != 0));  // By Blawnode
     }
 
