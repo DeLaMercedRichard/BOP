@@ -22,6 +22,8 @@ public class RoomSelector : MonoBehaviour
     GameObject turretEnemy;
     [SerializeField]
     GameObject weakEnemy;
+    [SerializeField]
+    GameObject endGoal;
     [Space(10)]
     [Header("Survival Mode")]
     [SerializeField]
@@ -53,7 +55,10 @@ public class RoomSelector : MonoBehaviour
     }
     private void Update()
     {
-
+        //Spawn Monsters When Entering New Room
+        if (!survivalModeToggled)
+        {
+        }
     }
     public void SetVariables(int sizeX, int sizeY)
     {
@@ -139,6 +144,8 @@ public class RoomSelector : MonoBehaviour
                 room.scaleX = 1;
                 room.scaleY = 1;
                 //Summons Enemies
+                if (endGoal != null)
+                    room.PopulateRoom(endGoal, new Vector2Int(position.x, position.y), 1);
                 if (bigEnemy != null)
                     room.PopulateRoom(bigEnemy, new Vector2Int(position.x, position.y), 1);
                 if (chaseEnemy != null)
@@ -165,7 +172,25 @@ public class RoomSelector : MonoBehaviour
                 break;
 
             //To Be Implemented in Future
-            case "SpecialRoom":
+            case "EndRoom":
+                if (endGoal != null)
+                    room.PopulateRoom(endGoal, new Vector2Int(position.x, position.y), 1);
+                room.scaleX = 1;
+                room.scaleY = 1;
+                //Summons Enemies
+                if (bigEnemy != null)
+                    room.PopulateRoom(bigEnemy, new Vector2Int(position.x, position.y), 1);
+                if (chaseEnemy != null)
+                    room.PopulateRoom(chaseEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(2, 6)));
+                if (weakEnemy != null)
+                    room.PopulateRoom(weakEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(2, 6)));
+                if (shootingEnemy != null)
+                    room.PopulateRoom(shootingEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(2, 6)));
+                if (summonerEnemy != null)
+                    room.PopulateRoom(summonerEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(2, 6)));
+                if (turretEnemy != null)
+                    room.PopulateRoom(turretEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(2, 6)));
+                break;
 
             default:
 
@@ -205,8 +230,11 @@ public class RoomSelector : MonoBehaviour
         foreach (Vector2Int position in localPositions)
         //Summons Enemies
         {
+            //Summons Enemies
             if (bigEnemy != null)
                 room.PopulateRoom(bigEnemy, new Vector2Int(position.x, position.y), 1);
+            if (endGoal != null)
+                room.PopulateRoom(endGoal, new Vector2Int(position.x, position.y), 1);
             if (chaseEnemy != null)
                 room.PopulateRoom(chaseEnemy, new Vector2Int(position.x, position.y), Mathf.RoundToInt(Random.Range(2, 6)));
             if (weakEnemy != null)
