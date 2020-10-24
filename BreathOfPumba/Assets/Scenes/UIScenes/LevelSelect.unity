@@ -378,7 +378,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 773491067388443766, guid: 657735bad8b2271429cbd4c9cf5d16fe,
+        type: 3}
     - target: {fileID: 181317249950824508, guid: 790965ac44cc5d1488873159417f1901,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -513,7 +514,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 773491067388443766, guid: 657735bad8b2271429cbd4c9cf5d16fe,
+        type: 3}
     - target: {fileID: 181317250311160997, guid: 790965ac44cc5d1488873159417f1901,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -543,11 +545,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 773491067388443766, guid: 657735bad8b2271429cbd4c9cf5d16fe,
+        type: 3}
     - target: {fileID: 181317250933394973, guid: 790965ac44cc5d1488873159417f1901,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Loadscene4
+      value: Loadscene5
       objectReference: {fileID: 0}
     - target: {fileID: 181317250933394973, guid: 790965ac44cc5d1488873159417f1901,
         type: 3}
@@ -613,7 +616,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 773491067388443766, guid: 657735bad8b2271429cbd4c9cf5d16fe,
+        type: 3}
     - target: {fileID: 7511176481896653117, guid: 790965ac44cc5d1488873159417f1901,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
