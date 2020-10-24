@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
         if (CurrentHealth <= 0)
         {
             ParticleManager.Main.SpawnBlood(transform.position, bloodType);  // By Blawnode
-            //Destroy(gameObject);
+            SceneManager.LoadScene(3);
         }
     }
     public void DamagePlayer(int AmountOfDamage)

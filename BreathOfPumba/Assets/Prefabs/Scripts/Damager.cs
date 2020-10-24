@@ -15,5 +15,12 @@ public class Damager : MonoBehaviour
             
             other.GetComponentInParent<PlayerHealth>().DamagePlayer(Damage);
         }
+        if (other.gameObject.tag == "PlayerHurtBoxSurvival")
+        {
+
+            
+
+            other.GetComponentInParent<PlayerHealth>().DamagePlayer(Damage);
+        }
     }
 }

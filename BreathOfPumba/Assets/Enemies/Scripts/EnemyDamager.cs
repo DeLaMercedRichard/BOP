@@ -11,14 +11,27 @@ public class EnemyDamager : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            
+
             other.gameObject.GetComponent<EnemyHealth>().DamageEnemy(Damage);
+            other.gameObject.GetComponent<PlantEnemyHealth>().DamageEnemy(Damage);
             Destroy(gameObject);
         }
-        else if(other.gameObject.tag == "SplitEnemy")
+        else if (other.gameObject.tag == "SplitEnemy")
         {
             other.gameObject.GetComponent<SplitEnemyHealth>().DamageEnemy(Damage);
             Destroy(gameObject);
         }
+        else if (other.gameObject.tag == "PlantEnemy")
+
+        {
+            other.gameObject.GetComponent<PlantEnemyHealth>().DamageEnemy(Damage);
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.tag == "EnemySurvival")
+        {
+            other.gameObject.GetComponent<EnemyHealthSurvival>().DamageEnemy(Damage);
+            Destroy(gameObject);
+        }
     }
+    
 }

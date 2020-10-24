@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 663898392}
   - component: {fileID: 663898393}
   - component: {fileID: 663898394}
-  - component: {fileID: 663898395}
   - component: {fileID: 4426719991531104679}
   - component: {fileID: -6278907730956667357}
+  - component: {fileID: -2828818689262977218}
   m_Layer: 13
   m_Name: Spot Germ Survival(ChaseEnemy) 1
-  m_TagString: Enemy
+  m_TagString: EnemySurvival
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,28 +106,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
---- !u!114 &663898395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2930653736424937185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 510e33f4212266747ba8dd932030b468, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentHealth: 100
-  MaxHealth: 100
-  HealthPickUp: {fileID: 2580708997382534414, guid: f4a94007d6255634b8660495f66f07c3,
-    type: 3}
-  AmmoPickUp: {fileID: 2580708997382534414, guid: 0265f381477ab0f479d0c71e82211adc,
-    type: 3}
-  SpeedPickUp: {fileID: 2580708997382534414, guid: 3b52c6a1b2c924e418cd44127f6f8f08,
-    type: 3}
-  bloodType: {fileID: 2276798020257224158, guid: ab7d85ddbe7f46242ab0f9abcb1bcb91,
-    type: 3}
 --- !u!95 &4426719991531104679
 Animator:
   serializedVersion: 3
@@ -159,6 +137,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 512140ca8365e5b4cadb662682511ecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2828818689262977218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2930653736424937185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6777701b805e3449914b3561189622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentHealth: 60
+  MaxHealth: 60
+  HealthPickUp: {fileID: 2580708997382534414, guid: a4171d1f77ffe5049b5fc33e5933ab46,
+    type: 3}
+  AmmoPickUp: {fileID: 0}
+  SpeedPickUp: {fileID: 0}
+  Weapon2PickUp: {fileID: 2580708997382534414, guid: 6c39386d62456eb4fb284cbbbffcd2f2,
+    type: 3}
+  Weapon3PickUp: {fileID: 7842949599111454375, guid: 7405c782e9b2b4b4e9c05944d38485c1,
+    type: 3}
+  Weapon4PickUp: {fileID: 7217331681566522370, guid: 6ccc11bf02749f34d88caacc2153c0ca,
+    type: 3}
+  bloodType: {fileID: 2276798020257224158, guid: ab7d85ddbe7f46242ab0f9abcb1bcb91,
+    type: 3}
 --- !u!1 &2930653736673099835
 GameObject:
   m_ObjectHideFlags: 0
