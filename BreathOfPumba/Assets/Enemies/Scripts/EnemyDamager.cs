@@ -13,7 +13,6 @@ public class EnemyDamager : MonoBehaviour
         {
 
             other.gameObject.GetComponent<EnemyHealth>().DamageEnemy(Damage);
-            other.gameObject.GetComponent<PlantEnemyHealth>().DamageEnemy(Damage);
             Destroy(gameObject);
         }
         else if (other.gameObject.tag == "SplitEnemy")
@@ -33,5 +32,9 @@ public class EnemyDamager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
+    public void ApplyDamageModifier(float damageModifier)
+    {
+        Damage = (int) (Damage * damageModifier);
+    }
 }

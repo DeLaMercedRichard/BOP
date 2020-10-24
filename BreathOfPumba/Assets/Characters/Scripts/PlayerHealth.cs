@@ -27,29 +27,22 @@ public class PlayerHealth : MonoBehaviour
             SceneManager.LoadScene(1);
         }
     }
+
     public void DamagePlayer(int AmountOfDamage)
     {
         CurrentHealth -= AmountOfDamage;
     }
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "HealthPickUp")
-        {
-            Heal();
-
-        }
-
-    }
-
-    private void Heal()
+    
+    public void Heal(PickUpScript pickup)
     {
         if(CurrentHealth == MaxHealth)
         {
-            Debug.Log("FullHealth");
+            //Debug.Log("FullHealth");
         }
         else
         {
             CurrentHealth = MaxHealth;
         }
+        pickup.GetPickedUp(gameObject);
     }
 }

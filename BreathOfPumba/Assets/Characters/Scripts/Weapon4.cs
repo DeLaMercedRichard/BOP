@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Weapon4 : MonoBehaviour
 {
+    [SerializeField] GameObject player;
     [SerializeField] float FireRate = 0.5f;
     [SerializeField] GameObject projectile;
     [SerializeField] Transform weapon;
     [SerializeField] float ProjectileSpeed = 10f;
+    [SerializeField] GameObject ammoText;  // By Blawnode
     public int MaxAmmoCapacity = 30;
     public int CurrentAmmoCapacity = 30;
     public int MaxAmmo = 2;
@@ -49,6 +52,7 @@ public class Weapon4 : MonoBehaviour
         print("Done!");
         CurrentAmmo = MaxAmmo;
         reloadingNow = false;
+        ammoText.GetComponent<TextMeshProUGUI>().text = string.Format("Ammo: {0}/{1}", CurrentAmmo, MaxAmmo);  // By Blawnode
     }
 
     private void Fire()
@@ -80,6 +84,8 @@ public class Weapon4 : MonoBehaviour
             CurrentAmmo--;
             CurrentAmmoCapacity--;
             bullet.GetComponent<Rigidbody2D>().velocity = weapon.right * ProjectileSpeed;
+            ammoText.GetComponent<TextMeshProUGUI>().text = string.Format("Ammo: {0}/{1}", CurrentAmmo, MaxAmmo);  // By Blawnode
+            bullet.GetComponent<EnemyDamager>().ApplyDamageModifier(player.GetComponent<Player>().CurrentDamageModifier);
             yield return new WaitForSeconds(FireRate);
         }
 
@@ -96,13 +102,19 @@ public class Weapon4 : MonoBehaviour
             CurrentAmmoCapacity = MaxAmmoCapacity;
         }
     }
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "AmmoPickUp")
         {
             AmmoLoad();
-
         }
+    }
 
+    public void AmmoBoost()
+    {
+        CurrentAmmo = MaxAmmo;
+        CurrentAmmoCapacity = MaxAmmoCapacity;
+        ammoText.GetComponent<TextMeshProUGUI>().text = string.Format("Ammo: {0}/{1}", CurrentAmmo, MaxAmmo);  // By Blawnode
     }
 }
