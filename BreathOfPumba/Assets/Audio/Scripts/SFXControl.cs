@@ -67,6 +67,7 @@ public class SFXControl : MonoBehaviour
 
     void Start()
     {
+
         if (sfx_clips == null)
             sfx_clips = new List<AudioClip>(1);
 
