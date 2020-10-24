@@ -301,8 +301,11 @@ public class MapGeneration : MonoBehaviour
     }
     void SetAssets()
     {
+        if(worldSize == Vector2Int.zero)
         worldSize = new Vector2Int(5, 5);
+        if(takenPositions == null)
         takenPositions = new List<Vector2Int>();
+        if(numberOfRooms == 0)
         numberOfRooms = 10;
         roomType = "Start";
 
