@@ -15,7 +15,7 @@ public class AudioControl : MonoBehaviour
         Default,
         Combat,
         Boss,
-        Safe,
+        Pause,
         Death,
         Menu
     }
@@ -41,6 +41,11 @@ public class AudioControl : MonoBehaviour
     public void AddTrackToPlaylist(string name, TrackType type)
     {
         tracks.Insert((int)type, Resources.Load<AudioClip>("Music/Tracks/" + name));
+    }
+
+    public void ReplaceTrack(string name, TrackType type)
+    {
+        tracks[(int)type] = Resources.Load<AudioClip>("Music/Tracks/" + name);
     }
 
     public void ClearPlayList()

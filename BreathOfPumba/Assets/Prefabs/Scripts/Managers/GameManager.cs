@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public AudioControl musicPlayer;
     SceneManagement sceneManagement;
    
-    public bool inBattle, isInSafeZone, isInMenu, isPlayerDead;
+    public bool inBattle, isPause, isInMenu, isPlayerDead;
     public bool battlingBoss;
     private void Awake()
     {
@@ -65,12 +65,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ToggleSafeMusic()
+    public void TogglePauseMusic()
     {
-        isInSafeZone = !isInSafeZone;
-        if (isInSafeZone)
+        isPause = !isPause;
+        if (isPause)
         {
-            musicPlayer.PlayTrack(AudioControl.TrackType.Safe);
+            musicPlayer.PlayTrack(AudioControl.TrackType.Pause);
         }
         else
         {
@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
         battlingBoss = false;
         isPlayerDead = false;
         isInMenu = false;
-        isInSafeZone = false;
+        isPause = false;
         if (musicPlayer == null)
             musicPlayer = GetComponent<AudioControl>();
         if (sceneManagement == null)

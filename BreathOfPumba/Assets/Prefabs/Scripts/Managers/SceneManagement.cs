@@ -20,8 +20,35 @@ public class SceneManagement : MonoBehaviour
     private void Start()
     {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        //Plant Level
+        if (currentSceneIndex == 2)
+        {
+            gameManager.musicPlayer.ReplaceTrack("5_-_Fifth_Theme", AudioControl.TrackType.Default);
+        }
+        //Machine Level
+        if (currentSceneIndex == 3)
+        {
+            gameManager.musicPlayer.ReplaceTrack("6_-_SixthTheme", AudioControl.TrackType.Default);
+        }
+        //Germ Level
+        if (currentSceneIndex == 4)
+        {
+            gameManager.musicPlayer.ReplaceTrack("SeventhTheme", AudioControl.TrackType.Default);
+        }
+        //Survival Level
+        if (currentSceneIndex == 5)
+        {
+            gameManager.musicPlayer.ReplaceTrack("Third_Theme", AudioControl.TrackType.Default);
+        }
+        //Tutorial Level
+        if (currentSceneIndex == 6)
+        {
+            gameManager.musicPlayer.ReplaceTrack("Second_Theme", AudioControl.TrackType.Default);
+        }
+
         //Start Menu Songs
-        if (currentSceneIndex == 0 || currentSceneIndex == 1 || currentSceneIndex == 2)
+        if (currentSceneIndex == 0 || currentSceneIndex == 1 )
         {
             if (!gameManager.isInMenu)
                 gameManager.ToggleMenuMusic();
@@ -33,12 +60,6 @@ public class SceneManagement : MonoBehaviour
                 gameManager.ToggleMenuMusic();
         }
 
-        //Change Splash Screen
-        if (currentSceneIndex == 0)
-        {
-            StartCoroutine(WaitForTime());
-        }
-       
     }
 
 
