@@ -17,7 +17,57 @@ public class SceneManagement : MonoBehaviour
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         slowFlag = false;
     }
-    
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if (gameManager == null)
+        {
+
+            gameManager = FindObjectOfType<GameManager>();
+
+        }
+        currentSceneIndex = level;
+        Debug.Log("Scene Index is " + SceneManager.GetActiveScene().buildIndex);
+        //Plant Level
+        if (currentSceneIndex == 2)
+        {
+            gameManager.musicPlayer.ReplaceTrack("5_-_Fifth_Theme", AudioControl.TrackType.Default);
+        }
+        //Machine Level
+        if (currentSceneIndex == 3)
+        {
+            gameManager.musicPlayer.ReplaceTrack("6_-_SixthTheme", AudioControl.TrackType.Default);
+        }
+        //Germ Level
+        if (currentSceneIndex == 4)
+        {
+            gameManager.musicPlayer.ReplaceTrack("SeventhTheme", AudioControl.TrackType.Default);
+        }
+        //Survival Level
+        if (currentSceneIndex == 5)
+        {
+            gameManager.musicPlayer.ReplaceTrack("Third_Theme", AudioControl.TrackType.Default);
+        }
+        //Tutorial Level
+        if (currentSceneIndex == 6)
+        {
+            gameManager.musicPlayer.ReplaceTrack("Second_Theme", AudioControl.TrackType.Default);
+        }
+
+
+        //Start Menu Songs
+        if (currentSceneIndex == 0 || currentSceneIndex == 1)
+        {
+            if (!gameManager.isInMenu)
+                gameManager.ToggleMenuMusic();
+            gameManager.isInMenu = true;
+        }
+        else
+        {
+            if (gameManager.isInMenu)
+                gameManager.ToggleMenuMusic();
+        }
+    }
     private void Start()
     {
         if (gameManager == null)
