@@ -134,11 +134,11 @@ public class RectangleRoom : Room
 
     public override void CreateEntrances(bool top, bool bot, bool left, bool right)
     {
-        Debug.Log("Current Room: " + position.x + " , " + position.y);
+        //Debug.Log("Current Room: " + position.x + " , " + position.y);
         //Adds Rooms Relative to their position and corners
         if (top)
         {
-            Debug.Log("Top Entrance Toggled");
+            //Debug.Log("Top Entrance Toggled");
             //Remove Top Wall mid Section
             walls.SetTile(new Vector3Int(corners[3].x + radiusX - 1, corners[3].y, 0), null);
             walls.SetTile(new Vector3Int(corners[3].x + radiusX , corners[3].y, 0), null);
@@ -146,7 +146,7 @@ public class RectangleRoom : Room
         }
         if (bot)
         {
-            Debug.Log("Bot Entrance Toggled");
+           // Debug.Log("Bot Entrance Toggled");
             //Remove Bot Wall mid Section
             walls.SetTile(new Vector3Int(corners[0].x + radiusX - 1, corners[0].y, 0), null);
             walls.SetTile(new Vector3Int(corners[0].x + radiusX, corners[0].y, 0), null);
@@ -154,7 +154,7 @@ public class RectangleRoom : Room
         }
         if (left)
         {
-            Debug.Log("Left Entrance Toggled");
+           // Debug.Log("Left Entrance Toggled");
             //Remove Left Wall mid Section
             walls.SetTile(new Vector3Int(corners[0].x, corners[0].y + radiusY + 1,  0), null);
             walls.SetTile(new Vector3Int(corners[0].x, corners[0].y + radiusY, 0), null);
@@ -162,7 +162,7 @@ public class RectangleRoom : Room
         }
         if (right)
         {
-            Debug.Log("Right Entrance Toggled");
+          //  Debug.Log("Right Entrance Toggled");
             //Remove Right Wall mid Section
             walls.SetTile(new Vector3Int(corners[1].x, corners[1].y + radiusY + 1, 0), null);
             walls.SetTile(new Vector3Int(corners[1].x, corners[1].y + radiusY, 0), null);

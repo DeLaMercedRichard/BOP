@@ -44,11 +44,9 @@ public class MapGeneration : MonoBehaviour
     [SerializeField]
     public int defaultSizeY;
     public string roomType;
-  
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        //Setup
         SetAssets();
         //Layout where the rooms will take place by using a list of coordinates rather than actual objects
         PlanRooms();
@@ -56,7 +54,13 @@ public class MapGeneration : MonoBehaviour
         SetRoomDoors();
         //Initializing
         DrawMap();
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
 
+        //Setup
+      
     }
 
     // Update is called once per frame
@@ -212,16 +216,16 @@ public class MapGeneration : MonoBehaviour
     {
         //Sets up Canvas Size
         roomSelected.SetUpBoundariesForTileMaps(gridSizeX * defaultSizeX +2, gridSizeY * defaultSizeY +2);
-       
+        roomType = "Start";
         //RoomType default set to Start
 
         for (int i = 0; i < takenPositions.Count; i++)
         {
-            Mathf.RoundToInt(takenPositions[i].x * defaultSizeX / 1.5f);
+           
             roomSelected.DrawRoom(
                 new Vector3Int(
-                    Mathf.RoundToInt(takenPositions[i].x * defaultSizeX / 1.9f),
-                    Mathf.RoundToInt(takenPositions[i].y * defaultSizeY / 1.9f),
+                    Mathf.RoundToInt(takenPositions[i].x * defaultSizeX * 1.05f),
+                    Mathf.RoundToInt(takenPositions[i].y * defaultSizeY * 1.05f),
                     0),
                 1,
                 1,
@@ -301,9 +305,13 @@ public class MapGeneration : MonoBehaviour
     }
     void SetAssets()
     {
+        if(worldSize == Vector2Int.zero)
         worldSize = new Vector2Int(5, 5);
+        if(takenPositions == null)
         takenPositions = new List<Vector2Int>();
+        if(numberOfRooms == 0)
         numberOfRooms = 10;
+
         roomType = "Start";
 
         //Setting World Settings
@@ -315,16 +323,16 @@ public class MapGeneration : MonoBehaviour
         gridSizeY = worldSize.y;
         if (defaultSizeX == 0)
         {
-            defaultSizeX = 40;
+            defaultSizeX = 20;
         }
         if (defaultSizeY == 0)
         {
-            defaultSizeY = 40;
+            defaultSizeY = 20;
         }
 
         //Setting Assets
-        roomLayout = new RoomDetails[worldSize.x *2 , worldSize.y *2];
-        roomSelected.SetVariables(20, 20);
+        roomLayout = new RoomDetails[worldSize.x *2 +2 , worldSize.y *2 +2];
+        roomSelected.SetVariables(defaultSizeX, defaultSizeY);
         roomSelected.room.SetFloorTileAsset(floorTileAsset);
         roomSelected.room.SetFloorTileMap(floor);
         roomSelected.room.SetHazardTileAsset(hazardTileAsset);

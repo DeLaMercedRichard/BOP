@@ -19,17 +19,59 @@ public class WeaponSelect : MonoBehaviour
         int i = 0;
         foreach (Transform weapon in transform)
         {
-            if (i == selectedWeapon)
+            /*if (i == selectedWeapon)
             {
                 weapon.gameObject.SetActive(true);
             }
             else
             {
                 weapon.gameObject.SetActive(false);
+            }*/
+            if (i == selectedWeapon)
+            {
+                if (weapon.TryGetComponent<Weapon1>(out Weapon1 script1))
+                {
+                    script1.enabled = true;
+                    ammoText.GetComponent<TextMeshProUGUI>().text = string.Format("Ammo: {0}/{1}", script1.CurrentAmmo, script1.MaxAmmo);  // By Blawnode
+                }
+                else if (weapon.TryGetComponent<Weapon2>(out Weapon2 script2))
+                {
+                    script2.enabled = true;
+                    ammoText.GetComponent<TextMeshProUGUI>().text = string.Format("Ammo: {0}/{1}", script2.CurrentAmmo, script2.MaxAmmo);  // By Blawnode
+                }
+                else if (weapon.TryGetComponent<Weapon3>(out Weapon3 script3))
+                {
+                    script3.enabled = true;
+                    ammoText.GetComponent<TextMeshProUGUI>().text = string.Format("Ammo: {0}/{1}", script3.CurrentAmmo, script3.MaxAmmo);  // By Blawnode
+                }
+                else if (weapon.TryGetComponent<Weapon4>(out Weapon4 script4))
+                {
+                    script4.enabled = true;
+                    ammoText.GetComponent<TextMeshProUGUI>().text = string.Format("Ammo: {0}/{1}", script4.CurrentAmmo, script4.MaxAmmo);  // By Blawnode
+                }
+            }
+            else
+            {
+                if (weapon.TryGetComponent<Weapon1>(out Weapon1 script1))
+                {
+                    script1.enabled = false;
+                }
+                else if (weapon.TryGetComponent<Weapon2>(out Weapon2 script2))
+                {
+                    script2.enabled = false;
+                }
+                else if (weapon.TryGetComponent<Weapon3>(out Weapon3 script3))
+                {
+                    script3.enabled = false;
+                }
+                else if (weapon.TryGetComponent<Weapon4>(out Weapon4 script4))
+                {
+                    script4.enabled = false;
+                }
             }
             i++;
         }
-        ammoText.GetComponent<TextMeshProUGUI>().enabled = (selectedWeapon == 0);  // By Blawnode
+        //ammoText.GetComponent<TextMeshProUGUI>().enabled = (selectedWeapon != 1);  // By Blawnode
     }
     
     void Update()

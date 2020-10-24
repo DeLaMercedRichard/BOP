@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     [SerializeField] float MovementSpeed = 10f;
+    [SerializeField] float BaseMovementSpeed = 10f;
+    [SerializeField] GameObject[] weapons;  // By BN
     //[SerializeField] Camera MyCamera;  // Commented out by Blawnode
     //[SerializeField] Transform weapon;  // Commented out by Blawnode
     public Vector2 MousePosition;
@@ -20,12 +22,16 @@ public class Player : MonoBehaviour
     public bool isEnteringBattle, isLeavingBattle;
     
     public bool IsRooted = false;
-    public float RootTime = 3f;
+    public float RootTime = 2f;
     public float RootAmount = 10f;
 
 
-    public float SpeedBoost = 10f;
-    public float SpeedBoostdurration = 10f;
+    //public float SpeedBoost = 10f;
+    public float SpeedBoost = 1.2f;
+    public float SpeedBoostdurration = 3f;
+
+    public float DamageModifier = 1.5f;  // used by the weapons
+    public float CurrentDamageModifier = 1.5f;  // used by the weapons
 
     private bool DidReachedGoal = false;  // By Blawnode
 
@@ -77,19 +83,16 @@ public class Player : MonoBehaviour
         animator.SetBool("IsRunning", (horizontalInput != 0 || verticalInput != 0));  // By Blawnode
     }
 
-  private void Slow()
+    public void Slow()
     {
         if(IsSlow == false)
         {
             IsSlow = true;
             StartCoroutine(SlowPlayer());
-
         }
         else 
-        { 
-        
+        {
             Debug.Log("Already Slowed");
-            
         }
     }
 
@@ -99,41 +102,18 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(SlowTime);
         MovementSpeed += SlowAmount;
         IsSlow = false;
-
-            
     }
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "SlowBullet")
-        {
-            Slow();
 
-        }
-        if (other.gameObject.tag == "RootBullet")
-        {
-            Root();
-
-        }
-        if (other.gameObject.tag == "SpeedPickUp")
-        {
-            SpeedUp();
-
-        }
-    }
-    private void Root()
+    public void Root()
     {
         if (IsRooted == false)
         {
             IsRooted = true;
             StartCoroutine(RootPlayer());
-
         }
         else
         {
-
             Debug.Log("Already Rooted");
-
-
         }
     }
 
@@ -143,27 +123,71 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(RootTime);
         MovementSpeed += SlowAmount;
         IsRooted = false;
-
-
     }
 
-    private void SpeedUp()
+    public void SpeedUp(GameObject other)
     {
-        
-            StartCoroutine(Speed());
-
-        
-        
+        if(MovementSpeed >= BaseMovementSpeed)
+        {
+            StartCoroutine(ISpeedUp(other));
+        }
     }
 
-    IEnumerator Speed()
+    IEnumerator ISpeedUp(GameObject other)
     {
+        other.GetComponent<PickUpScript>().GetPickedUp(gameObject);
         MovementSpeed += SpeedBoost;
         yield return new WaitForSeconds(SpeedBoostdurration);
         MovementSpeed -= SpeedBoost;
-        
+    }
+    
+    public void DamageUp(GameObject other)
+    {
+        if(MovementSpeed >= BaseMovementSpeed)
+        {
+            StartCoroutine(IDamageUp(other));
+        }
+    }
 
-	}    // By Blawnode
+    IEnumerator IDamageUp(GameObject other)
+    {
+        other.GetComponent<PickUpScript>().GetPickedUp(gameObject);
+        CurrentDamageModifier = DamageModifier;
+        yield return new WaitForSeconds(SpeedBoostdurration);
+        CurrentDamageModifier = 1;
+    }
+
+    public void AmmoUp(GameObject other)
+    {
+        foreach(GameObject weapon in weapons)
+        {
+            if(weapon.TryGetComponent<Weapon1>(out Weapon1 script1))
+            {
+                script1.AmmoBoost();
+            }
+            else if (weapon.TryGetComponent<Weapon2>(out Weapon2 script2))
+            {
+                script2.AmmoBoost();
+            }
+            else if(weapon.TryGetComponent<Weapon3>(out Weapon3 script3))
+            {
+                script3.AmmoBoost();
+            }
+            else if (weapon.TryGetComponent<Weapon4>(out Weapon4 script4))
+            {
+                script4.AmmoBoost();
+            }
+        }
+        other.GetComponent<PickUpScript>().GetPickedUp(gameObject);
+        //GetComponent<PlayerHealth>().Heal(other.GetComponent<PickUpScript>());
+    }
+
+    public void Heal(GameObject other)
+    {
+        GetComponent<PlayerHealth>().Heal(other.GetComponent<PickUpScript>());
+    }
+
+    // By Blawnode
     public void ReachedGoal()
     {
         if(!DidReachedGoal)
