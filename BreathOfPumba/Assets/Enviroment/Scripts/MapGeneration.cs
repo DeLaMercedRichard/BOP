@@ -212,16 +212,16 @@ public class MapGeneration : MonoBehaviour
     {
         //Sets up Canvas Size
         roomSelected.SetUpBoundariesForTileMaps(gridSizeX * defaultSizeX +2, gridSizeY * defaultSizeY +2);
-       
+        roomType = "Start";
         //RoomType default set to Start
 
         for (int i = 0; i < takenPositions.Count; i++)
         {
-            Mathf.RoundToInt(takenPositions[i].x * defaultSizeX / 1.5f);
+           
             roomSelected.DrawRoom(
                 new Vector3Int(
-                    Mathf.RoundToInt(takenPositions[i].x * defaultSizeX / 1.9f),
-                    Mathf.RoundToInt(takenPositions[i].y * defaultSizeY / 1.9f),
+                    Mathf.RoundToInt(takenPositions[i].x * defaultSizeX * 1.05f),
+                    Mathf.RoundToInt(takenPositions[i].y * defaultSizeY * 1.05f),
                     0),
                 1,
                 1,
@@ -307,6 +307,7 @@ public class MapGeneration : MonoBehaviour
         takenPositions = new List<Vector2Int>();
         if(numberOfRooms == 0)
         numberOfRooms = 10;
+
         roomType = "Start";
 
         //Setting World Settings
@@ -318,11 +319,11 @@ public class MapGeneration : MonoBehaviour
         gridSizeY = worldSize.y;
         if (defaultSizeX == 0)
         {
-            defaultSizeX = 40;
+            defaultSizeX = 20;
         }
         if (defaultSizeY == 0)
         {
-            defaultSizeY = 40;
+            defaultSizeY = 20;
         }
 
         //Setting Assets

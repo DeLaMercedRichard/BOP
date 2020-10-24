@@ -48,7 +48,7 @@ public class RoomSelector : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        if (survivalModeToggled) ;
+        if (survivalModeToggled) 
         InvokeRepeating("PopulateRoom", 1.0f, 30.0f);
     }
     private void Update()
