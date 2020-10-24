@@ -129,7 +129,7 @@ public class SceneManagement : MonoBehaviour
         }
 
         if (type == "Safe")
-            gameManager.ToggleSafeMusic();
+            gameManager.TogglePauseMusic();
 
         if (type == "Death")
             gameManager.ToggleDeathMusic();
