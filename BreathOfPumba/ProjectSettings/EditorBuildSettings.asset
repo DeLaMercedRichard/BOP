@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/SurvivalMode/Survival Mode.unity
     guid: 4fef23b57bb95ce4b9ab888d4baade74
+  - enabled: 1
+    path: Assets/Scenes/Levels/TutorialPlanet/Tutorialscene.unity
+    guid: 38089ff7deec37c429862a6f52d56175
   m_configObjects: {}

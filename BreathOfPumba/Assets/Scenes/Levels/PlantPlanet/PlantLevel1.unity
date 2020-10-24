@@ -794,9 +794,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4377409094460305368, guid: 76d45d714557b3546b39736e3a683cee,
         type: 3}
+      propertyPath: wallTileAsset.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305368, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
       propertyPath: numberOfRooms
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305368, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: wallTileAsset.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8c79a44cbe1a6c74799d09d4d2209331,
+        type: 2}
     - target: {fileID: 8461150164983610313, guid: 76d45d714557b3546b39736e3a683cee,
         type: 3}
       propertyPath: m_BodyType

@@ -5,37 +5,83 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagement : MonoBehaviour
 {
-    [SerializeField]
-    GameManager gameManager;
+    [SerializeField] GameManager gameManager;
+    [SerializeField] GameObject controls;
     [SerializeField] int WaitTime = 6;
     Player player;
     public int currentSceneIndex;
     bool slowFlag;
+
     private void Awake()
     {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         slowFlag = false;
     }
+
     private void Start()
     {
-        if (currentSceneIndex == 0)
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        //Plant Level
+        if (currentSceneIndex == 2)
         {
-            //Turn On Menu Music
-            gameManager.ToggleMenuMusic();
-            StartCoroutine(WaitForTime());
+            gameManager.musicPlayer.ReplaceTrack("5_-_Fifth_Theme", AudioControl.TrackType.Default);
         }
+        //Machine Level
+        if (currentSceneIndex == 3)
+        {
+            gameManager.musicPlayer.ReplaceTrack("6_-_SixthTheme", AudioControl.TrackType.Default);
+        }
+        //Germ Level
+        if (currentSceneIndex == 4)
+        {
+            gameManager.musicPlayer.ReplaceTrack("SeventhTheme", AudioControl.TrackType.Default);
+        }
+        //Survival Level
+        if (currentSceneIndex == 5)
+        {
+            gameManager.musicPlayer.ReplaceTrack("Third_Theme", AudioControl.TrackType.Default);
+        }
+        //Tutorial Level
+        if (currentSceneIndex == 6)
+        {
+            gameManager.musicPlayer.ReplaceTrack("Second_Theme", AudioControl.TrackType.Default);
+        }
+
+        //Start Menu Songs
+        if (currentSceneIndex == 0 || currentSceneIndex == 1 )
+        {
+            if (!gameManager.isInMenu)
+                gameManager.ToggleMenuMusic();
+            gameManager.isInMenu = true;
+        }
+        else
+        {
+            if (gameManager.isInMenu)
+                gameManager.ToggleMenuMusic();
+        }
+
     }
 
-
+    public void ShowControls()
+    {
+        controls.SetActive(true);
+    }
+    
     private IEnumerator WaitForTime()
     {
 
         yield return new WaitForSeconds(WaitTime);
         //Turn Off Menu Music 
-        gameManager.ToggleMenuMusic();
+
         LoadNextScene();
 
     }
+    public void HideControls()
+    {
+        controls.SetActive(false);
+    }
+    
     public void LoadNextScene()
     {
         SceneManager.LoadScene(currentSceneIndex + 1);
@@ -93,7 +139,7 @@ public class SceneManagement : MonoBehaviour
         }
 
         if (type == "Safe")
-            gameManager.ToggleSafeMusic();
+            gameManager.TogglePauseMusic();
 
         if (type == "Death")
             gameManager.ToggleDeathMusic();

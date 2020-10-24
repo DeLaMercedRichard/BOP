@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3676106610945671063}
   - component: {fileID: 249218730}
   - component: {fileID: 1829391774700035360}
+  - component: {fileID: 6542796240195399485}
   m_Layer: 0
   m_Name: HealthPickUp
   m_TagString: HealthPickUp
@@ -64,6 +65,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 10
   Sight: 3.01
+  RotateAfterPlayer: 0
+  Jitter: 0
+  sprite: {fileID: 0}
+  type: 1
 --- !u!114 &1829391774700035360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,6 +81,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90ffc2eedc8cb934d8740b0df5d42fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &6542796240195399485
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2580708997382534414}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 67d19e2489bd14840a82e9c8b18415bf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5981543882005215179
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,8 +170,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.94275093, g: 1, b: 0.23529412, a: 1}
+  m_Sprite: {fileID: -3629006074387626212, guid: ba840f7be81dab949acadba25c81c430,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

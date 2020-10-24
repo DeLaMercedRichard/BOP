@@ -118,12 +118,15 @@ MonoBehaviour:
     type: 3}
   weakEnemy: {fileID: 159331937377019451, guid: abcfbaceaf4f35e4cba831249b0995dc,
     type: 3}
+  endGoal: {fileID: 1678983696530958798, guid: 5ed355b40e21b504db2f855ce808b374, type: 3}
   survivalModeToggled: 0
   waveDuration: 10
   room: {fileID: 3840527969276657050}
   level: Basic
   scaleX: 0
   scaleY: 0
+  visitedPlaces: []
+  nonVisited: []
 --- !u!1001 &5657375367947962434
 PrefabInstance:
   m_ObjectHideFlags: 0
