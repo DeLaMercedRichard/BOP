@@ -327,7 +327,7 @@ public class MapGeneration : MonoBehaviour
 
         //Setting Assets
         roomLayout = new RoomDetails[worldSize.x *2 +2 , worldSize.y *2 +2];
-        roomSelected.SetVariables(20, 20);
+        roomSelected.SetVariables(defaultSizeX, defaultSizeY);
         roomSelected.room.SetFloorTileAsset(floorTileAsset);
         roomSelected.room.SetFloorTileMap(floor);
         roomSelected.room.SetHazardTileAsset(hazardTileAsset);
