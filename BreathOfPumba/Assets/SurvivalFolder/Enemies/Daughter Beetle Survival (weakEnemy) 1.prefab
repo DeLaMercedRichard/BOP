@@ -161,10 +161,10 @@ MonoBehaviour:
     type: 3}
   Weapon4PickUp: {fileID: 7217331681566522370, guid: 6ccc11bf02749f34d88caacc2153c0ca,
     type: 3}
-  Weapon2PickUpRate: 5
-  Weapon3PickUpRate: 5
-  Weapon4PickUpRate: 5
-  HealthSpawnRate: 5
+  Weapon2PickUpRate: 10
+  Weapon3PickUpRate: 10
+  Weapon4PickUpRate: 10
+  HealthSpawnRate: 10
   AmmoSpawnRate: 5
   SpeedSpawnRate: 5
   bloodType: {fileID: 2276798020257224158, guid: 1ed2a3cdd8eba7c4abe8f342d4dd5b33,

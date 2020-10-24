@@ -17,8 +17,8 @@ MonoBehaviour:
     type: 3}
   weapon: {fileID: 7027022059768246954}
   ProjectileSpeed: 10
-  MaxAmmo: 30
-  CurrentAmmo: 30
+  MaxAmmo: 60
+  CurrentAmmo: 60
   ReloadTime: 4
 --- !u!114 &4021407058206979911
 MonoBehaviour:
@@ -36,6 +36,22 @@ MonoBehaviour:
   weapon2Time: 30
   weapon3Time: 30
   weapon4Time: 30
+--- !u!58 &7054518383911942709
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899389401511999993}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.000000019868216, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.20181035
 --- !u!1 &2357737468843057930
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,8 +285,8 @@ MonoBehaviour:
     type: 3}
   weapon: {fileID: 7027022059768246954}
   ProjectileSpeed: 10
-  MaxAmmo: 7
-  CurrentAmmo: 0
+  MaxAmmo: 14
+  CurrentAmmo: 14
   ReloadTime: 2
   reloadingNow: 0
 --- !u!114 &3485037159127741249
@@ -290,8 +306,8 @@ MonoBehaviour:
     type: 3}
   weapon: {fileID: 7027022059768246954}
   ProjectileSpeed: 8
-  MaxAmmo: 4
-  CurrentAmmo: 4
+  MaxAmmo: 8
+  CurrentAmmo: 8
   ReloadTime: 3
 --- !u!114 &8783587744585950100
 MonoBehaviour:
@@ -310,8 +326,8 @@ MonoBehaviour:
     type: 3}
   weapon: {fileID: 7027022059768246954}
   ProjectileSpeed: 15
-  MaxAmmo: 3
-  CurrentAmmo: 3
+  MaxAmmo: 6
+  CurrentAmmo: 6
   ReloadTime: 3
 --- !u!1 &6657175754687395297
 GameObject:

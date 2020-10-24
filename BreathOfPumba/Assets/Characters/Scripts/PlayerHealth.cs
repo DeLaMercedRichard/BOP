@@ -24,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
         if (CurrentHealth <= 0)
         {
             ParticleManager.Main.SpawnBlood(transform.position, bloodType);  // By Blawnode
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(1);
         }
     }
     public void DamagePlayer(int AmountOfDamage)
