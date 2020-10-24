@@ -77,7 +77,7 @@ public class RoomSelector : MonoBehaviour
            
            //Issue (not being updated?)
             Vector2Int playerposition = new Vector2Int(Mathf.RoundToInt(player.transform.position.x), Mathf.RoundToInt(player.transform.position.y));
-            Debug.Log("Player Position: " + playerposition);
+           // Debug.Log("Player Position: " + playerposition);
             foreach (KeyValuePair<string, List<Vector2Int>> rooms in Map)
             {
                 //Now you can access the key and value both separately from this attachStat as:

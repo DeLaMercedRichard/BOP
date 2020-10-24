@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public AudioControl musicPlayer;
     SceneManagement sceneManagement;
    
-    public bool inBattle, isPause, isInMenu, isPlayerDead;
+    public bool inBattle = false, isPause = false, isInMenu = false, isPlayerDead = false;
     public bool battlingBoss;
     private void Awake()
     {
@@ -107,11 +107,6 @@ public class GameManager : MonoBehaviour
     //Just Covering basis for incase variables not set in inspector
     void SetDefaultsIfNoneSet()
     {
-        inBattle = false;
-        battlingBoss = false;
-        isPlayerDead = false;
-        isInMenu = false;
-        isPause = false;
         if (musicPlayer == null)
             musicPlayer = GetComponent<AudioControl>();
         if (sceneManagement == null)

@@ -17,11 +17,17 @@ public class SceneManagement : MonoBehaviour
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         slowFlag = false;
     }
-
+    
     private void Start()
     {
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (gameManager == null)
+        {
 
+            gameManager = FindObjectOfType<GameManager>();
+          
+        }
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("Scene Index is " + SceneManager.GetActiveScene().buildIndex);
         //Plant Level
         if (currentSceneIndex == 2)
         {
@@ -47,6 +53,7 @@ public class SceneManagement : MonoBehaviour
         {
             gameManager.musicPlayer.ReplaceTrack("Second_Theme", AudioControl.TrackType.Default);
         }
+        
 
         //Start Menu Songs
         if (currentSceneIndex == 0 || currentSceneIndex == 1 )
