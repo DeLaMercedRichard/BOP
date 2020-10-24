@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    AudioControl musicPlayer;
+    public AudioControl musicPlayer;
     SceneManagement sceneManagement;
    
     public bool inBattle, isInSafeZone, isInMenu, isPlayerDead;
@@ -13,10 +13,7 @@ public class GameManager : MonoBehaviour
     {
         SetDefaultsIfNoneSet();
 
-        if (musicPlayer.isEmpty())
-        {
-            PopulateDefaultMusic();
-        }
+       
 
         //Play the Menu Music At Start (assuming menu is the first scene that loads up) else play default Music
 
@@ -98,9 +95,13 @@ public class GameManager : MonoBehaviour
     //Loads "Assets/Resources/Music/Tracks/..."
     public void AddTrackToPlaylist(string name, AudioControl.TrackType type)
     {
-        musicPlayer.AddTrackToPlaylist(Resources.Load<AudioClip>("Music/Tracks/" + name), type);
+        musicPlayer.AddTrackToPlaylist(name, type);
     }
 
+    public void ClearPlaylist()
+    {
+        musicPlayer.ClearPlayList();
+    }
     //***************************************************************************Just Chunk Code Put into Functions For Easier Reading
 
     //Just Covering basis for incase variables not set in inspector
@@ -117,19 +118,7 @@ public class GameManager : MonoBehaviour
             sceneManagement = GetComponent<SceneManagement>();
 
     }
-    //Populates music player with some tracks
-    void PopulateDefaultMusic()
-    {
-        //Create a Default Playlist
-        //Loads "Assets/Resources/Music/Tracks/..."
-        musicPlayer.AddTrackToPlaylist(Resources.Load<AudioClip>("Music/Tracks/First_Theme"), AudioControl.TrackType.Menu);
-        musicPlayer.AddTrackToPlaylist(Resources.Load<AudioClip>("Music/Tracks/4_-_Fourth_Theme"), AudioControl.TrackType.Default);
-        musicPlayer.AddTrackToPlaylist(Resources.Load<AudioClip>("Music/Tracks/Second_Theme"), AudioControl.TrackType.Death);
-        musicPlayer.AddTrackToPlaylist(Resources.Load<AudioClip>("Music/Tracks/Third_Theme"), AudioControl.TrackType.Combat);
-        musicPlayer.AddTrackToPlaylist(Resources.Load<AudioClip>("Music/Tracks/6_-_SixthTheme"), AudioControl.TrackType.Boss);
-        musicPlayer.AddTrackToPlaylist(Resources.Load<AudioClip>("Music/Tracks/First_Theme"), AudioControl.TrackType.Safe);
-    }
-
+    
     
     // Update is called once per frame
     void Update()

@@ -23,24 +23,24 @@ public class AudioControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(tracks == null)
-        tracks = new List<AudioClip>();
+        if (tracks == null)
+            tracks = new List<AudioClip>(12);
 
         if (audioPlayer == null)
             audioPlayer = GetComponent<AudioSource>();
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    
-    public void AddTrackToPlaylist(AudioClip audioTrack, TrackType type)
+
+    public void AddTrackToPlaylist(string name, TrackType type)
     {
-        tracks.Insert((int)type, audioTrack);
+        tracks.Insert((int)type, Resources.Load<AudioClip>("Music/Tracks/" + name));
     }
 
     public void ClearPlayList()
@@ -48,22 +48,16 @@ public class AudioControl : MonoBehaviour
         tracks.Clear();
     }
 
+
     public void PlayTrack(TrackType type)
     {
         //If There is a Track added for it Play Track else Don't bother Trying
-        if (tracks[(int)type] != null)
-        {
-            //Stop The Music Before Changing Music to avoid Issues
-            audioPlayer.Stop();
-            //Change Tracks
-            audioPlayer.clip = tracks[(int)type];
-            //Play Track
-            audioPlayer.Play();
-            //Make sure Track is on Loop
-            audioPlayer.loop = true;
-        }
+        audioPlayer.clip = tracks[(int)type];
+        audioPlayer.Play();
+        audioPlayer.loop = true;
 
     }
+
     public bool isEmpty()
     {
         bool empty;

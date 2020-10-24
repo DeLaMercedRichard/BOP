@@ -11,6 +11,7 @@ public class SceneManagement : MonoBehaviour
     Player player;
     public int currentSceneIndex;
     bool slowFlag;
+
     private void Awake()
     {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -18,12 +19,26 @@ public class SceneManagement : MonoBehaviour
     }
     private void Start()
     {
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        //Start Menu Songs
+        if (currentSceneIndex == 0 || currentSceneIndex == 1 || currentSceneIndex == 2)
+        {
+            if (!gameManager.isInMenu)
+                gameManager.ToggleMenuMusic();
+            gameManager.isInMenu = true;
+        }
+        else
+        {
+            if (gameManager.isInMenu)
+                gameManager.ToggleMenuMusic();
+        }
+
+        //Change Splash Screen
         if (currentSceneIndex == 0)
         {
-            //Turn On Menu Music
-            gameManager.ToggleMenuMusic();
             StartCoroutine(WaitForTime());
         }
+       
     }
 
 
@@ -32,7 +47,7 @@ public class SceneManagement : MonoBehaviour
 
         yield return new WaitForSeconds(WaitTime);
         //Turn Off Menu Music 
-        gameManager.ToggleMenuMusic();
+       
         LoadNextScene();
 
     }
