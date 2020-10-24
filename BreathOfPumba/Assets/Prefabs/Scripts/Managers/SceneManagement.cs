@@ -5,37 +5,38 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagement : MonoBehaviour
 {
-    [SerializeField]
-    GameManager gameManager;
+    [SerializeField] GameManager gameManager;
+    [SerializeField] GameObject controls;
     [SerializeField] int WaitTime = 6;
     Player player;
     public int currentSceneIndex;
     bool slowFlag;
+
     private void Awake()
     {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         slowFlag = false;
     }
+
     private void Start()
     {
         if (currentSceneIndex == 0)
         {
             //Turn On Menu Music
             gameManager.ToggleMenuMusic();
-            StartCoroutine(WaitForTime());
         }
     }
 
-
-    private IEnumerator WaitForTime()
+    public void ShowControls()
     {
-
-        yield return new WaitForSeconds(WaitTime);
-        //Turn Off Menu Music 
-        gameManager.ToggleMenuMusic();
-        LoadNextScene();
-
+        controls.SetActive(true);
     }
+
+    public void HideControls()
+    {
+        controls.SetActive(false);
+    }
+    
     public void LoadNextScene()
     {
         SceneManager.LoadScene(currentSceneIndex + 1);
