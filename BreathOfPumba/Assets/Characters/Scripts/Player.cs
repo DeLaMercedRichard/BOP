@@ -14,8 +14,9 @@ public class Player : MonoBehaviour
     public Vector2 Movement;
     public Rigidbody2D Rigidb;
     public Rigidbody2D GunRigidb;
-    
-    
+
+    [SerializeField]
+    SFXControl sfx;
     public bool IsSlow = false;
     public float SlowTime = 3f;
     public float SlowAmount = 5f;
@@ -40,12 +41,19 @@ public class Player : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();  // By Blawnode
+        if (sfx == null)
+            sfx = GetComponent<SFXControl>();
     }
     
     void Update()
     {
         Movement.x = Input.GetAxisRaw("Horizontal");
         Movement.y = Input.GetAxisRaw("Vertical");
+        //if there's movement play stepping sound
+        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+        {
+            sfx.PlaySound("Player - Step");
+        }
         //MousePosition = MyCamera.ScreenToWorldPoint(Input.mousePosition);  // Commented out by Blawnode
         MousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);  // By Blawnode
     }
@@ -79,7 +87,7 @@ public class Player : MonoBehaviour
         var verticalInput = Input.GetAxis("Vertical") * Time.deltaTime * MovementSpeed;
         var NewPosY = transform.position.y + verticalInput;
         transform.position = new Vector2(transform.position.x ,NewPosY);
-
+         sfx.PlaySound("Player - Step");
         animator.SetBool("IsRunning", (horizontalInput != 0 || verticalInput != 0));  // By Blawnode
     }
 
