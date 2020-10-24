@@ -44,11 +44,9 @@ public class MapGeneration : MonoBehaviour
     [SerializeField]
     public int defaultSizeY;
     public string roomType;
-  
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        //Setup
         SetAssets();
         //Layout where the rooms will take place by using a list of coordinates rather than actual objects
         PlanRooms();
@@ -56,7 +54,13 @@ public class MapGeneration : MonoBehaviour
         SetRoomDoors();
         //Initializing
         DrawMap();
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
 
+        //Setup
+      
     }
 
     // Update is called once per frame
