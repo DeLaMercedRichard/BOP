@@ -16,6 +16,9 @@ TagManager:
   - Weapon2PickUp
   - Weapon3PickUp
   - Weapon4PickUp
+  - PlantEnemy
+  - EnemySurvival
+  - PlayerHurtBoxSurvival
   layers:
   - Default
   - TransparentFX

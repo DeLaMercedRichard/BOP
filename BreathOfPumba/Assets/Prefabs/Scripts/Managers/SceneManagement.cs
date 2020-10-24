@@ -59,8 +59,22 @@ public class SceneManagement : MonoBehaviour
     {
         SceneManager.LoadScene(currentSceneIndex - 1);
     }
-
-
+    public void Loadscene3()
+    {
+        SceneManager.LoadScene(2);
+    }
+    public void Loadscene4()
+    {
+        SceneManager.LoadScene(3);
+    }
+    public void Loadscene5()
+    {
+        SceneManager.LoadScene(4);
+    }
+    public void Loadscene6()
+    {
+        SceneManager.LoadScene(5);
+    }
     private void Update()
     {
         //Prevent Quick Toggling and lets music play for a bit

@@ -70,7 +70,7 @@ public class SplitEnemyHealth : MonoBehaviour
     }
     private void SpawnPickUps()
     {
-        SpawnSpeed();
+        
         SpawnAmmo();
         SpawnHealth();
     }

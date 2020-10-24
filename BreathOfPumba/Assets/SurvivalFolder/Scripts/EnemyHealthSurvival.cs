@@ -12,12 +12,12 @@ public class EnemyHealthSurvival : MonoBehaviour
     public GameObject Weapon2PickUp;
     public GameObject Weapon3PickUp;
     public GameObject Weapon4PickUp;
-    int Weapon2PickUpRate = 5;
-    int Weapon3PickUpRate = 5;
-    int Weapon4PickUpRate = 5;
-    int HealthSpawnRate = 5;
-    int AmmoSpawnRate = 5;
-    int SpeedSpawnRate = 5;
+    public int Weapon2PickUpRate = 8;
+    public int Weapon3PickUpRate = 8;
+    public int Weapon4PickUpRate = 8;
+    public int HealthSpawnRate = 5;
+    public int AmmoSpawnRate = 0;
+    public int SpeedSpawnRate = 0;
     [SerializeField] GameObject bloodType;
     void Start()
     {
@@ -44,7 +44,6 @@ public class EnemyHealthSurvival : MonoBehaviour
         SpawnWeapon2();
         SpawnWeapon3();
         SpawnWeapon4();
-        SpawnSpeed();
         SpawnHealth();
     }
     private void SpawnHealth()
