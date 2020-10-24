@@ -5,6 +5,7 @@ using TMPro;
 
 public class Weapon1 : MonoBehaviour
 {
+    [SerializeField] GameObject player;
     [SerializeField] float FireRate = 0.5f;
     [SerializeField] GameObject projectile;
     [SerializeField] Transform weapon;
@@ -46,6 +47,7 @@ public class Weapon1 : MonoBehaviour
         print("Done!");
         CurrentAmmo = MaxAmmo;
         reloadingNow = false;
+        ammoText.GetComponent<TextMeshProUGUI>().text = string.Format("Ammo: {0}/{1}", CurrentAmmo, MaxAmmo);  // By Blawnode
     }
 
     private void Fire()
@@ -68,11 +70,15 @@ public class Weapon1 : MonoBehaviour
             CurrentAmmo--;
             bullet.GetComponent<Rigidbody2D>().velocity = weapon.right * ProjectileSpeed;
             ammoText.GetComponent<TextMeshProUGUI>().text = string.Format("Ammo: {0}/{1}", CurrentAmmo, MaxAmmo);  // By Blawnode
+            bullet.GetComponent<EnemyDamager>().ApplyDamageModifier(player.GetComponent<Player>().CurrentDamageModifier);
             yield return new WaitForSeconds(FireRate);
         }
+    }
 
-
-
+    public void AmmoBoost()
+    {
+        CurrentAmmo = MaxAmmo;
+        ammoText.GetComponent<TextMeshProUGUI>().text = string.Format("Ammo: {0}/{1}", CurrentAmmo, MaxAmmo);  // By Blawnode
     }
 }
     

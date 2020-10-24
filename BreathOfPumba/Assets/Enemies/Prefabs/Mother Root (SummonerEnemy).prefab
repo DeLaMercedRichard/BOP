@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5709782421458489369}
   m_Layer: 13
   m_Name: Mother Root (SummonerEnemy)
-  m_TagString: Enemy
+  m_TagString: PlantEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,7 +170,8 @@ MonoBehaviour:
     type: 3}
   regenRate: 2
   RegenAmount: 10
-  bloodType: {fileID: 0}
+  bloodType: {fileID: 2276798020257224158, guid: 1ed2a3cdd8eba7c4abe8f342d4dd5b33,
+    type: 3}
 --- !u!1 &3198605628371410577
 GameObject:
   m_ObjectHideFlags: 0

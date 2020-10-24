@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3528837667874011473}
   m_Layer: 13
   m_Name: BigEnemy Survival
-  m_TagString: Enemy
+  m_TagString: EnemySurvival
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,9 +129,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6777701b805e3449914b3561189622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentHealth: 100
-  MaxHealth: 100
-  HealthPickUp: {fileID: 0}
+  CurrentHealth: 300
+  MaxHealth: 300
+  HealthPickUp: {fileID: 2580708997382534414, guid: a4171d1f77ffe5049b5fc33e5933ab46,
+    type: 3}
   AmmoPickUp: {fileID: 0}
   SpeedPickUp: {fileID: 0}
   Weapon2PickUp: {fileID: 2580708997382534414, guid: 6c39386d62456eb4fb284cbbbffcd2f2,

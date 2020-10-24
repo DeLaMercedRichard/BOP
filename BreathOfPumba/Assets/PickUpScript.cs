@@ -8,11 +8,18 @@ public class PickUpScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            StartCoroutine(CollectPickUp());
-
+            StartCoroutine(CollectPickUp(other.gameObject));
         }
     }
-    IEnumerator CollectPickUp()
+
+    public void GetPickedUp(GameObject other)  // By BN
+    {
+        //StartCoroutine(CollectPickUp(other));
+        print("PICK");
+        Destroy(gameObject);
+    }
+
+    IEnumerator CollectPickUp(GameObject other)
     {
         yield return new WaitForSeconds(1);
         Destroy(gameObject);
