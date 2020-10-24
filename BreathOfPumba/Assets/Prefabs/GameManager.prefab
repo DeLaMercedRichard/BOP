@@ -161,7 +161,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioPlayer: {fileID: 1467088663378432965}
-  tracks: []
+  tracks:
+  - {fileID: 8300000, guid: 52d6d63dd97592e45b47aa93dc59c0f2, type: 3}
+  - {fileID: 8300000, guid: 5046b8815eb97294687b2ac83531ee76, type: 3}
+  - {fileID: 8300000, guid: 96cd2feb245a1bb4d931ec44d3071b4d, type: 3}
+  - {fileID: 8300000, guid: d47daca29a9dcf3409328ba56968fc9c, type: 3}
+  - {fileID: 8300000, guid: 74a7fb190e4399f4e9d6437a900f9719, type: 3}
+  - {fileID: 8300000, guid: c60901e6887f1fc4eb8e63025978d529, type: 3}
 --- !u!114 &773491067388443766
 MonoBehaviour:
   m_ObjectHideFlags: 0
