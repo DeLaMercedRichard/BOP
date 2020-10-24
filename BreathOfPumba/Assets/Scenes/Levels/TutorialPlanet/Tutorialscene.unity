@@ -137,8 +137,17 @@ PrefabInstance:
         type: 3}
       propertyPath: bigEnemy
       value: 
-      objectReference: {fileID: 6100269502465319117, guid: 4c4e7525ccc2db740a8c249c6693d5ef,
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305365, guid: 76d45d714557b3546b39736e3a683cee,
         type: 3}
+      propertyPath: shootingEnemy
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305365, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: turretEnemy
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4377409094460305367, guid: 76d45d714557b3546b39736e3a683cee,
         type: 3}
       propertyPath: m_LocalPosition.x

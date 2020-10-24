@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine;
-
 //Responsible for Controlling Audio Soundtracks
 public class SFXControl : MonoBehaviour
 {
