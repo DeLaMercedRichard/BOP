@@ -163,6 +163,11 @@ public class SceneManagement : MonoBehaviour
     {
         SceneManager.LoadScene(5);
     }
+    public void Loadscene7()
+    {
+        SceneManager.LoadScene(6);
+    }
+    
     private void Update()
     {
         //Prevent Quick Toggling and lets music play for a bit

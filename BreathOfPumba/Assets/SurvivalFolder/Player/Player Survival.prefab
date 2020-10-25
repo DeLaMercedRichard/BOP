@@ -376,10 +376,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 10
+  BaseMovementSpeed: 10
+  weapons: []
   MousePosition: {x: 0, y: 0}
   Movement: {x: 0, y: 0}
   Rigidb: {fileID: 772654193}
   GunRigidb: {fileID: 5757631449188619760}
+  sfx: {fileID: 0}
   IsSlow: 0
   SlowTime: 3
   SlowAmount: 5
@@ -390,6 +393,8 @@ MonoBehaviour:
   RootAmount: 10
   SpeedBoost: 10
   SpeedBoostdurration: 10
+  DamageModifier: 1.5
+  CurrentDamageModifier: 1.5
 --- !u!50 &772654193
 Rigidbody2D:
   serializedVersion: 4
@@ -847,6 +852,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997614656482808687, guid: 05c1eec140af5014289e986f1eabf005,
+        type: 3}
+      propertyPath: far clip plane
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997614656482808687, guid: 05c1eec140af5014289e986f1eabf005,
+        type: 3}
+      propertyPath: orthographic size
+      value: 6.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05c1eec140af5014289e986f1eabf005, type: 3}
