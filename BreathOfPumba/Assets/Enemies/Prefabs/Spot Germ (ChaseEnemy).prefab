@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 4
-  Sight: 7
+  Sight: 15.41
   RotateAfterPlayer: 1
   Jitter: 0
   sprite: {fileID: 2930653736673099835}

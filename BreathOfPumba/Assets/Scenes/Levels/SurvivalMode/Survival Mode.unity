@@ -318,6 +318,11 @@ PrefabInstance:
       propertyPath: scaleY
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4377409094460305365, guid: 76d45d714557b3546b39736e3a683cee,
+        type: 3}
+      propertyPath: endGoal
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4377409094460305367, guid: 76d45d714557b3546b39736e3a683cee,
         type: 3}
       propertyPath: m_LocalPosition.x
