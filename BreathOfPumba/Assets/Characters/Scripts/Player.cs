@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     {
         animator = GetComponent<Animator>();  // By Blawnode
         if (sfx == null)
-            sfx = GetComponent<SFXControl>();
+            sfx = FindObjectOfType<SFXControl>();
     }
     
     void Update()
