@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D GunRigidb;
 
     [SerializeField]
-    SFXControl sfx;
+    public SFXControl sfx;
     public bool IsSlow = false;
     public float SlowTime = 3f;
     public float SlowAmount = 5f;
